@@ -2,13 +2,13 @@ require File.expand_path(File.dirname(__FILE__) + '/../spec_helper')
 
 describe ClientsController do
   before(:each) do
-    activate_authlogic
+    # activate_authlogic
     @request.host = "reactioncontrol.test.host"
-    @mock_account = Factory(:account, :subdomain => 'reactioncontrol')
-    @mock_organization = Factory(:organization, :account => @mock_account)
-    @mock_client = Factory(:client, :organization => @mock_organization)
-    @mock_invoice = Factory(:invoice, :client => @mock_client)
-    @mock_user = Factory(:user, :organization => @mock_organization)
+    @mock_account = Fabricate(:account, :subdomain => 'reactioncontrol')
+    @mock_organization = Fabricate(:organization, :account => @mock_account)
+    @mock_client = Fabricate(:client, :organization => @mock_organization)
+    @mock_invoice = Fabricate(:invoice, :client => @mock_client)
+    @mock_user = Fabricate(:user, :organization => @mock_organization)
     UserSession.create(@mock_user)
   end
   

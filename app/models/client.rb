@@ -1,11 +1,14 @@
 class Client < ActiveRecord::Base
   # Extensions
-  has_gravatar :size => 75, :default => 'http://breadbox.local/images/gravatar_default.png'
+  # has_gravatar :size => 75, :default => 'http://breadbox.local/images/gravatar_default.png'
   
   normalize_attributes :email, :first_name, :last_name, :company_name
   normalize_attributes :phone, :fax do |number|
-    return nil unless number.is_a?(String)
-    number.gsub(/\W/, '').gsub(/^1/, '').gsub('x', '')
+    if number.is_a?(String) && number.present?
+      number.gsub(/\W/, '').gsub(/^1/, '').gsub('x', '')
+    else
+      nil
+    end
   end
   
   # Associations

@@ -2,12 +2,16 @@ class Organization < ActiveRecord::Base
   include Calculation
   
   # Extensions
-  authenticates_many :user_sessions
+  # authenticates_many :user_sessions
   
-  normalize_attributes :email, :name
-  normalize_attributes :phone, :fax do |number|
-    return nil unless number.is_a?(String)
-    number.gsub(/\W/, '').gsub(/^1/, '').gsub('x', '')
+  normalize :email, with: :downcase
+  normalize :email, :name
+  normalize :phone, :fax do |number|
+    if number.is_a?(String) && number.present?
+      number.gsub(/\W/, '').gsub(/^1/, '').gsub('x', '')
+    else
+      nil
+    end
   end
   
   # Associations

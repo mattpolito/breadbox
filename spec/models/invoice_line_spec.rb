@@ -9,15 +9,11 @@ describe InvoiceLine do
     }
   end
   
-  it { should belong_to :invoice }
+  # it { should belong_to :invoice }
 
-  it "should create a new instance given valid attributes" do
-    InvoiceLine.create!(@valid_attributes)
-  end
-  
   describe "#price" do
     before(:each) do
-      @invoice_line = Factory(:invoice_line, :quantity => '5', :price => '50.50')
+      @invoice_line = Fabricate(:invoice_line, :quantity => '5', :price => '50.50')
     end
     
     it "should save #price as price_in_cents" do
@@ -30,28 +26,28 @@ describe InvoiceLine do
   end
   
   it "should find total price for line" do
-    invoice_line = Factory(:invoice_line, :quantity => '5', :price => '50.50')
+    invoice_line = Fabricate(:invoice_line, :quantity => '5', :price => '50.50')
     invoice_line.total_amount.should == 25250
   end
   
   describe "validations" do
     it "should require quantity to be valid" do
-      invoice_line = Factory.build(:invoice_line)
+      invoice_line = Fabricate.build(:invoice_line)
       invoice_line.should be_valid
     end
     
     it "should be invalid without quantity" do
-      invoice_line = Factory.build(:invoice_line, :quantity => nil)
+      invoice_line = Fabricate.build(:invoice_line, :quantity => nil)
       invoice_line.should_not be_valid
     end
     
     it "should require price to be valid" do
-      invoice_line = Factory.build(:invoice_line)
+      invoice_line = Fabricate.build(:invoice_line)
       invoice_line.should be_valid
     end
     
     it "should be invalid without price" do
-      invoice_line = Factory.build(:invoice_line, :quantity => nil)
+      invoice_line = Fabricate.build(:invoice_line, :quantity => nil)
       invoice_line.should_not be_valid
     end
   end

@@ -11,13 +11,13 @@ describe InvoicesController do
   end
   
   before(:each) do
-    activate_authlogic
+    # activate_authlogic
     @request.host = "reactioncontrol.test.host"
-    @account = Factory(:account, :subdomain => 'reactioncontrol')
-    @organization = Factory(:organization, :account => @account)
-    @client = Factory(:client, :organization => @organization)
-    @invoice = Factory(:invoice, :client => @client)
-    @user = Factory(:user, :organization => @organization)
+    @account = Fabricate(:account, :subdomain => 'reactioncontrol')
+    @organization = Fabricate(:organization, :account => @account)
+    @client = Fabricate(:client, :organization => @organization)
+    @invoice = Fabricate(:invoice, :client => @client)
+    @user = Fabricate(:user, :organization => @organization)
     UserSession.create(@user)
   end
 
@@ -38,7 +38,7 @@ describe InvoicesController do
 
   describe "GET new" do
     it "assigns a new invoice as @invoice" do
-      invoice = Factory(:invoice)
+      invoice = Fabricate(:invoice)
       Invoice.stub!(:new).and_return(invoice)
       get :new
       assigns[:invoice].should equal(invoice)

@@ -1,4 +1,4 @@
-class UserSession < Authlogic::Session::Base
+class UserSession #< Authlogic::Session::Base
   
   def welcome_message
     case

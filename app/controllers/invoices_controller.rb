@@ -1,6 +1,6 @@
 class InvoicesController < ApplicationController
   before_filter :find_client, :only => :new
-  prawnto :prawn => { :top_margin => 75 }
+  # prawnto :prawn => { :top_margin => 75 }
   
   # GET /invoices
   # GET /invoices.xml

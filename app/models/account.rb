@@ -1,4 +1,7 @@
 class Account < ActiveRecord::Base
+  SUBDOMAIN_EXCLUSION_MESSAGE = "The subdomain <strong>{{value}}</strong> is reserved and unavailable."
+  SUBDOMAIN_RESERVED_WORDS = %w( support blog www billing help api )
+
   # Callbacks
   before_validation :ensure_subdomain_is_lowercase
   
@@ -7,10 +10,18 @@ class Account < ActiveRecord::Base
   has_many :clients, :through => :organization
   
   # Validations
-  validates_presence_of :subdomain
-  validates_uniqueness_of :subdomain, :case_sensitive => false
-  validates_format_of :subdomain, :with => /^[a-z0-9-]+$/
-  validates_exclusion_of :subdomain, :in => %w( support blog www billing help api ), :message => "The subdomain <strong>{{value}}</strong> is reserved and unavailable."
+  validates :subdomain, presence: true,
+    uniqueness: { case_sensitive: false },
+    exclusion: { 
+      in: SUBDOMAIN_RESERVED_WORDS, 
+      message: SUBDOMAIN_EXCLUSION_MESSAGE
+    },
+    format: { with: /^[a-z0-9-]+$/ }
+  
+  # validates_presence_of :subdomain
+  # validates_uniqueness_of :subdomain, :case_sensitive => false
+  # validates_format_of :subdomain, :with => /^[a-z0-9-]+$/
+  # validates_exclusion_of :subdomain, :in => %w( support blog www billing help api ), :message => "The subdomain <strong>{{value}}</strong> is reserved and unavailable."
   
   # Logic
   def invoices
