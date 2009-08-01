@@ -10,3 +10,4 @@ public/system/*
 .idea/*
 tmp/metric_fu/*
 tmp/sent_mails/*
+config/database.yml
