@@ -19,6 +19,12 @@ Rails::Initializer.run do |config|
   # config.gem "hpricot", :version => '0.6', :source => "http://code.whytheluckystiff.net"
   # config.gem "sqlite3-ruby", :lib => "sqlite3"
   # config.gem "aws-s3", :lib => "aws/s3"
+  config.gem 'binarylogic-authlogic', :lib => 'authlogic', :source => 'http://gems.gitub.com'
+  config.gem 'binarylogic-authlogic-openid', :lib => 'authlogic-openid', :source => 'http://gems.github.com'
+  config.gem 'binarylogic-searchlogic', :lib => 'searchlogic', :source => 'http://gems.github.com'
+  config.gem 'binarylogic-settingslogic', :lib => 'settingslogic', :source => 'http://gems.gitub.com'
+  config.gem 'haml'
+  config.gem 'mislav-will_paginate', :lib => 'will_paginate', :source => 'http:gems.gitub.com'
 
   # Only load the plugins named here, in the order given (default is alphabetical).
   # :all can be used as a placeholder for all plugins not explicitly named
