@@ -1,0 +1,24 @@
+!!!
+%html{ :xmlns => "http://www.w3.org/1999/xhtml", :lang => "en", 'xml:lang' => "en" }
+  %head
+    %title= yield(:title) || controller.action_name
+    %meta{ :name => 'copyright', :content => '' }
+    %meta{ :name => 'lang', :content => 'en' }
+    = stylesheet_link_tag 'main', :cache => true
+    = yield(:stylesheets)
+    = javascript_include_tag 'jquery'
+    = javascript_include_tag 'jquery-ui'
+    = javascript_include_tag 'jrails'
+
+    = yield(:javascript)
+    %body
+      #container
+        #header
+          %ul#navigation
+            %li= link_to 'Home', root_path
+
+        #content
+          = render_flash_messages
+          = yield
+          
+        #footer
