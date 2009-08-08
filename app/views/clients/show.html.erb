@@ -1,0 +1,28 @@
+<p>
+  <b>Name:</b>
+  <%=h @client.name %>
+</p>
+
+<p>
+  <b>Email:</b>
+  <%=h @client.email %>
+</p>
+
+<p>
+  <b>Address:</b>
+  <%=h @client.address %>
+</p>
+
+<p>
+  <b>Phone:</b>
+  <%=h @client.phone %>
+</p>
+
+<p>
+  <b>Fax:</b>
+  <%=h @client.fax %>
+</p>
+
+
+<%= link_to 'Edit', edit_client_path(@client) %> |
+<%= link_to 'Back', clients_path %>

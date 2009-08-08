@@ -1,0 +1,13 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  number: 1
+  payment_due_date: 2009-08-05
+  note: MyText
+  billing_date: 2009-08-05
+
+two:
+  number: 1
+  payment_due_date: 2009-08-05
+  note: MyText
+  billing_date: 2009-08-05

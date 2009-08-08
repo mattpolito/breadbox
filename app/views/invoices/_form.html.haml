@@ -1,0 +1,18 @@
+= f.error_messages
+%ul
+  %li
+    = f.label :number
+    = f.text_field :number
+  %li
+    = f.label :payment_due_date
+    = f.date_select :payment_due_date
+  %li
+    = f.label :note
+    = f.text_area :note
+  %li
+    = f.label :billing_date
+    = f.date_select :billing_date
+  %li
+    = f.submit button_text
+
+= link_to 'Back', invoices_path
