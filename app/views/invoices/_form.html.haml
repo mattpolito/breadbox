@@ -1,6 +1,9 @@
 = f.error_messages
 %ul
   %li
+    = f.label :client
+    = f.collection_select :client, @clients, :id, :name, :include_blank => true
+  %li
     = f.label :number
     = f.text_field :number
   %li
