@@ -2,7 +2,7 @@ class InvoicesController < ApplicationController
   # GET /invoices
   # GET /invoices.xml
   def index
-    @invoices = Invoice.all
+    @invoices = Invoice.find(:all, :order => 'billing_date')
   end
 
   # GET /invoices/1
@@ -16,7 +16,6 @@ class InvoicesController < ApplicationController
   def new
     @invoice = Invoice.new
     @clients = Client.all
-    @invoice_lines = @invoice.invoice_lines.build
   end
 
   # GET /invoices/1/edit
