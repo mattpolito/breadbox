@@ -4,7 +4,7 @@ namespace :db do
     # require 'populator'
     # require 'faker'
     
-    [Client].each(&:delete_all)
+    [Client, Invoice, InvoiceLine].each(&:delete_all)
     
     Client.populate 20 do |client|
       client.name    = Faker::Name.name
@@ -15,7 +15,24 @@ namespace :db do
                         #{Faker::Address.zip_code}"
       client.phone   = Faker::PhoneNumber.phone_number
       client.fax     = Faker::PhoneNumber.phone_number
+      
+      Invoice.populate 2..5 do |invoice|
+        invoice.number           = 1..5000
+        invoice.billing_date     = (Date.today - 5.days)..(Date.today + 2.weeks)
+        invoice.payment_due_date = invoice.billing_date..(Date.today + 2.weeks)
+        invoice.note             = Populator.paragraphs(0..3)
+        invoice.client_id        = client.id
+                
+        InvoiceLine.populate 1..4 do |invoice_line|
+          invoice_line.description = Populator.sentences(0..2)
+          invoice_line.quantity    = 1..5
+          invoice_line.price       = [25, 50, 65]
+          invoice_line.invoice_id  = invoice.id
+        end
+      end
     end
+    
+    
     
     # Product.populate 10..100 do |product|
     #   product.category_id = category.id
