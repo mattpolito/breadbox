@@ -20,7 +20,7 @@ class InvoicesController < ApplicationController
 
   # GET /invoices/1/edit
   def edit
-    @invoice = Invoice.find(params[:id])    
+    @invoice = Invoice.find(params[:id])
     @clients = Client.all
   end
 

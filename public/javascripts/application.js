@@ -3,8 +3,8 @@
 function insert_fields(link, method, content) {
   var new_id = new Date().getTime();
   var regexp = new RegExp("new_" + method, "g")
-  $$('.invoice_line').last().insert({
-    after : replace_id_of_new_line(link, regexp, new_id, content)
+  $$('table#invoice_lines tbody').last().insert({
+    bottom : replace_id_of_new_line(link, regexp, new_id, content)
   })
 }
 
