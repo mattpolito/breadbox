@@ -20,13 +20,10 @@
         %th.description Description
         %th.quantity Quantity
         %th.unit_price Unit Price
-          
-  
-  %li
-    %ul
+    %tbody
       - f.fields_for :invoice_lines do |invoice_line_form|
         = render :partial => 'invoice_line', :locals => { :f => invoice_line_form }
-    = add_child_link "Add New Line", f, :invoice_lines
+      = add_child_link "Add New Line", f, :invoice_lines
   %li
     = f.label :note
     = f.text_area :note

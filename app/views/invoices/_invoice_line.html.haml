@@ -1,5 +1,5 @@
-%li
-  = f.text_area :description
-  = f.text_field :quantity
-  = f.text_field :price
-  = remove_child_link "remove", f
+%tr.invoice_line
+  %td= f.text_area :description
+  %td= f.text_field :quantity
+  %td= f.text_field :price
+  %td= remove_child_link "remove", f
