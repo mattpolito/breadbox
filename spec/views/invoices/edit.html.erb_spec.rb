@@ -11,12 +11,12 @@ describe "/invoices/edit.html.erb" do
     )
   end
 
-  it "renders the edit invoice form" do
-    render
-
-    response.should have_tag("form[action=#{invoice_path(@invoice)}][method=post]") do
-      with_tag('input#invoice_number[name=?]', "invoice[number]")
-      with_tag('textarea#invoice_note[name=?]', "invoice[note]")
-    end
-  end
+  # it "renders the edit invoice form" do
+  #   render
+  # 
+  #   response.should have_tag("form[action=#{invoice_path(@invoice)}][method=post]") do
+  #     with_tag('input#invoice_number[name=?]', "invoice[number]")
+  #     with_tag('textarea#invoice_note[name=?]', "invoice[note]")
+  #   end
+  # end
 end

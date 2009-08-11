@@ -1,0 +1,8 @@
+%h1 Editing invoice
+
+- form_for(@invoice) do |f|
+  = render :partial => 'form', :locals => { :f => f, :button_text => 'Update' }
+
+= link_to 'Show', @invoice
+|
+= link_to 'Back', invoices_path

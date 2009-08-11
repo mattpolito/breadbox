@@ -46,6 +46,13 @@ describe InvoicesController do
       get :edit, :id => "37"
       assigns[:invoice].should equal(mock_invoice)
     end
+    
+    it "assigns a collection of clients to @clients" do
+      Invoice.stub!(:find).with("37").and_return(mock_invoice)
+      Client.stub!(:all).and_return([mock_clients])
+      get :edit, :id => "37"
+      assigns[:clients].should == [mock_clients]
+    end
   end
 
   describe "POST create" do

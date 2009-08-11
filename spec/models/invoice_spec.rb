@@ -11,15 +11,21 @@ describe Invoice do
   end
   
   it { should belong_to :client }
+  it { should have_many :invoice_lines }
 
   it "should create a new instance given valid attributes" do
     Invoice.create!(@valid_attributes)
   end
   
-  it "should find next available invoice number" do
+  it "should find last used invoice number" do
     2.times { Factory(:invoice) }
     invoice = Invoice.new(@valid_attributes)
-    invoice.next_available_number.should == 3
+    invoice.last_used_number.should == 2
+  end
+  
+  it "should find last used invoice number if none have been created yet" do
+    invoice = Factory.build(:invoice, :number => nil)
+    invoice.last_used_number.should == 0
   end
   
   context "validations" do

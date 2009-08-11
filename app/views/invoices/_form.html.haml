@@ -1,20 +1,35 @@
 = f.error_messages
 %ul
   %li
-    = f.label :client
-    = f.collection_select :client, @clients, :id, :name, :include_blank => true
+    = f.label :client_id
+    = f.collection_select :client_id, @clients, :id, :name, :include_blank => true
   %li
     = f.label :number
     = f.text_field :number
+    Last Used: 
+    = h(@invoice.last_used_number)
   %li
     = f.label :payment_due_date
     = f.date_select :payment_due_date
   %li
-    = f.label :note
-    = f.text_area :note
-  %li
     = f.label :billing_date
     = f.date_select :billing_date
+  %table
+    %thead
+      %tr
+        %th.description Description
+        %th.quantity Quantity
+        %th.unit_price Unit Price
+          
+  
+  %li
+    %ul
+      - f.fields_for :invoice_lines do |invoice_line_form|
+        = render :partial => 'invoice_line', :locals => { :f => invoice_line_form }
+    = add_child_link "Add New Line", f, :invoice_lines
+  %li
+    = f.label :note
+    = f.text_area :note
   %li
     = f.submit button_text
 

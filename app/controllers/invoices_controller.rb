@@ -3,22 +3,12 @@ class InvoicesController < ApplicationController
   # GET /invoices.xml
   def index
     @invoices = Invoice.all
-
-    respond_to do |format|
-      format.html # index.html.erb
-      format.xml  { render :xml => @invoices }
-    end
   end
 
   # GET /invoices/1
   # GET /invoices/1.xml
   def show
     @invoice = Invoice.find(params[:id])
-
-    respond_to do |format|
-      format.html # show.html.erb
-      format.xml  { render :xml => @invoice }
-    end
   end
 
   # GET /invoices/new
@@ -26,32 +16,25 @@ class InvoicesController < ApplicationController
   def new
     @invoice = Invoice.new
     @clients = Client.all
-
-    respond_to do |format|
-      format.html # new.html.erb
-      format.xml  { render :xml => @invoice }
-    end
+    @invoice_lines = @invoice.invoice_lines.build
   end
 
   # GET /invoices/1/edit
   def edit
-    @invoice = Invoice.find(params[:id])
+    @invoice = Invoice.find(params[:id])    
+    @clients = Client.all
   end
 
   # POST /invoices
   # POST /invoices.xml
   def create
     @invoice = Invoice.new(params[:invoice])
-
-    respond_to do |format|
-      if @invoice.save
-        flash[:notice] = 'Invoice was successfully created.'
-        format.html { redirect_to(@invoice) }
-        format.xml  { render :xml => @invoice, :status => :created, :location => @invoice }
-      else
-        format.html { render :action => "new" }
-        format.xml  { render :xml => @invoice.errors, :status => :unprocessable_entity }
-      end
+    
+    if @invoice.save
+      add_notice 'Invoice was successfully created.'
+      redirect_to(@invoice)
+    else
+      render :new
     end
   end
 
@@ -59,16 +42,12 @@ class InvoicesController < ApplicationController
   # PUT /invoices/1.xml
   def update
     @invoice = Invoice.find(params[:id])
-
-    respond_to do |format|
-      if @invoice.update_attributes(params[:invoice])
-        flash[:notice] = 'Invoice was successfully updated.'
-        format.html { redirect_to(@invoice) }
-        format.xml  { head :ok }
-      else
-        format.html { render :action => "edit" }
-        format.xml  { render :xml => @invoice.errors, :status => :unprocessable_entity }
-      end
+    
+    if @invoice.update_attributes(params[:invoice])
+      add_notice 'Invoice was successfully updated.'
+      redirect_to(@invoice)
+    else
+      render :edit
     end
   end
 
@@ -77,10 +56,7 @@ class InvoicesController < ApplicationController
   def destroy
     @invoice = Invoice.find(params[:id])
     @invoice.destroy
-
-    respond_to do |format|
-      format.html { redirect_to(invoices_url) }
-      format.xml  { head :ok }
-    end
+    
+    redirect_to(invoices_url)
   end
 end
