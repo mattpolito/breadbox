@@ -14,20 +14,27 @@
   %li
     = f.label :billing_date
     = f.date_select :billing_date
-  %table
-    %thead
-      %tr
-        %th.description Description
-        %th.quantity Quantity
-        %th.unit_price Unit Price
-    %tbody
-      - f.fields_for :invoice_lines do |invoice_line_form|
-        = render :partial => 'invoice_line', :locals => { :f => invoice_line_form }
-      = add_child_link "Add New Line", f, :invoice_lines
+%table#invoice_lines
+  %thead
+    %tr
+      %th.description Description
+      %th.quantity Quantity
+      %th.unit_price Unit Price
+      %th
+  %tbody
+    - f.fields_for :invoice_lines do |invoice_line_form|
+      =# render :partial => 'invoice_line', :locals => { :f => invoice_line_form }
+      %tr.invoice_line
+        %td= invoice_line_form.text_area :description, :size => '30x3'
+        %td= invoice_line_form.text_field :quantity
+        %td= invoice_line_form.text_field :price
+        %td= remove_child_link "remove", invoice_line_form
+    
+= add_child_link "Add New Line", f, :invoice_lines
+
+%ul
   %li
     = f.label :note
     = f.text_area :note
   %li
     = f.submit button_text
-
-= link_to 'Back', invoices_path

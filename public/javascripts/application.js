@@ -3,9 +3,9 @@
 function insert_fields(link, method, content) {
   var new_id = new Date().getTime();
   var regexp = new RegExp("new_" + method, "g")
-  $(link).up().insert({
-    before: content.replace(regexp, new_id)
-  });
+  $$('.invoice_line').last().insert({
+    after : replace_id_of_new_line(link, regexp, new_id, content)
+  })
 }
 
 function remove_fields(link) {
@@ -14,5 +14,9 @@ function remove_fields(link) {
     hidden_field.value = '1';
   }
   $(link).up(".invoice_line").hide();
+}
+
+function replace_id_of_new_line(link, regexp, new_id, content) {
+  return content.replace(regexp, new_id)
 }
 
