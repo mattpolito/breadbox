@@ -52,8 +52,8 @@ a:focus {
   font-weight:bold;
 }
 
-#new_event fieldset input:focus,
-#new_event fieldset textarea:focus {
+#new fieldset input:focus,
+#new fieldset textarea:focus {
   background:#FFF3C0;
   border:1px solid #FFDB81 !important;
 }
@@ -145,7 +145,7 @@ a:focus {
   padding:0 0.5em;
 }
 
-#wrapper #content #sidebar #new_event {
+#wrapper #content #sidebar #new {
   background:#FFF url("/images/add.png") 0.4em 50% no-repeat;
   -moz-border-radius: 3px;
   -webkit-border-radius: 3px;
@@ -157,7 +157,7 @@ a:focus {
   text-decoration:none;
 }
 
-#wrapper #content #sidebar #new_event:hover {
+#wrapper #content #sidebar #new:hover {
   background-color:#D0DECE;
   color:#333;
 }

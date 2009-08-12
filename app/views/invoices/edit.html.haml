@@ -1,8 +1,7 @@
-%h1 Editing invoice
+#main_content
+  %h2 Editing invoice
+  - form_for(@invoice) do |f|
+    = render :partial => 'form', :locals => { :f => f, :button_text => 'Update' }
 
-- form_for(@invoice) do |f|
-  = render :partial => 'form', :locals => { :f => f, :button_text => 'Update' }
-
-= link_to 'Show', @invoice
-|
-= link_to 'Back', invoices_path
+#sidebar
+  = link_to 'Cancel', invoices_path, :id => 'cancel'
