@@ -1,0 +1,343 @@
+body {
+  background:#EEE;
+  font:62.5%/1.5 'Lucida Grande', sans-serif;
+  margin:0;
+}
+
+input:focus,
+input:active,
+a:focus {
+  outline:none;
+}
+
+#wrapper {
+  margin:0;
+}
+
+#wrapper #header {
+  background:#222;
+  overflow:hidden;
+  padding:0 2.8em;
+}
+
+#wrapper #header h1 {
+  color:#FFF;
+  font-weight:normal;
+  margin:0.4em;
+}
+
+#wrapper #header ul {
+  list-style:none;
+  margin:0;
+  padding:0;
+}
+
+#wrapper #header ul li {
+  float:left;
+  margin:0 0 0 0.4em;
+}
+
+#wrapper #header ul li a {
+  background:#333;
+  color:#FFF;
+  display:block;
+  font-size:1.2em;
+  padding:0.5em 1em;
+  text-decoration:none;
+}
+
+#wrapper #header ul li a.active {
+  background:#EEE url("/images/active_tab_bg.gif") 0 0 repeat-x;
+  color:#333;
+  font-weight:bold;
+}
+
+#new_event fieldset input:focus,
+#new_event fieldset textarea:focus {
+  background:#FFF3C0;
+  border:1px solid #FFDB81 !important;
+}
+
+#wrapper #content {
+  margin:0 1em;
+  min-width:80em;
+  overflow:hidden;
+  padding:2em;
+}
+
+#wrapper #content #main_content {
+  background:#FFF;
+  -webkit-box-shadow: 1px 1px 5px #555;
+  -moz-box-shadow: 1px 1px 5px #555;
+  float:left;
+  overflow:hidden;
+  padding:1em;
+  width:74%;
+}
+
+#wrapper #content #main_content h2 {
+  background:#333;
+  color:#FFF;
+  margin:-1em -1em 1em;
+  padding:1em 1em 0.6em;
+}
+
+#wrapper #content #sidebar {
+  background:#CCC;
+  float:right;
+  margin:0 0 0 0.5em;
+  padding:1em;
+  width:20%;
+}
+
+
+#wrapper #content #main_content .module {
+  border:1px solid #EEE;
+  float:left;
+  font-size:1.2em;
+  margin:0 2.2%;
+  padding:1em;
+  width:24%;
+}
+
+#wrapper #content #main_content .module h3 {
+  background:#EEE;
+  margin:-0.9em -0.9em 0;
+  padding:0.2em 1em;
+}
+
+#wrapper #content #main_content .module a {
+  background:transparent url("/images/bullet_go.png") right 50% no-repeat;
+  color:#9B222A;
+  display:inline-block;
+  margin:1em 0 0;
+  padding:0 1.5em 0 0;
+}
+
+#wrapper #content #main_content .module a:hover {
+  text-decoration:none;
+}
+
+#wrapper #content #main_content .module .event,
+#wrapper #content #main_content .module .donation {
+  border-bottom:1px solid #F5F5F5;
+  padding:0.2em 0;
+}
+
+
+#wrapper #content #main_content .module .event a {
+  background:none;
+  color:#000;
+  margin:0.1em 0;
+  padding:0 1.5em 0 0;
+  text-decoration:none;
+}
+
+#wrapper #content #main_content .module .event a:hover {
+  text-decoration:underline;
+}
+
+#wrapper #content #main_content .module .donation span {
+  background:#C1DE9F;
+  -moz-border-radius: 8px;
+  -webkit-border-radius: 8px;
+  float:right;
+  padding:0 0.5em;
+}
+
+#wrapper #content #sidebar #new_event {
+  background:#FFF url("/images/add.png") 0.4em 50% no-repeat;
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  border:1px solid #999;
+  color:#5EA256;
+  display:block;
+  font-size:1.4em;
+  padding:0.5em 1.8em;
+  text-decoration:none;
+}
+
+#wrapper #content #sidebar #new_event:hover {
+  background-color:#D0DECE;
+  color:#333;
+}
+
+#wrapper #content #sidebar #cancel {
+  background:#FFF url("/images/cancel.png") 0.4em 50% no-repeat;
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  border:1px solid #999;
+  color:#9B222A;
+  display:block;
+  font-size:1.4em;
+  padding:0.5em 1.8em;
+  text-decoration:none;
+}
+
+#wrapper #content #sidebar #cancel:hover {
+  background-color:#FFD9D9;
+  color:#333;
+}
+
+#wrapper #content #event_submit {
+  background:#EEE url("/images/active_tab_bg.gif") 0 0 repeat-x;
+  border:1px solid #CCC;
+  -moz-border-radius: 16px;
+  -webkit-border-radius: 16px;
+  color:#333;
+  font-size:1.4em;
+  padding:0.5em 2em;
+}
+
+#wrapper #content #event_submit:active {
+  -moz-box-shadow: 0 -1px 2px #333;
+  -webkit-box-shadow: 0 -1px 2px #333;
+}
+
+#wrapper #content #donation_listing {
+  font-size:1.2em;
+  text-align:left;
+}
+
+#wrapper #content #donation_listing tr th {
+  background:#444;
+  color:#FFF;
+  padding:0.4em 1em;
+}
+
+#wrapper #content #donation_listing tr td {
+  padding:0.4em 1em;
+}
+
+#wrapper #content #donation_listing tbody .stripe {
+  background:#EEE;
+}
+
+/* Events
+----------------------------------------------------*/
+
+#wrapper #content #events {
+  margin:0 0 0 -3em;
+}
+
+#wrapper #content #events .event {
+  clear:both;
+}
+
+#wrapper #content #events .event:hover .edit li {
+  display:block;
+}
+
+#wrapper #content #events ul {
+  float:left;
+  list-style:none;
+  margin:0;
+  padding:0;
+}
+
+#wrapper #content #events .edit {
+  background:#FFF;
+  -moz-border-radius-topleft: 10px;
+  -webkit-border-top-left-radius: 10px;
+  -moz-border-radius-bottomleft: 10px;
+  -webkit-border-bottom-left-radius: 10px;
+  margin:0.4em 0 0 0;
+  overflow:hidden;
+  position:absolute;
+  width:7.5em;
+}
+
+#wrapper #content #events .edit li {
+  display:none;
+  float:left;
+  padding:0.4em 0.2em;
+}
+
+#wrapper #content #events .edit li a {
+  position:relative;
+}
+
+#wrapper #content #events .edit li a.delete {
+  background:transparent url("/images/bin_closed.png") 0 50% no-repeat;
+  display:block;
+  height:16px;
+  text-indent:-9999px;
+  width:16px;
+}
+
+#wrapper #content #events .edit li a.edit {
+  color:#CC0000;
+}
+
+#wrapper #content #events .event_isting {
+  margin:0 0 0 7em;
+}
+
+#wrapper #content #events .event_isting li {
+  font-size:1.2em;
+  margin:0.2em;
+  padding:0.4em;
+}
+
+
+#wrapper #content #events .event_isting li .date {
+  color:#666;
+}
+
+#wrapper #content #events_show {
+  font-size:1.4em;
+}
+
+#wrapper #content #events_show ul {
+  list-style:none;
+  margin:0;
+  padding:0;
+}
+
+
+/* New Event
+----------------------------------------------------*/
+#wrapper #content #new_event fieldset {
+  border:none;
+}
+
+#wrapper #content #new_event fieldset legend {
+  font-size:1.5em;
+  font-weight:bold;
+}
+
+#wrapper #content #new_event fieldset ul {
+  list-style:none;
+  margin:0;
+  padding:0;
+}
+
+#wrapper #content #new_event fieldset ul li {
+  font-size:1.2em;
+  padding:0.2em;
+}
+
+#wrapper #content #new_event fieldset ul li label {
+  display:block;
+  font-weight:bold;
+}
+
+#wrapper #content #new_event fieldset ul li.inline label {
+  display:inline;
+}
+
+#wrapper #content #new_event fieldset ul li input {
+  border:1px solid #bbb;
+  font-size:1.1em;
+  padding:0.2em;
+}
+
+#wrapper #content #new_event fieldset ul li input:focus {
+   border:1px solid #666;
+}
+
+#wrapper #content #new_event fieldset ul li textarea { 
+  height:100px; 
+  padding:5px;
+  width:390px; 
+}

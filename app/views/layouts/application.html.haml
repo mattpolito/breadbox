@@ -4,7 +4,7 @@
     %title= yield(:title) || controller.action_name
     %meta{ :name => 'copyright', :content => '' }
     %meta{ :name => 'lang', :content => 'en' }
-    = stylesheet_link_tag 'main', :cache => true
+    = stylesheet_link_tag 'style', :cache => true
     = yield(:stylesheets)
     = javascript_include_tag :all, :cache => true
     =# javascript_include_tag 'jquery'
@@ -13,13 +13,12 @@
 
     = yield(:javascript)
     %body
-      #container
+      #wrapper
         #header
-          %ul#navigation
-            %li= link_to 'Home', root_path
-
+          %ul
+            %li= link_to "Home", "/admin"
+            %li= link_to "Invoices", invoices_path
+            %li= link_to "Clients", clients_path
         #content
           = render_flash_messages
           = yield
-          
-        #footer
