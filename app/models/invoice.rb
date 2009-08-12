@@ -7,6 +7,7 @@ class Invoice < ActiveRecord::Base
   
   # Validations
   validates_presence_of :number
+  validates_uniqueness_of :number
   
   # Logic
   def last_used_number

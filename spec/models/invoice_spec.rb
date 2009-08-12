@@ -10,8 +10,8 @@ describe Invoice do
     }
   end
   
-  it { should belong_to :client }
-  it { should have_many :invoice_lines }
+  it { should belong_to(:client) }
+  it { should have_many(:invoice_lines) }
 
   it "should create a new instance given valid attributes" do
     Invoice.create!(@valid_attributes)
@@ -31,6 +31,16 @@ describe Invoice do
   context "validations" do
     it "should require number" do
       Factory.build(:invoice, :number => nil).should_not be_valid
+    end
+    
+    it "should be valid with a unique number" do
+      Factory(:invoice, :number => 1)
+      Factory.build(:invoice, :number => 2).should be_valid
+    end
+    
+    it "should not be valid if number is not unique" do
+      Factory(:invoice, :number => 1)
+      Factory.build(:invoice, :number => 1).should_not be_valid
     end
   end
 end
