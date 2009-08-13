@@ -1,0 +1,19 @@
+#main_content
+  %h2 New client
+  - form_for(@client) do |f| 
+    = f.error_messages 
+    %ul
+      %li= f.label :name 
+      %li= f.text_field :name 
+      %li= f.label :email 
+      %li= f.text_field :email 
+      %li= f.label :address 
+      %li= f.text_area :address 
+      %li= f.label :phone 
+      %li= f.text_field :phone 
+      %li= f.label :fax 
+      %li= f.text_field :fax 
+      %li= f.submit 'Create' 
+
+#sidebar
+  = link_to 'Cancel &amp; Go Back', clients_path, :id => "cancel"
