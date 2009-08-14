@@ -18,6 +18,8 @@
         %td=# h invoice.status
         %td=# h invoice.total_amount
         %td=# h invoice.amount_due
-
+        
+  = will_paginate
+  
 #sidebar
   = link_to 'Add New invoice', new_invoice_path, :id => 'new'

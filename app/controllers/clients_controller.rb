@@ -2,7 +2,7 @@ class ClientsController < ApplicationController
   # GET /clients
   # GET /clients.xml
   def index
-    @clients = Client.all
+    @clients = Client.paginate(:all, :order => 'name', :page => params[:page])
 
     respond_to do |format|
       format.html # index.html.erb

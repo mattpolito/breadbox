@@ -2,7 +2,7 @@ class InvoicesController < ApplicationController
   # GET /invoices
   # GET /invoices.xml
   def index
-    @invoices = Invoice.find(:all, :order => 'billing_date')
+    @invoices = Invoice.paginate(:all, :order => 'billing_date', :page => params[:page])
   end
 
   # GET /invoices/1
