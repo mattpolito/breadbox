@@ -9,7 +9,7 @@ class Invoice < ActiveRecord::Base
   validates_presence_of :number
   validates_uniqueness_of :number
   
-  # Logic
+  # Logic  
   def last_used_number
     max = Invoice.maximum('number')
     max.present? ? max : 0

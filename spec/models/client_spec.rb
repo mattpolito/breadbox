@@ -17,6 +17,12 @@ describe Client do
     Client.create!(@valid_attributes)
   end
   
+  context "invoices" do
+    it "should return total amount due for all open invoices"
+    
+    it "should return total number of pending invoices"
+  end
+  
   context "validations" do
     it "should require name" do
       client = Factory.build(:client, :name => nil)

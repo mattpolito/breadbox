@@ -1,23 +1,7 @@
 #main_content
   %h2 Listing Clients
-  %table
-    %thead
-      %tr
-        %th Name
-        %th Email
-        %th Address
-        %th Phone
-        %th Fax
-    %tbody
-      - @clients.each do |client| 
-        %tr
-          %td=h client.name 
-          %td=h client.email 
-          %td=h client.address 
-          %td=h client.phone 
-          %td=h client.fax 
-          %td= link_to 'Show', client 
-          %td= link_to 'Edit', edit_client_path(client) 
-          %td= link_to 'Destroy', client, :confirm => 'Are you sure?', :method => :delete 
+  #clients
+    = render @clients
+  
 #sidebar
   = link_to 'New client', new_client_path, :id => 'new'
