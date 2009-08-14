@@ -7,9 +7,8 @@
     = stylesheet_link_tag 'screen', :cache => true
     = yield(:stylesheets)
     = javascript_include_tag :all, :cache => true
-    / = javascript_include_tag 'jquery'
-    / = javascript_include_tag 'jquery-ui'
-    / = javascript_include_tag 'jrails'
+    =# javascript_include_tag 'jquery'
+    =# javascript_include_tag 'application'
 
     = yield(:javascript)
     %body
