@@ -71,6 +71,7 @@ a:focus {
   background:#FFF;
   -webkit-box-shadow: 1px 1px 5px #555;
   -moz-box-shadow: 1px 1px 5px #555;
+  font-size:1.2em;
   float:left;
   overflow:hidden;
   padding:1em;
@@ -84,12 +85,34 @@ a:focus {
   padding:1em 1em 0.6em;
 }
 
+#wrapper #content #main_content table {
+  width:100%;
+}
+
+#wrapper #content #main_content table thead tr {
+  background:#333;
+  color:#FFF;
+/*  font-size:1.4em;*/
+}
+
+#wrapper #content #main_content table thead tr th {
+  padding:0.4em;
+}
+
 #wrapper #content #sidebar {
   background:#CCC;
   float:right;
   margin:0 0 0 0.5em;
   padding:1em;
   width:20%;
+}
+
+#wrapper #content #main_content fieldset label {
+  display:block;
+}
+
+#wrapper #content #main_content fieldset legend {
+  font-weight:bold;
 }
 
 
