@@ -107,6 +107,14 @@ a:focus {
   width:20%;
 }
 
+
+table .striped {
+  background:#EEE;
+}
+
+/* Invoices
+------------------------------------------------*/
+
 #wrapper #content #main_content fieldset label {
   display:block;
 }
@@ -114,6 +122,18 @@ a:focus {
 #wrapper #content #main_content fieldset legend {
   font-weight:bold;
 }
+
+#wrapper #content #main_content fieldset table .description {
+  height:30px
+}
+
+#wrapper #content #main_content fieldset table .quantity,
+#wrapper #content #main_content fieldset table .price {
+  font-size:1.2em;
+  padding:0.4em;
+  width:25px;
+}
+
 
 
 #wrapper #content #main_content .module {
