@@ -4,12 +4,12 @@
     %title= yield(:title) || controller.action_name
     %meta{ :name => 'copyright', :content => '' }
     %meta{ :name => 'lang', :content => 'en' }
-    = stylesheet_link_tag 'style', :cache => true
+    = stylesheet_link_tag 'screen', :cache => true
     = yield(:stylesheets)
     = javascript_include_tag :all, :cache => true
-    =# javascript_include_tag 'jquery'
-    =# javascript_include_tag 'jquery-ui'
-    =# javascript_include_tag 'jrails'
+    = javascript_include_tag 'jquery'
+    = javascript_include_tag 'jquery-ui'
+    = javascript_include_tag 'jrails'
 
     = yield(:javascript)
     %body
