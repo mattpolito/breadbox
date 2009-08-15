@@ -4,6 +4,13 @@
     %title= yield(:title) || controller.action_name
     %meta{ :name => 'copyright', :content => '' }
     %meta{ :name => 'lang', :content => 'en' }
+    %meta{ :content => "text/html; charset=utf-8", "http-equiv" => "Content-Type" }
+    %meta{ :name => "description", :content => "Breadbox is a simple invoicing system for designed for freelance developers" }
+    %meta{ :name => "keywords", :content => "breadbox, invoice, freelance, developers, simple, easy, rails, ruby, reaction, control, matt, polito, stephen, korecky" }
+    %meta{ :name => "author", :content => "REACTIONcontrol" }
+    %meta{ :name => "copyright", :content => "copyright (c) 2009 REACTIONcontrol" }
+    %meta{ :name => "revisit-after", :content => "3 days" }
+    %link{ :href => "images/favicon.ico", :rel => "shortcut icon" }
     = stylesheet_link_tag 'screen', :cache => true
     = yield(:stylesheets)
     = javascript_include_tag :all, :cache => true
@@ -21,6 +28,12 @@
             %li= link_to "Clients", clients_path
         #content
           = render_flash_messages
+          - if flash[:notice] 
+            %p.success
+              = flash[:notice]
+          - if flash[:error] 
+            %p.error
+              = flash[:error]
           = yield
         #footer
           %p 
