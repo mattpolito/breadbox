@@ -1,0 +1,35 @@
+#sidebar {
+  background:#CCC;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  float:right;
+  margin:0 0 0 0.5em;
+  padding:0.5em 1em;
+  width:20%;
+}
+
+#sidebar .button {
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  border:1px solid #999;
+  color:#333;
+  display:block;
+  font-size:1.4em;
+  font-weight:bold;
+  margin:0.5em 0;
+  padding:0.5em 2em;
+  text-decoration:none;
+}
+
+#sidebar .button:hover {
+  color:#333;
+}
+
+#sidebar #new{background:#FFF url("/images/icons/add.png") 0.4em 50% no-repeat;color:#5EA256;}
+#sidebar #new:hover{background-color:#D0DECE;}
+#sidebar #cancel{background:#FFF url("/images/icons/cancel.png") 0.4em 50% no-repeat;color:#9B222A;}
+#sidebar #cancel:hover{background-color:#FFD9D9;}
+#sidebar #edit{background:#FFF url("/images/icons/application_form_edit.png") 0.4em 50% no-repeat;color:#5EA256;}
+#sidebar #edit:hover{background-color:#D0DECE;}
+#sidebar #back{background:#FFF url("/images/icons/arrow_left.png") 0.4em 50% no-repeat;color:#5EA256;}
+#sidebar #back:hover{background-color:#D0DECE;}

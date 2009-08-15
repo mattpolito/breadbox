@@ -1,0 +1,20 @@
+#main_content
+  %h2
+    Invoice Number
+    =h @invoice.number
+  %p
+    %strong Number:
+    =h @invoice.number
+  %p
+    %strong Payment due date:
+    =h @invoice.payment_due_date
+  %p
+    %strong Note:
+    =h @invoice.note
+  %p
+    %strong Billing date:
+    =h @invoice.billing_date
+  
+#sidebar
+  = link_to 'Go Back', invoices_path, :id => "back", :class => "button"
+  = link_to 'Edit', edit_invoice_path(@invoice), :id => "edit", :class => "button"

@@ -1,5 +1,3 @@
-@import url("reset.css");
-
 body {
   background:#EEE;
   font:62.5%/1.5 "Helvetica Neue", Arial, Helvetica, sans-serif;
@@ -97,11 +95,11 @@ border: none;
 }
 
 #wrapper #content #main_content h2 {
-  background:#333;
+  background:#3E659B;
   color:#FFF;
   margin:-1em -1em 1em;
   padding:1em 1em 0.6em;
-  text-shadow:-1px -1px 1px #000;
+  text-shadow:-1px -1px 1px #333;
 }
 
 #wrapper #content #main_content table {
@@ -116,14 +114,6 @@ border: none;
 #wrapper #content #main_content table thead tr th {
   font-weight:bold;
   padding:0.4em;
-}
-
-#wrapper #content #sidebar {
-  background:#CCC;
-  float:right;
-  margin:0 0 0 0.5em;
-  padding:1em;
-  width:20%;
 }
 
 table .striped {
@@ -143,6 +133,7 @@ table .striped {
 /* Invoices
 ------------------------------------------------*/
 
+/* Buttons */
 #invoice_submit,
 #client_submit {
   background:transparent url("/images/save_button.png") 0 0 no-repeat;
@@ -159,60 +150,37 @@ table .striped {
 #client_submit:active,
 #invoice_submit:active { background-position:0 -84px; }
 
-#wrapper #content #main_content fieldset label {
+#main_content fieldset label {
   display:block;
 }
 
-#wrapper #content #main_content fieldset legend {
-  font-size:1.4em;
-  font-weight:bold;
+#main_content fieldset label.currency {
+  float:left;
+  margin:1.2em 0.4em 0;
 }
 
-#wrapper #content #main_content fieldset table .description {
+#main_content fieldset legend {
+  background:#3E69AB;
+  border:1px solid #215895;
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  -webkit-box-shadow: 0 0 2px #333;
+  -moz-box-shadow: 0 0 2px #333;
+  color:#EED88F;
+  font-size:1.4em;
+  font-weight:bold;
+  padding:0.1em 0.5em;
+}
+
+#main_content fieldset table .description {
   height:30px
 }
 
-#wrapper #content #main_content fieldset table .quantity,
-#wrapper #content #main_content fieldset table .price {
+#main_content fieldset table tbody .quantity,
+#main_content fieldset table tbody .price {
   font-size:1.2em;
   padding:0.4em;
-  width:25px;
-}
-
-#wrapper #content #sidebar #new {
-  background:#FFF url("/images/icons/add.png") 0.4em 50% no-repeat;
-  -moz-border-radius: 3px;
-  -webkit-border-radius: 3px;
-  border:1px solid #999;
-  color:#5EA256;
-  display:block;
-  font-size:1.4em;
-  font-weight:bold;
-  padding:0.5em 1.8em;
-  text-decoration:none;
-}
-
-#wrapper #content #sidebar #new:hover {
-  background-color:#D0DECE;
-  color:#333;
-}
-
-#wrapper #content #sidebar #cancel {
-  background:#FFF url("/images/icons/cancel.png") 0.4em 50% no-repeat;
-  -moz-border-radius: 3px;
-  -webkit-border-radius: 3px;
-  border:1px solid #999;
-  color:#9B222A;
-  display:block;
-  font-size:1.4em;
-  font-weight:bold;
-  padding:0.5em 1.8em;
-  text-decoration:none;
-}
-
-#wrapper #content #sidebar #cancel:hover {
-  background-color:#FFD9D9;
-  color:#333;
+  width:50px;
 }
 
 #footer {
