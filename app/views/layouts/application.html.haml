@@ -2,13 +2,14 @@
 %html{ :xmlns => "http://www.w3.org/1999/xhtml", :lang => "en", 'xml:lang' => "en" }
   %head
     %title= yield(:title) || controller.action_name
-    %meta{ :name => 'copyright', :content => '' }
+    %meta{ :name => 'copyright', :content => '2009' }
     %meta{ :name => 'lang', :content => 'en' }
     = stylesheet_link_tag 'screen', :cache => true
     = yield(:stylesheets)
-    = javascript_include_tag :all, :cache => true
-    =# javascript_include_tag 'jquery'
-    =# javascript_include_tag 'application'
+    =# javascript_include_tag :all, :cache => true
+    = javascript_include_tag 'jquery'
+    = javascript_include_tag 'application'
+    = javascript_include_tag 'pagination'
 
     = yield(:javascript)
     %body
@@ -16,9 +17,9 @@
         #header
           %h1 Bread Box
           %ul
-            %li= link_to "Home", "/"
-            %li= link_to "Invoices", invoices_path
-            %li= link_to "Clients", clients_path
+            %li= link_to "Home", root_path, current_tab(root_path)
+            %li= link_to "Invoices", invoices_path, current_tab(invoices_path)
+            %li= link_to "Clients", clients_path, current_tab(clients_path)
         #content
           = render_flash_messages
           = yield
