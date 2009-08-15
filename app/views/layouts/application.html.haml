@@ -2,9 +2,8 @@
 %html{ :xmlns => "http://www.w3.org/1999/xhtml", :lang => "en", 'xml:lang' => "en" }
   %head
     %title= yield(:title) || controller.action_name
-    %meta{ :name => 'copyright', :content => '' }
-    %meta{ :name => 'lang', :content => 'en' }
     %meta{ :content => "text/html; charset=utf-8", "http-equiv" => "Content-Type" }
+    %meta{ :name => 'lang', :content => 'en' }
     %meta{ :name => "description", :content => "Breadbox is a simple invoicing system for designed for freelance developers" }
     %meta{ :name => "keywords", :content => "breadbox, invoice, freelance, developers, simple, easy, rails, ruby, reaction, control, matt, polito, stephen, korecky" }
     %meta{ :name => "author", :content => "REACTIONcontrol" }
@@ -22,10 +21,19 @@
       #wrapper
         #header
           %a#logo{:href => "/"}
-          %ul
-            %li= link_to "Home", "/"
+          %ul#user
+            %li.user John Appleseed
+            %li 
+              %a{:href => "#"} My info
+            %li
+              %a{:href => "#"} Log-out
+            %li
+              %a{:href => "#"} Help
+          %ul#navigation
+            %li= link_to "Dashboard", "/"
             %li= link_to "Invoices", invoices_path
             %li= link_to "Clients", clients_path
+              
         #content
           = render_flash_messages
           - if flash[:notice] 

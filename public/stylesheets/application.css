@@ -43,23 +43,25 @@ border: none;
 #wrapper #header #logo {
   background:transparent url("/images/logo.png") 0 0 no-repeat;
   display:block;
+  float:left;
   height:80px;
   margin:1em 0;
   width:284px;
 }
 
-#wrapper #header ul {
+#header #navigation {
+  clear:both;
   list-style:none;
   margin:0;
   padding:0;
 }
 
-#wrapper #header ul li {
+#header #navigation li {
   float:left;
   margin:0 0 0 0.4em;
 }
 
-#wrapper #header ul li a {
+#header #navigation li a {
   background:#4777AD;
   color:#FFF;
   display:block;
@@ -70,20 +72,53 @@ border: none;
   text-shadow:1px 1px 1px #444;
 }
 
-#wrapper #header ul li a.active {
+#header #navigation li a.active {
   background:#EEE url("/images/active_tab_bg.gif") 0 0 repeat-x;
   color:#333;
   font-weight:bold;
+  text-shadow:none;
 }
 
-#wrapper #content {
+#header #user {
+  color:#FFF;
+  font-size:1.3em;
+  float:right;
+  margin:1em 0 0;
+}
+
+#header #user li {
+  float:left;
+  margin:0 0 0 0.4em;
+}
+
+#header #user li.user {
+  font-weight:bold;
+  padding:0.2em 0.5em;
+  text-shadow:1px 1px 1px #333;
+}
+
+#header #user li a {
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  background:#223758;
+  color:#FFF;
+  display:inline-block;
+  padding:0.2em 0.5em;
+  text-decoration:none;
+}
+
+#header #user li a:hover {
+  background:#4B81D4;
+}
+
+#content {
   margin:0 1em;
   min-width:80em;
   overflow:hidden;
   padding:2em;
 }
 
-#wrapper #content #main_content {
+#content #main_content {
   background:#FFF;
   -webkit-box-shadow: 1px 1px 5px #555;
   -moz-box-shadow: 1px 1px 5px #555;
@@ -94,7 +129,7 @@ border: none;
   width:74%;
 }
 
-#wrapper #content #main_content h2 {
+#content #main_content h2 {
   background:#3E659B;
   color:#FFF;
   margin:-1em -1em 1em;
@@ -102,16 +137,16 @@ border: none;
   text-shadow:-1px -1px 1px #333;
 }
 
-#wrapper #content #main_content table {
+#content #main_content table {
   width:100%;
 }
 
-#wrapper #content #main_content table thead tr {
+#content #main_content table thead tr {
   background:#CCC;
   color:#222;
 }
 
-#wrapper #content #main_content table thead tr th {
+#content #main_content table thead tr th {
   font-weight:bold;
   padding:0.4em;
 }
