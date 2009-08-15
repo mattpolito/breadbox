@@ -15,7 +15,7 @@
     %body
       #wrapper
         #header
-          %h1 Bread Box
+          %a#logo{:href => "/"}
           %ul
             %li= link_to "Home", root_path, current_tab(root_path)
             %li= link_to "Invoices", invoices_path, current_tab(invoices_path)
@@ -23,3 +23,8 @@
         #content
           = render_flash_messages
           = yield
+        #footer
+          %p 
+            Copyright REACTIONcontrol
+            =Time.now.strftime("%Y")
+            All Rights Reserved.
