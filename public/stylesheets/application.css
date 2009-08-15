@@ -221,3 +221,9 @@ table .striped {
 #footer {
   padding:0 2.8em 1em;
 }
+
+#footer p {
+  color:#666;
+  font-size:1.1em;
+  text-shadow:-1px -1px 1px #FFF;
+}

@@ -55,11 +55,11 @@ form.inline p { margin-bottom:0; }
 
 .error,
 .notice, 
-.success    { padding: .8em; margin-bottom: 1em; border: 2px solid #ddd; }
+.success    { font-size:1.2em; padding:0.6em 2.2em; margin-bottom: 1em; border: 2px solid #ddd; }
 
-.error      { background: #FBE3E4; color: #8a1f11; border-color: #FBC2C4; }
-.notice     { background: #FFF6BF; color: #514721; border-color: #FFD324; }
-.success    { background: #E6EFC2; color: #264409; border-color: #C6D880; }
+.error      { background: #FBE3E4 url("/images/icons/error.png") 0.4em 50% no-repeat; color: #8a1f11; border-color: #FBC2C4; }
+.notice     { background: #FFF6BF url("/images/icons/information.png") 0.4em 50% no-repeat; color: #514721; border-color: #FFD324; }
+.success    { background: #E6EFC2 url("/images/icons/accept.png") 0.4em 50% no-repeat; color: #264409; border-color: #C6D880; }
 .error a    { color: #8a1f11; }
 .notice a   { color: #514721; }
 .success a  { color: #264409; }
