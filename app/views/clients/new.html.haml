@@ -2,7 +2,6 @@
   %h2 New client
   - form_for(@client) do |f| 
     %fieldset#new_client
-      = f.error_messages 
       %ul
         %li= f.label :name 
         %li= f.text_field :name, :class => "text"

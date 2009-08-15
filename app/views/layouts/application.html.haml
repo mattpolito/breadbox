@@ -41,6 +41,7 @@
               = flash[:notice]
           - if flash[:error] 
             %p.error
+              =# f.error_messages - Not sure if necessary 
               = flash[:error]
           = yield
         #footer
