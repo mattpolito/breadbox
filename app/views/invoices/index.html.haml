@@ -12,11 +12,11 @@
     %tbody
     - for invoice in @invoices
       %tr
-        %td=h invoice.billing_date
+        %td=h invoice.billing_date.strftime("%m.%d.%Y")
         %td= link_to h(invoice.number), invoice
         %td=h invoice.client.name
-        %td=# h invoice.status
-        %td=# h invoice.total_amount
+        %td=h invoice.status.humanize
+        %td=h invoice.total_amount
         %td=# h invoice.amount_due
         
   = will_paginate
