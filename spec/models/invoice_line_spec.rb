@@ -14,4 +14,31 @@ describe InvoiceLine do
   it "should create a new instance given valid attributes" do
     InvoiceLine.create!(@valid_attributes)
   end
+  
+  it "should find total price for line" do
+    invoice_line = InvoiceLine.create :quantity => 5, :price => 5000
+    invoice_line.total_amount.should == 25000
+  end
+  
+  describe "validations" do
+    it "should require quantity to be valid" do
+      invoice_line = Factory.build(:invoice_line)
+      invoice_line.should be_valid
+    end
+    
+    it "should be invalid without quantity" do
+      invoice_line = Factory.build(:invoice_line, :quantity => nil)
+      invoice_line.should_not be_valid
+    end
+    
+    it "should require price to be valid" do
+      invoice_line = Factory.build(:invoice_line)
+      invoice_line.should be_valid
+    end
+    
+    it "should be invalid without price" do
+      invoice_line = Factory.build(:invoice_line, :quantity => nil)
+      invoice_line.should_not be_valid
+    end
+  end
 end
