@@ -1,4 +1,15 @@
 #main_content
   %h2 Dashboard
+  .dashboard
+    %h3.overdue Overdue Invoices
+    %h3 Newly Created Invoices
   
-  %h3 Welcome to Breadbox!
+#sidebar
+  = link_to 'Add A New Client', new_client_path, :id => 'new', :class => "button"
+  = link_to 'Create A New Invoice', new_invoice_path, :id => 'new', :class => "button"
+  %h2 
+    Estimated income for
+    =Time.now.strftime("%Y") 
+  %h3.income
+    %strong Total
+    $5,587.00

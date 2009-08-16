@@ -8,6 +8,20 @@
   width:20%;
 }
 
+#sidebar h2 {
+  background:#444;
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  color:#FFF;
+  font-weight:bold;
+  padding:0.2em 0.5em;
+}
+
+#sidebar h3.income {
+  font-size:1.4em;
+  padding:0.2em 0.4em;
+}
+
 #sidebar .button {
   -moz-border-radius: 3px;
   -webkit-border-radius: 3px;
