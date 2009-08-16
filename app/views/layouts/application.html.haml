@@ -2,8 +2,14 @@
 %html{ :xmlns => "http://www.w3.org/1999/xhtml", :lang => "en", 'xml:lang' => "en" }
   %head
     %title= yield(:title) || controller.action_name
-    %meta{ :name => 'copyright', :content => '2009' }
+    %meta{ :content => "text/html; charset=utf-8", "http-equiv" => "Content-Type" }
     %meta{ :name => 'lang', :content => 'en' }
+    %meta{ :name => "description", :content => "Breadbox is a simple invoicing system for designed for freelance developers" }
+    %meta{ :name => "keywords", :content => "breadbox, invoice, freelance, developers, simple, easy, rails, ruby, reaction, control, matt, polito, stephen, korecky" }
+    %meta{ :name => "author", :content => "reactionCONTROL" }
+    %meta{ :name => "copyright", :content => "copyright (c) 2009 reactionCONTROL" }
+    %meta{ :name => "revisit-after", :content => "3 days" }
+    %link{ :href => "images/favicon.ico", :rel => "shortcut icon" }
     = stylesheet_link_tag 'screen', :cache => true
     = yield(:stylesheets)
     =# javascript_include_tag :all, :cache => true
@@ -16,15 +22,32 @@
       #wrapper
         #header
           %a#logo{:href => "/"}
-          %ul
-            %li= link_to "Home", root_path, current_tab(root_path)
-            %li= link_to "Invoices", invoices_path, current_tab(invoices_path)
-            %li= link_to "Clients", clients_path, current_tab(clients_path)
+          %ul#user
+            %li.user John Appleseed
+            %li 
+              %a{:href => "#"} My info
+            %li
+              %a{:href => "#"} Log-out
+            %li
+              %a{:href => "#"} Help
+          %ul#navigation
+            %li= link_to "Dashboard", root_path
+            %li= link_to "Invoices", invoices_path
+            %li= link_to "Clients", clients_path
+              
         #content
           = render_flash_messages
+          - if flash[:notice] 
+            %p.success
+              = flash[:notice]
+          - if flash[:error] 
+            %p.error
+              =# f.error_messages - Not sure if necessary 
+              = flash[:error]
           = yield
         #footer
-          %p 
-            Copyright reactionCONTROL
-            =Time.now.strftime("%Y")
-            All Rights Reserved.
+          %p
+            Copyright 
+            =Time.now.strftime("%Y") 
+            %a{:href => "http://reactioncontrol.com"} reactionCONTROL
+            , All Rights Reserved.

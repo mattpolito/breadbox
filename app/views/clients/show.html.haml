@@ -1,0 +1,22 @@
+#main_content
+  %h2=h @client.name
+  %p
+    %strong Name:
+    =h @client.name 
+  %p
+    %strong Email:
+    =h @client.email 
+  %p
+    %strong Address:
+    =h @client.address 
+  %p
+    %strong Phone:
+    =h @client.phone 
+  %p
+    %strong Fax:
+    =h @client.fax 
+
+
+#sidebar
+  = link_to 'Edit This Client', edit_client_path(@client), :class => "button", :id => "edit"
+  = link_to 'Go Back', clients_path, :class => "button", :id => "back"

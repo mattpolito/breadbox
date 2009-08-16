@@ -4,4 +4,4 @@
     = render :partial => 'form', :locals => { :f => f, :button_text => 'Update' }
 
 #sidebar
-  = link_to 'Cancel', invoices_path, :id => 'cancel'
+  = link_to 'Cancel &amp; Go Back', invoices_path, :id => 'cancel', :class => "button"

@@ -1,5 +1,7 @@
 %tr.invoice_line
   %td= f.text_area :description, :size => '30x3', :class => "description"
   %td= f.text_field :quantity, :class => "quantity"
-  %td= f.text_field :price, :class => "price"
+  %td
+    %label.currency $
+    = f.text_field :price, :class => "price"
   %td= remove_child_link "remove", f

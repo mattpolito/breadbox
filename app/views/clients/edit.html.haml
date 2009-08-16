@@ -1,5 +1,5 @@
 #main_content
-  %h2 New client
+  %h2 Editing Client
   - form_for(@client) do |f| 
     %fieldset#new_client
       %ul
@@ -13,7 +13,8 @@
         %li= f.text_field :phone, :class => "text"
         %li= f.label :fax 
         %li= f.text_field :fax, :class => "text"
-        %li= f.submit 'Create' 
+        %li= f.submit 'Update'
 
 #sidebar
-  = link_to 'Cancel &amp; Go Back', clients_path, :id => "cancel", :class => "button"
+  = link_to 'Cancel &amp; Go Back', clients_path, :class => "button", :id => "cancel"
+  = link_to 'Show', @client, :class => "button"
