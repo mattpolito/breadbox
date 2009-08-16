@@ -18,5 +18,5 @@
 
 
 #sidebar
-  = link_to 'Edit This Client', edit_client_path(@client), :class => "button", :id => "edit"
+  = link_to "Edit #{h(@client.name)}'s record", edit_client_path(@client), :class => "button", :id => "edit"
   = link_to 'Go Back', clients_path, :class => "button", :id => "back"

@@ -17,4 +17,4 @@
   
 #sidebar
   = link_to 'Go Back', invoices_path, :id => "back", :class => "button"
-  = link_to 'Edit This Invoice', edit_invoice_path(@invoice), :id => "edit", :class => "button"
+  = link_to "Edit Invoice #{@invoice.number}", edit_invoice_path(@invoice), :id => "edit", :class => "button"
