@@ -20,9 +20,14 @@ class Invoice < ActiveRecord::Base
     transitions :to => :closed, :from => [:draft, :sent, :paid]
   end
   
-  # Associatins
+  # Associations
   belongs_to :client
   has_many :invoice_lines, :dependent => :destroy
+  
+  # Scopes
+  named_scope :overdue, lambda { { :conditions => ["payment_due_date < :current_date AND status = 'sent'", { :current_date => Date.today.to_s(:db) }] } }
+  named_scope :for_this_year, lambda { { :conditions => ["billing_date > :current_year", { :current_year => Date.today.at_beginning_of_year.to_s(:db) }] } }
+  named_scope :newly_created, lambda { |days| { :conditions => ["created_at > :time_period", { :time_period => (Date.today - days).to_s(:db) }] } }
   
   accepts_nested_attributes_for :invoice_lines
   
@@ -39,6 +44,12 @@ class Invoice < ActiveRecord::Base
   def total_amount
     total = 0
     invoice_lines.collect(&:total_amount).each { |amount| total += amount }
+    total
+  end
+  
+  def self.yearly_estimated_income
+    total = 0
+    for_this_year.collect(&:total_amount).each { |amount| total += amount }
     total
   end
   

@@ -22,7 +22,7 @@ namespace :db do
         invoice.payment_due_date = invoice.billing_date..(Date.today + 2.weeks)
         invoice.note             = Populator.paragraphs(0..3)
         invoice.client_id        = client.id
-        invoice.status           = "draft"
+        invoice.status           = ['draft', 'sent', 'paid']
                 
         InvoiceLine.populate 1..4 do |invoice_line|
           invoice_line.description = Populator.sentences(0..2)
