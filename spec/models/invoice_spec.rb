@@ -19,13 +19,26 @@ describe Invoice do
   
   it "should find last used invoice number" do
     2.times { Factory(:invoice) }
-    invoice = Invoice.new(@valid_attributes)
-    invoice.last_used_number.should == 2
+    invoice = Invoice.new(Factory.attributes_for(:invoice))
+    invoice.last_used_number.should == 3
   end
   
   it "should find last used invoice number if none have been created yet" do
     invoice = Factory.build(:invoice, :number => nil)
     invoice.last_used_number.should == 0
+  end
+  
+  it "should return total amount" do
+    invoice = Factory(:invoice)
+    3.times { Factory(:invoice_line, :invoice => invoice) }
+    invoice.total_amount.should == 75000
+  end
+  
+  context "aasm" do
+    it "should set status to 'draft' when created" do
+      invoice = Factory(:invoice)
+      invoice.status == 'draft'
+    end
   end
   
   context "validations" do
