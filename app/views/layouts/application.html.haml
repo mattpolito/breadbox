@@ -31,19 +31,12 @@
             %li
               %a{:href => "#"} Help
           %ul#navigation
-            %li= link_to "Dashboard", root_path
-            %li= link_to "Invoices", invoices_path
-            %li= link_to "Clients", clients_path
+            %li= link_to "Dashboard", root_path, active_tab(root_path)
+            %li= link_to "Invoices", invoices_path, active_tab(invoices_path)
+            %li= link_to "Clients", clients_path, active_tab(clients_path)
               
         #content
           = render_flash_messages
-          - if flash[:notice] 
-            %p.success
-              = flash[:notice]
-          - if flash[:error] 
-            %p.error
-              =# f.error_messages - Not sure if necessary 
-              = flash[:error]
           = yield
         #footer
           %p

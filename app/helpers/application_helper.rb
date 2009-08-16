@@ -17,4 +17,8 @@ module ApplicationHelper
       render(:partial => options[:partial], :locals => { options[:form_builder_local] => f })
     end
   end
+  
+  def active_tab(path)
+    current_page?(path) ? { :class => 'current' } : {}
+  end
 end
