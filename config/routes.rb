@@ -38,7 +38,7 @@ ActionController::Routing::Routes.draw do |map|
   # map.root :controller => "welcome"
   # map.root :invoices
   map.root :controller => "dashboard"
-  map.help '/home', :controller => "pages", :action => "home"
+  map.home '/home', :controller => "pages", :action => "home"
 
   # See how all your routes lay out with "rake routes"
 
