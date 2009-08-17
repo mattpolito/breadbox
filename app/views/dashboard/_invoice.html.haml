@@ -1,0 +1,19 @@
+- unless invoices.blank?
+  %table
+    %thead
+      %tr
+        %th Invoice Date
+        %th Invoice #
+        %th Client
+        %th Status
+        %th Total
+        %th Due
+    %tbody
+    - for invoice in invoices
+      %tr
+        %td=h invoice.billing_date.strftime("%m.%d.%Y")
+        %td= link_to h(invoice.number), invoice
+        %td=h invoice.client.name
+        %td=h invoice.status.humanize
+        %td= number_to_currency(invoice.total_amount)
+        %td=# h invoice.amount_due

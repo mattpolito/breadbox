@@ -12,6 +12,35 @@ describe Invoice do
   
   it { should belong_to(:client) }
   it { should have_many(:invoice_lines) }
+  
+  context ".yearly_estimated_income" do
+    it "should return total amount invoiced for current year" do
+      invoice = Factory(:invoice)
+      3.times { Factory(:invoice_line, :invoice => invoice) }
+      invoice2 = Factory(:invoice)
+      3.times { Factory(:invoice_line, :invoice => invoice2) }
+      invoice3 = Factory(:invoice, :billing_date => Date.today - 400.days)
+      3.times { Factory(:invoice_line, :invoice => invoice3) }
+      Invoice.yearly_estimated_income.should == 150000      
+    end
+  end
+  
+  context "overdue named_scope" do
+    it "should return all overdue invoices that have been 'sent'" do
+      2.times { Factory(:invoice, :status => 'sent', :payment_due_date => Date.today - 5.days )}
+      Factory(:invoice)
+      Invoice.overdue.size.should == 2
+    end
+  end
+  
+  context "newly_created named_scope" do
+    it "should return all invoices that have been created within the last week" do
+      2.times { Factory(:invoice) }
+      2.times { Factory(:invoice, :status => 'sent') }
+      2.times { Factory(:invoice, :created_at => Date.today - 7.days) }
+      Invoice.newly_created(5).size.should == 4
+    end
+  end
 
   it "should create a new instance given valid attributes" do
     Invoice.create!(@valid_attributes)
@@ -20,7 +49,7 @@ describe Invoice do
   it "should find last used invoice number" do
     2.times { Factory(:invoice) }
     invoice = Invoice.new(Factory.attributes_for(:invoice))
-    invoice.last_used_number.should == 3
+    invoice.last_used_number.should == Invoice.last.number
   end
   
   it "should find last used invoice number if none have been created yet" do

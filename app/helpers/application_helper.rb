@@ -21,4 +21,8 @@ module ApplicationHelper
   def active_tab(path)
     current_page?(path) ? { :class => 'current' } : {}
   end
+  
+  def current_year
+    Date.today.strftime("%Y")
+  end
 end
