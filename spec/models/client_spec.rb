@@ -1,20 +1,12 @@
 require File.expand_path(File.dirname(__FILE__) + '/../spec_helper')
 
 describe Client do
-  before(:each) do
-    @valid_attributes = {
-      :name => "value for name",
-      :email => "value for email",
-      :address => "value for address",
-      :phone => "value for phone",
-      :fax => "value for fax"
-    }
-  end
   
   it { should have_many :invoices }
+  it { should have_one :address }
 
   it "should create a new instance given valid attributes" do
-    Client.create!(@valid_attributes)
+    Client.create!(Factory.attributes_for(:client))
   end
   
   context "invoices" do

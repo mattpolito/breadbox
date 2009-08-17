@@ -8,7 +8,7 @@
     =h @client.email 
   %p
     %strong Address:
-    =h @client.address 
+    = @client.address.address_parts.join("<br />") 
   %p
     %strong Phone:
     =h @client.phone 

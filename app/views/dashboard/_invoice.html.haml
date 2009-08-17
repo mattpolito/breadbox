@@ -1,5 +1,4 @@
-#main_content
-  %h2 Invoices
+- unless invoices.blank?
   %table
     %thead
       %tr
@@ -10,16 +9,11 @@
         %th Total
         %th Due
     %tbody
-    - for invoice in @invoices
+    - for invoice in invoices
       %tr
         %td=h invoice.billing_date.strftime("%m.%d.%Y")
         %td= link_to h(invoice.number), invoice
         %td=h invoice.client.name
         %td=h invoice.status.humanize
-        %td=h number_to_currency(invoice.total_amount)
+        %td= number_to_currency(invoice.total_amount)
         %td=# h invoice.amount_due
-        
-  = will_paginate
-  
-#sidebar
-  = link_to 'Create A New Invoice', new_invoice_path, :id => 'new', :class => "button"

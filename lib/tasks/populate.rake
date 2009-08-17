@@ -4,17 +4,22 @@ namespace :db do
     # require 'populator'
     # require 'faker'
     
-    [Client, Invoice, InvoiceLine].each(&:delete_all)
+    [Address, Client, Invoice, InvoiceLine].each(&:delete_all)
     
     Client.populate 20 do |client|
-      client.name    = Faker::Name.name
-      client.email   = Faker::Internet.email
-      client.address = "#{Faker::Address.street_address}\n
-                        #{Faker::Address.city}\n
-                        #{Faker::Address.us_state_abbr}\n
-                        #{Faker::Address.zip_code}"
-      client.phone   = Faker::PhoneNumber.phone_number
-      client.fax     = Faker::PhoneNumber.phone_number
+      client.name       = Faker::Name.name
+      client.email      = Faker::Internet.email
+      client.phone      = Faker::PhoneNumber.phone_number
+      client.fax        = Faker::PhoneNumber.phone_number
+      
+      Address.populate 1 do |address|
+        address.street1   = Faker::Address.street_address
+        address.street2   = [Faker::Address.secondary_address, nil]
+        address.city      = Faker::Address.city
+        address.state     = Faker::Address.us_state_abbr
+        address.zipcode   = Faker::Address.zip_code
+        address.client_id = client.id
+      end
       
       Invoice.populate 2..5 do |invoice|
         invoice.number           = 1..5000
