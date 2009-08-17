@@ -11,8 +11,6 @@ describe Client do
   
   context "invoices" do
     it "should return total amount due for all open invoices"
-    
-    it "should return total number of pending invoices"
   end
   
   context "validations" do

@@ -28,6 +28,8 @@ class Invoice < ActiveRecord::Base
   named_scope :overdue, lambda { { :conditions => ["payment_due_date < :current_date AND status = 'sent'", { :current_date => Date.today.to_s(:db) }] } }
   named_scope :for_this_year, lambda { { :conditions => ["billing_date > :current_year", { :current_year => Date.today.at_beginning_of_year.to_s(:db) }] } }
   named_scope :newly_created, lambda { |days| { :conditions => ["created_at > :time_period", { :time_period => (Date.today - days).to_s(:db) }] } }
+  named_scope :order, lambda { |order| { :order => order } }
+  named_scope :pending, :conditions => ["status = 'draft' OR status = 'sent'"]
   
   accepts_nested_attributes_for :invoice_lines
   

@@ -41,6 +41,26 @@ describe Invoice do
       Invoice.newly_created(5).size.should == 4
     end
   end
+  
+  context "order named_scope" do
+    it "should add an order to the find query" do
+      invoice_1 = Factory(:invoice, :number => 10)
+      invoice_2 = Factory(:invoice, :number => 5)
+      invoice_3 = Factory(:invoice, :number => 15)
+      Invoice.all.size.should == 3
+      Invoice.all.second.should == invoice_2
+      Invoice.order('number DESC').second.should == invoice_1
+    end
+  end
+  
+  context "pending named_scope" do
+    it "should return all that have a status of 'draft' or 'sent'" do
+      2.times { Factory(:invoice, :status => 'paid') }
+      3.times { Factory(:invoice, :status => 'draft') }
+      4.times { Factory(:invoice, :status => 'sent') }
+      Invoice.pending.size.should == 7
+    end
+  end
 
   it "should create a new instance given valid attributes" do
     Invoice.create!(@valid_attributes)
