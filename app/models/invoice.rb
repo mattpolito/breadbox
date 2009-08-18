@@ -31,7 +31,7 @@ class Invoice < ActiveRecord::Base
   named_scope :order, lambda { |order| { :order => order } }
   named_scope :pending, :conditions => ["status = 'draft' OR status = 'sent'"]
   
-  accepts_nested_attributes_for :invoice_lines
+  accepts_nested_attributes_for :invoice_lines, :reject_if => lambda { |attributes| attributes.values.all?(&:blank?) }, :allow_destroy => true
   
   # Validations
   validates_presence_of :number
