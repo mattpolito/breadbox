@@ -19,6 +19,3 @@ function remove_fields(link) {
 function replace_id_of_new_line(link, regexp, new_id, content) {
   return content.replace(regexp, new_id)
 }
-// $(document).ready(function()  {
-//   $("table tbody tr:odd").addClass("striped");
-// });

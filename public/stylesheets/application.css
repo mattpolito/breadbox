@@ -241,6 +241,10 @@ table .striped {
   padding:1em 0;
 }
 
+#clients .client.selected {
+  background:#FFF3C0;
+}
+
 #clients .person {
   float:left;
 }
@@ -290,6 +294,8 @@ table .striped {
 .tools {
   background:#FFF3C0;
   border-top:1px solid #CC0000;
+  display:none;
+  margin:0 0 1em;
 }
 
 .tools li {
