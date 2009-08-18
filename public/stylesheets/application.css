@@ -54,11 +54,16 @@ border: none;
   list-style:none;
   margin:0;
   padding:0;
+  width:76%;
 }
 
 #header #navigation li {
   float:left;
   margin:0 0 0 0.4em;
+}
+
+#header #navigation li.settings {
+  float:right;
 }
 
 #header #navigation li a {
@@ -171,6 +176,27 @@ table .striped {
 #main_content .dashboard h3.overdue {
   color:#FFF;
   background:#A92B2F;
+}
+
+#main_content .dashboard table tbody tr td {
+  padding:0.2em;
+}
+
+#main_content .dashboard .status span {
+  color:#FFF;
+  display:block;
+  padding:0.1em 0.5em;
+  text-align:right;
+}
+
+#main_content .dashboard .status .paid {
+  background:#7A996B; 
+}
+#main_content .dashboard .status .draft {
+  background:#F4D561;
+}
+#main_content .dashboard .status .sent {
+  background:#994045;
 }
 
 /* Clients

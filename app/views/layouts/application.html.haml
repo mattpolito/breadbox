@@ -34,6 +34,7 @@
             %li= link_to "Dashboard", root_path, active_tab(root_path)
             %li= link_to "Invoices", invoices_path, active_tab(invoices_path)
             %li= link_to "Clients", clients_path, active_tab(clients_path)
+            %li.settings= link_to "Settings"
               
         #content
           = render_flash_messages
