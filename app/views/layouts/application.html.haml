@@ -12,10 +12,10 @@
     %link{ :href => "images/favicon.ico", :rel => "shortcut icon" }
     = stylesheet_link_tag 'screen', :cache => true
     = yield(:stylesheets)
-    =# javascript_include_tag :all, :cache => true
-    = javascript_include_tag 'jquery'
-    = javascript_include_tag 'application'
-    = javascript_include_tag 'pagination'
+    = javascript_include_tag :all, :cache => true
+    =# javascript_include_tag 'jquery'
+    =# javascript_include_tag 'application'
+    =# javascript_include_tag 'pagination'
 
     = yield(:javascript)
     %body
