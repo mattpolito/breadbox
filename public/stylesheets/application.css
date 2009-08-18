@@ -211,8 +211,8 @@ table .striped {
   display:block;
   padding:0.1em 0.5em;
   text-align:right;
-  -moz-border-radius: 3px;
-  -webkit-border-radius: 3px;
+  -moz-border-radius:2px;
+  -webkit-border-radius:2px;
 }
 
 #main_content .status .paid {
@@ -227,24 +227,52 @@ table .striped {
 
 /* Clients
 ------------------------------------------------*/
-#new_client {
+#edit_client fieldset {
   font-size:1.1em;
 }
 
-#new_client input.text {
+#edit_client fieldset input.text {
   font-size:1em;
 }
 
 #clients .client {
   border-bottom:1px solid #EEE;
+  overflow:hidden;
   padding:1em 0;
 }
 
-#clients .default .name {
+#clients .person {
+  float:left;
+}
+
+#clients .person label {
+  float:left;
+  margin:1em 0.5em;
+}
+
+#clients .person .avatar {
+  float:left;
+}
+
+#clients .person .person_info {
+  float:left;
+  margin:0 0.5em;
+}
+
+#clients .client .invoice_info {
+  clear:both;
+}
+
+#clients .client h3 {
+  float:right;
+  margin:1.2em 0.5em 0;
+}
+
+#clients .person_info .name {
   font-size:150%;
 }
 
-#clients .default .email {
+#clients .person_info .email {
   background:transparent url("/images/icons/email.png") 0 50% no-repeat;
   padding:0.2em 1.8em;
 }
@@ -252,6 +280,20 @@ table .striped {
 #clients .invoice_info .pending {
   background:transparent url("/images/icons/page_green.png") 0 50% no-repeat;
   padding:0.2em 1.8em;
+}
+
+.tools {
+  background:#FFF3C0;
+  border-top:1px solid #CC0000;
+}
+
+.tools li {
+  display:inline-block;
+  padding:0.5em 0.5em 0.5em 0;
+}
+
+.tools li a {
+  color:#CC0000;
 }
 
 /* Invoices

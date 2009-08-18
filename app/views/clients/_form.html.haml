@@ -1,5 +1,6 @@
 = f.error_messages
-%fieldset#new_client
+%fieldset
+  %legend Client Information
   %ul
     %li= f.label :name 
     %li= f.text_field :name, :class => "text"
@@ -10,20 +11,20 @@
     %li= f.label :fax 
     %li= f.text_field :fax, :class => "text"
     
-    - fields_for :address do |address|
-      %fieldset#address
-        %legend Address
-        %ul
-          %li= address.label :street_1, 'Street 1'
-          %li= address.text_field :street_1, :class => 'text'
-          %li= address.label :street_2, 'Street 2'
-          %li= address.text_field :street_2, :class => 'text'
-          %li= address.label :city
-          %li= address.text_field :city, :class => 'text'
-          %li= address.label :state
-          %li= address.text_field :state, :class => 'text'
-          %li= address.label :zipcode
-          %li= address.text_field :zipcode, :class => 'text'
-          %li= address.label :country
-          %li= address.text_field :country, :class => 'text'
-    %li= f.submit button_text
+- fields_for :address do |address|
+  %fieldset
+    %legend Address
+    %ul
+      %li= address.label :street_1, 'Street 1'
+      %li= address.text_field :street_1, :class => 'text'
+      %li= address.label :street_2, 'Street 2'
+      %li= address.text_field :street_2, :class => 'text'
+      %li= address.label :city
+      %li= address.text_field :city, :class => 'text'
+      %li= address.label :state
+      %li= address.text_field :state, :class => 'text'
+      %li= address.label :zipcode
+      %li= address.text_field :zipcode, :class => 'text'
+      %li= address.label :country
+      %li= address.text_field :country, :class => 'text'
+%p= f.submit button_text

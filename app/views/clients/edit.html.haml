@@ -1,7 +1,8 @@
 #main_content
   %h2 Editing Client
-  - form_for(@client) do |f| 
-    = render :partial => 'form', :locals => { :f => f, :button_text => 'Update' }
+  #edit_client
+    - form_for(@client) do |f| 
+      = render :partial => 'form', :locals => { :f => f, :button_text => 'Update' }
 
 #sidebar
   = link_to 'Cancel &amp; Go Back', :back, :class => "button", :id => "cancel"
