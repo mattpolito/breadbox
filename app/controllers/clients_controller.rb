@@ -40,11 +40,12 @@ class ClientsController < ApplicationController
   # POST /clients
   # POST /clients.xml
   def create
+    raise params.to_yaml
     @client = Client.new(params[:client])
 
     respond_to do |format|
       if @client.save
-        flash[:notice] = 'Client was successfully created.'
+        add_success 'Client was successfully created.'
         format.html { redirect_to(@client) }
         format.xml  { render :xml => @client, :status => :created, :location => @client }
       else
@@ -57,11 +58,12 @@ class ClientsController < ApplicationController
   # PUT /clients/1
   # PUT /clients/1.xml
   def update
+    raise params.to_yaml
     @client = Client.find(params[:id])
-
+    
     respond_to do |format|
       if @client.update_attributes(params[:client])
-        flash[:notice] = 'Client was successfully updated.'
+        add_success 'Client was successfully updated.'
         format.html { redirect_to(@client) }
         format.xml  { head :ok }
       else

@@ -27,10 +27,11 @@ class InvoicesController < ApplicationController
   # POST /invoices
   # POST /invoices.xml
   def create
+    raise params.to_yaml
     @invoice = Invoice.new(params[:invoice])
     
     if @invoice.save
-      add_notice 'Invoice was successfully created.'
+      add_success 'Invoice was successfully created.'
       redirect_to(@invoice)
     else
       render :new
@@ -43,7 +44,7 @@ class InvoicesController < ApplicationController
     @invoice = Invoice.find(params[:id])
     
     if @invoice.update_attributes(params[:invoice])
-      add_notice 'Invoice was successfully updated.'
+      add_success 'Invoice was successfully updated.'
       redirect_to(@invoice)
     else
       render :edit
