@@ -40,7 +40,6 @@ class ClientsController < ApplicationController
   # POST /clients
   # POST /clients.xml
   def create
-    raise params.to_yaml
     @client = Client.new(params[:client])
 
     respond_to do |format|
@@ -57,8 +56,7 @@ class ClientsController < ApplicationController
 
   # PUT /clients/1
   # PUT /clients/1.xml
-  def update
-    raise params.to_yaml
+  def update_attributes
     @client = Client.find(params[:id])
     
     respond_to do |format|
