@@ -247,7 +247,7 @@ table .striped {
 
 #clients .person label {
   float:left;
-  margin:1em 0.5em;
+  margin:2em 0.5em;
 }
 
 #clients .person .avatar {
@@ -265,21 +265,26 @@ table .striped {
 
 #clients .client h3 {
   float:right;
-  margin:1.2em 0.5em 0;
+  margin:2em 0.5em 0;
 }
 
 #clients .person_info .name {
   font-size:150%;
 }
 
-#clients .person_info .email {
-  background:transparent url("/images/icons/email.png") 0 50% no-repeat;
+#clients .person_info .email,
+#clients .person_info .pending {
+  color:#999;
+  font-size:90%;
   padding:0.2em 1.8em;
 }
 
-#clients .invoice_info .pending {
+#clients .person_info .email {
+  background:transparent url("/images/icons/email.png") 0 50% no-repeat;
+}
+
+#clients .person_info .pending {
   background:transparent url("/images/icons/page_green.png") 0 50% no-repeat;
-  padding:0.2em 1.8em;
 }
 
 .tools {
