@@ -1,19 +1,7 @@
 #main_content
   %h2 Editing Client
   - form_for(@client) do |f| 
-    %fieldset#new_client
-      %ul
-        %li= f.label :name 
-        %li= f.text_field :name, :class => "text"
-        %li= f.label :email 
-        %li= f.text_field :email, :class => "text"
-        %li= f.label :address 
-        %li= f.text_area :address, :class => "text"
-        %li= f.label :phone 
-        %li= f.text_field :phone, :class => "text"
-        %li= f.label :fax 
-        %li= f.text_field :fax, :class => "text"
-        %li= f.submit 'Update'
+    = render :partial => 'form', :locals => { :f => f, :button_text => 'Update' }
 
 #sidebar
   = link_to 'Cancel &amp; Go Back', :back, :class => "button", :id => "cancel"
