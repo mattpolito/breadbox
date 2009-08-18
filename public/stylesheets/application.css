@@ -142,6 +142,19 @@ border: none;
   text-shadow:-1px -1px 1px #333;
 }
 
+#content #main_content h2 .toggle_view a {
+  color:#FFF;
+  font-size:75%;
+  float:right;
+  margin:0.2em 0 0 0.5em;
+  text-shadow:none;
+}
+
+#content #main_content h2 .toggle_view a.active {
+  color:#CCC;
+  text-decoration:none;
+}
+
 #content #main_content table {
   width:100%;
 }
@@ -178,24 +191,35 @@ table .striped {
   background:#A92B2F;
 }
 
-#main_content .dashboard table tbody tr td {
+#main_content table tbody tr td {
+  border-bottom:1px solid #EEEEEE;
   padding:0.2em;
 }
 
-#main_content .dashboard .status span {
+#main_content table .status,
+#main_content table .invoice_number,
+#main_content table .total {
+  width:10%;
+}
+
+#main_content table .invoice_date {
+  width:20%;
+}
+
+#main_content .status span {
   color:#FFF;
   display:block;
   padding:0.1em 0.5em;
   text-align:right;
 }
 
-#main_content .dashboard .status .paid {
+#main_content .status .paid {
   background:#7A996B; 
 }
-#main_content .dashboard .status .draft {
+#main_content .status .draft {
   background:#F4D561;
 }
-#main_content .dashboard .status .sent {
+#main_content .status .sent {
   background:#994045;
 }
 
@@ -207,6 +231,25 @@ table .striped {
 
 #new_client input.text {
   font-size:1em;
+}
+
+#clients .client {
+  border-bottom:1px solid #EEE;
+  padding:1em 0;
+}
+
+#clients .default .name {
+  font-size:150%;
+}
+
+#clients .default .email {
+  background:transparent url("/images/icons/email.png") 0 50% no-repeat;
+  padding:0.2em 1.8em;
+}
+
+#clients .invoice_info .pending {
+  background:transparent url("/images/icons/page_green.png") 0 50% no-repeat;
+  padding:0.2em 1.8em;
 }
 
 /* Invoices

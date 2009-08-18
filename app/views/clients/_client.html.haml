@@ -1,16 +1,14 @@
 - div_for(client) do
-  .default
-    = link_to h(client.name), client
-    Email:
-    =h client.email
-    = link_to 'Edit', edit_client_path(client)
-    |
-    = link_to 'Delete', client, :confirm => 'Are you sure?', :method => :delete
-  
+  %ul.default
+    %li.name= link_to h(client.name), client
+    %li.email=h client.email
   %ul.invoice_info
-    %li
+    %li.pending
       Number of pending invoices: 
       = client.number_of_pending_invoices
     %li
       Total amount due:
       =# client.total_amount_due
+  %ul.tools
+    %li= link_to 'Edit', edit_client_path(client)
+    %li= link_to 'Delete', client, :confirm => 'Are you sure?', :method => :delete

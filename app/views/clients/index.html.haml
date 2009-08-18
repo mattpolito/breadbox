@@ -1,5 +1,9 @@
 #main_content
-  %h2 Listing Clients
+  %h2 
+    Listing Clients
+    %span.toggle_view
+      %a{:href => "#"} List View
+      %a.active{:href => "#"} Expanded View
   #clients
     = render @clients
   
