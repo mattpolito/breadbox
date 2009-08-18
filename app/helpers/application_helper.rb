@@ -19,7 +19,7 @@ module ApplicationHelper
   end
   
   def active_tab(path)
-    current_page?(path) ? { :class => 'current' } : {}
+    current_page?(path) ? { :class => 'active' } : {}
   end
   
   def current_year
