@@ -1,0 +1,20 @@
+h1. Bread Box
+
+h2. __"It's where you keep your dough!"__
+
+Bread Box is simple invoicing with the freelancer in mind.
+
+To get started:
+
+# git clone http://github.com/mattpolito/bread_box.git
+
+# rake db:create
+
+# rake db:migrate
+
+# rake db:populate __( if you want fake data added )__
+
+# Start your server
+
+# Enjoy!
+
