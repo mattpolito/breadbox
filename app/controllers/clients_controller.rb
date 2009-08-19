@@ -25,7 +25,7 @@ class ClientsController < ApplicationController
   # GET /clients/new.xml
   def new
     @client = Client.new
-    @client.address = Address.new
+    @client.build_address
 
     respond_to do |format|
       format.html # new.html.erb
@@ -36,7 +36,7 @@ class ClientsController < ApplicationController
   # GET /clients/1/edit
   def edit
     @client = Client.find(params[:id])
-    @client.address.present? ? {} : @client.address = Address.new
+    @client.build_address unless @client.address.present?
   end
 
   # POST /clients
