@@ -30,6 +30,7 @@ class Invoice < ActiveRecord::Base
   named_scope :newly_created, lambda { |days| { :conditions => ["created_at > :time_period", { :time_period => (Date.today - days).to_s(:db) }] } }
   named_scope :order, lambda { |order| { :order => order } }
   named_scope :pending, :conditions => ["status = 'draft' OR status = 'sent'"]
+  named_scope :limit, lambda { |number| { :limit => (number) } }
   
   accepts_nested_attributes_for :invoice_lines, :reject_if => lambda { |attributes| attributes.values.all?(&:blank?) }, :allow_destroy => true
   

@@ -29,7 +29,7 @@ describe Invoice do
     it "should return all overdue invoices that have been 'sent'" do
       2.times { Factory(:invoice, :status => 'sent', :payment_due_date => Date.today - 5.days )}
       Factory(:invoice)
-      Invoice.overdue.size.should == 2
+      Invoice.overdue.should have(2).invoices
     end
   end
   
@@ -38,12 +38,12 @@ describe Invoice do
       2.times { Factory(:invoice) }
       2.times { Factory(:invoice, :status => 'sent') }
       2.times { Factory(:invoice, :created_at => Date.today - 7.days) }
-      Invoice.newly_created(5).size.should == 4
+      Invoice.newly_created(5).should have(4).invoices
     end
   end
   
   context "order named_scope" do
-    it "should add an order to the find query" do
+    it "should add order to the find query" do
       invoice_1 = Factory(:invoice, :number => 10)
       invoice_2 = Factory(:invoice, :number => 5)
       invoice_3 = Factory(:invoice, :number => 15)
@@ -58,7 +58,15 @@ describe Invoice do
       2.times { Factory(:invoice, :status => 'paid') }
       3.times { Factory(:invoice, :status => 'draft') }
       4.times { Factory(:invoice, :status => 'sent') }
-      Invoice.pending.size.should == 7
+      Invoice.pending.should have(7).invoices
+    end
+  end
+  
+  context "limit named_scope" do
+    it "should add limit to the find query" do
+      4.times { Factory(:invoice)}
+      Invoice.all.should have(4).invoices
+      Invoice.limit(2).should have(2).invoices
     end
   end
 
@@ -66,15 +74,17 @@ describe Invoice do
     Invoice.create!(@valid_attributes)
   end
   
-  it "should find last used invoice number" do
-    2.times { Factory(:invoice) }
-    invoice = Invoice.new(Factory.attributes_for(:invoice))
-    invoice.last_used_number.should == Invoice.last.number
-  end
-  
-  it "should find last used invoice number if none have been created yet" do
-    invoice = Factory.build(:invoice, :number => nil)
-    invoice.last_used_number.should == 0
+  describe "last used number" do
+    it "should find last used invoice number" do
+      2.times { Factory(:invoice) }
+      invoice = Invoice.new(Factory.attributes_for(:invoice))
+      invoice.last_used_number.should == Invoice.last.number
+    end
+
+    it "should find last used invoice number if none have been created yet" do
+      invoice = Factory.build(:invoice, :number => nil)
+      invoice.last_used_number.should == 0
+    end
   end
   
   it "should return total amount" do
@@ -83,14 +93,14 @@ describe Invoice do
     invoice.total_amount.should == 75000
   end
   
-  context "aasm" do
+  describe "aasm" do
     it "should set status to 'draft' when created" do
       invoice = Factory(:invoice)
       invoice.status == 'draft'
     end
   end
   
-  context "validations" do
+  describe "validations" do
     it "should require number" do
       Factory.build(:invoice, :number => nil).should_not be_valid
     end
