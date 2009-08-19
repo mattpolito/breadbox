@@ -1,44 +1,35 @@
 --- !ruby/object:Gem::Specification 
-name: cwninja-inaction_mailer
+name: gravtastic
 version: !ruby/object:Gem::Version 
-  version: "0.6"
+  version: 2.0.0
 platform: ruby
-authors: 
-- Tom Lea
+authors: []
+
 autorequire: 
 bindir: bin
 cert_chain: []
 
-date: 2009-01-12 00:00:00 -06:00
+date: 2009-08-19 00:00:00 -05:00
 default_executable: 
 dependencies: []
 
-description: An ActionMailer delivery mechanism to save mails as files in a directory.
-email: commits@tomlea.co.uk
+description: 
+email: 
 executables: []
 
 extensions: []
 
-extra_rdoc_files: 
-- README.markdown
+extra_rdoc_files: []
+
 files: 
-- Rakefile
-- README.markdown
-- lib/inaction_mailer/force_load.rb
-- lib/inaction_mailer.rb
-- test/functional_test.rb
-- test/test_helper.rb
-- rails/init.rb
+- lib
 has_rdoc: true
 homepage: 
 licenses: []
 
 post_install_message: 
-rdoc_options: 
-- --line-numbers
-- --inline-source
-- --main
-- README.markdown
+rdoc_options: []
+
 require_paths: 
 - lib
 required_ruby_version: !ruby/object:Gem::Requirement 
@@ -58,7 +49,7 @@ requirements: []
 rubyforge_project: 
 rubygems_version: 1.3.4
 signing_key: 
-specification_version: 2
-summary: An ActionMailer delivery mechanism to save mails as files in a directory.
-test_files: 
-- test/functional_test.rb
+specification_version: 3
+summary: 
+test_files: []
+
