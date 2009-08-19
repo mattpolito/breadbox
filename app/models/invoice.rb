@@ -23,6 +23,7 @@ class Invoice < ActiveRecord::Base
   # Associations
   belongs_to :client
   has_many :invoice_lines, :dependent => :destroy
+  has_many :payments, :dependent => :destroy
   
   # Scopes
   named_scope :overdue, lambda { { :conditions => ["payment_due_date < :current_date AND status = 'sent'", { :current_date => Date.today.to_s(:db) }] } }

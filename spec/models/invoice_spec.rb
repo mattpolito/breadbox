@@ -12,6 +12,7 @@ describe Invoice do
   
   it { should belong_to(:client) }
   it { should have_many(:invoice_lines) }
+  it { should have_many(:payments) }
   
   context ".yearly_estimated_income" do
     it "should return total amount invoiced for current year" do
