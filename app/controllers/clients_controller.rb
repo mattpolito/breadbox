@@ -25,6 +25,7 @@ class ClientsController < ApplicationController
   # GET /clients/new.xml
   def new
     @client = Client.new
+    @client.address = Address.new
 
     respond_to do |format|
       format.html # new.html.erb
@@ -35,6 +36,7 @@ class ClientsController < ApplicationController
   # GET /clients/1/edit
   def edit
     @client = Client.find(params[:id])
+    @client.address.present? ? {} : @client.address = Address.new
   end
 
   # POST /clients
@@ -56,7 +58,7 @@ class ClientsController < ApplicationController
 
   # PUT /clients/1
   # PUT /clients/1.xml
-  def update_attributes
+  def update
     @client = Client.find(params[:id])
     
     respond_to do |format|
