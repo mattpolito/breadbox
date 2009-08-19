@@ -11,14 +11,14 @@
     %li= f.label :fax 
     %li= f.text_field :fax, :class => "text"
     
-- fields_for :address do |address|
+- f.fields_for :address do |address|
   %fieldset
     %legend Address
     %ul
-      %li= address.label :street_1, 'Street 1'
-      %li= address.text_field :street_1, :class => 'text'
-      %li= address.label :street_2, 'Street 2'
-      %li= address.text_field :street_2, :class => 'text'
+      %li= address.label :street1, 'Street 1'
+      %li= address.text_field :street1, :class => 'text'
+      %li= address.label :street2, 'Street 2'
+      %li= address.text_field :street2, :class => 'text'
       %li= address.label :city
       %li= address.text_field :city, :class => 'text'
       %li= address.label :state
