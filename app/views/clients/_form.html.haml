@@ -2,8 +2,12 @@
 %fieldset
   %legend Client Information
   %ul
-    %li= f.label :name 
-    %li= f.text_field :name, :class => "text"
+    %li= f.label :first_name 
+    %li= f.text_field :first_name, :class => "text"
+    %li= f.label :last_name 
+    %li= f.text_field :last_name, :class => "text"
+    %li= f.label :company_name 
+    %li= f.text_field :company_name, :class => "text"
     %li= f.label :email 
     %li= f.text_field :email, :class => "text"
     %li= f.label :phone 
