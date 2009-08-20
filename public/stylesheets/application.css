@@ -287,8 +287,8 @@ table .striped {
 }
 
 #clients .client h3 span {
-  -moz-border-radius: 12px;
-  -webkit-border-radius: 12px;
+  -moz-border-radius: 10px;
+  -webkit-border-radius: 10px;
   color:#FFF;
   display:inline-block;
   font-size:80%;
