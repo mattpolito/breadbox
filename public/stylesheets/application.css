@@ -266,6 +266,7 @@ table .striped {
   height:18px;
   left:0;
   overflow:hidden;
+  padding:0.1em 0 0;
   position:absolute;
   text-align:center;
   width:75px;
@@ -286,12 +287,20 @@ table .striped {
 }
 
 #clients .client h3 span {
-  background:#993B2E;
   -moz-border-radius: 12px;
   -webkit-border-radius: 12px;
   color:#FFF;
+  display:inline-block;
   font-size:80%;
   padding:0.2em 0.5em;
+}
+
+#clients .client h3 span.due {
+  background:#993B2E;
+}
+
+#clients .client h3 span.pending {
+  background:#394D7E;
 }
 
 #clients .person_info .name {
@@ -299,7 +308,7 @@ table .striped {
 }
 
 #clients .person_info .email,
-#clients .person_info .pending {
+#clients .person_info .phone {
   color:#999;
   font-size:90%;
   padding:0.2em 1.8em;
@@ -309,8 +318,8 @@ table .striped {
   background:transparent url("/images/icons/email.png") 0 50% no-repeat;
 }
 
-#clients .person_info .pending {
-  background:transparent url("/images/icons/page_green.png") 0 50% no-repeat;
+#clients .person_info .phone {
+  background:transparent url("/images/icons/telephone.png") 0 50% no-repeat;
 }
 
 .tools {
