@@ -1,3 +1,8 @@
+@font-face {
+	font-family: JD;
+	src: url('/fonts/jd.ttf');
+}
+
 body {
   background:#EEE;
   font:62.5%/1.5 "Helvetica Neue", Arial, Helvetica, sans-serif;
@@ -142,16 +147,16 @@ border: none;
   text-shadow:-1px -1px 1px #333;
 }
 
-#content #main_content table {
+#main_content table {
   width:100%;
 }
 
-#content #main_content table thead tr {
+#main_content table thead tr {
   background:#CCC;
   color:#222;
 }
 
-#content #main_content table thead tr th {
+#main_content table thead tr th {
   font-weight:bold;
   padding:0.4em;
 }
@@ -163,9 +168,16 @@ table .striped {
 /* Dashboard
 ------------------------------------------------*/
 
+#main_content .dashboard table {
+  float:right;
+  margin:0 0 2em;
+  width:98%;
+}
+
 #main_content .dashboard h3 {
   background:#7DAAFF;
   color:#FFF;
+  clear:both;
   font-weight:bold;
   -moz-border-radius: 3px;
   -webkit-border-radius: 3px;
@@ -180,7 +192,7 @@ table .striped {
 
 #main_content table tbody tr td {
   border-bottom:1px solid #EEEEEE;
-  padding:0.2em;
+  padding:0.4em;
 }
 
 #main_content table .status,
@@ -237,7 +249,26 @@ table .striped {
 }
 
 #clients .person .avatar {
+  border:2px solid #FFF;
+  -webkit-box-shadow: 0 0 5px #333;
+  -moz-box-shadow: 0 0 5px #333;
+  color:#333;
   float:left;
+  margin:0 0.5em;
+  position:relative;
+  text-decoration:none;
+}
+
+#clients .person .avatar label {
+  background:#FFF;
+  bottom:0;
+  font-family: "JD", sans-serif;
+  height:18px;
+  left:0;
+  overflow:hidden;
+  position:absolute;
+  text-align:center;
+  width:75px;
 }
 
 #clients .person .person_info {
