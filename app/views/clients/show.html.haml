@@ -1,20 +1,19 @@
 #main_content
   %h2=h @client.name
-  %p
-    %strong Name:
-    =h @client.name 
-  %p
-    %strong Email:
-    =h @client.email 
-  %p
-    %strong Address:
-    = @client.address.address_parts.join("<br />") unless @client.address.blank?
-  %p
-    %strong Phone:
-    =h @client.phone 
-  %p
-    %strong Fax:
-    =h @client.fax 
+  %ul
+    %li
+      %strong Email:
+      %a.email{ :href => "#email", :onclick => "javascript:nospam('user','domain.com')" }=h @client.email 
+    %li
+      %strong Address:
+      %ul
+        %li= @client.address.address_parts.join("<li>") unless @client.address.blank?
+    %li
+      %strong Phone:
+      =h @client.phone 
+    %li
+      %strong Fax:
+      =h @client.fax 
 
 
 #sidebar
