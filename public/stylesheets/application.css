@@ -161,6 +161,11 @@ border: none;
   color:#222;
 }
 
+#main_content table thead tr {
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+}
+
 #main_content table thead tr th {
   font-weight:bold;
   padding:0.4em;
@@ -235,8 +240,25 @@ table .striped {
   font-size:1.1em;
 }
 
+#edit_client label {
+  color:#555;
+  display:inline-block;
+  width:6em;
+}
+
+#edit_client fieldset {
+  border:none;
+  border-bottom:1px solid #EEE;
+  margin:0;
+}
+
+#edit_client fieldset.last {
+  border:none;
+}
+
 #edit_client fieldset input.text {
   font-size:1em;
+  padding:0.5em;
 }
 
 #clients .client {
@@ -362,10 +384,6 @@ table .striped {
 
 #client_submit:active,
 #invoice_submit:active { background-position:0 -84px; }
-
-#main_content fieldset label {
-  display:block;
-}
 
 #main_content fieldset label.currency {
   float:left;

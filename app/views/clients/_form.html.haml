@@ -1,34 +1,44 @@
 = f.error_messages
 %fieldset
-  %legend Client Information
   %ul
-    %li= f.label :first_name 
-    %li= f.text_field :first_name, :class => "text"
-    %li= f.label :last_name 
-    %li= f.text_field :last_name, :class => "text"
-    %li= f.label :company_name 
-    %li= f.text_field :company_name, :class => "text"
-    %li= f.label :email 
-    %li= f.text_field :email, :class => "text"
-    %li= f.label :phone 
-    %li= f.text_field :phone, :class => "text"
-    %li= f.label :fax 
-    %li= f.text_field :fax, :class => "text"
+    %li
+      = f.label :first_name 
+      = f.text_field :first_name, :class => "text"
+    %li
+      = f.label :last_name 
+      = f.text_field :last_name, :class => "text"
+    %li
+      = f.label :company
+      = f.text_field :company_name, :class => "text"
+    %li
+      = f.label :email 
+      = f.text_field :email, :class => "text"
+    %li
+      = f.label :phone 
+      = f.text_field :phone, :class => "text"
+    %li
+      = f.label :fax 
+      = f.text_field :fax, :class => "text"
     
 - f.fields_for :address do |address|
-  %fieldset
-    %legend Address
+  %fieldset.last
     %ul
-      %li= address.label :street1, 'Street 1'
-      %li= address.text_field :street1, :class => 'text'
-      %li= address.label :street2, 'Street 2'
-      %li= address.text_field :street2, :class => 'text'
-      %li= address.label :city
-      %li= address.text_field :city, :class => 'text'
-      %li= address.label :state
-      %li= address.text_field :state, :class => 'text'
-      %li= address.label :zipcode
-      %li= address.text_field :zipcode, :class => 'text'
-      %li= address.label :country
-      %li= address.text_field :country, :class => 'text'
+      %li
+        = address.label :street1, 'Street 1'
+        = address.text_field :street1, :class => 'text'
+      %li
+        = address.label :street2, 'Street 2'
+        = address.text_field :street2, :class => 'text'
+      %li
+        = address.label :city
+        = address.text_field :city, :class => 'text'
+      %li
+        = address.label :state
+        = address.text_field :state, :class => 'text'
+      %li
+        = address.label :zipcode
+        = address.text_field :zipcode, :class => 'text'
+      %li
+        = address.label :country
+        = address.text_field :country, :class => 'text'
 %p= f.submit button_text
