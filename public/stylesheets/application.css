@@ -147,6 +147,11 @@ border: none;
   text-shadow:-1px -1px 1px #333;
 }
 
+#content #main_content h2 img {
+  float:left;
+  margin:-0.4em 1em 0 -0.4em;
+}
+
 #main_content table {
   width:100%;
 }
