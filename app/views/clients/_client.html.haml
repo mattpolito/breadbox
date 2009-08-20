@@ -1,9 +1,7 @@
 - div_for(client) do
   .person
-    %label
-      %input.checkbox{:type => "checkbox"}
     %a.avatar{:href => "#"}
-      %img{:src => "/images/logo.png", :width => "75px", :height => "75px"}
+      %img{:src => "/images/client.png", :width => "75px", :height => "75px"}
     %ul.person_info
       %li.name= link_to h(client.name), client
       %li.email=h client.email
@@ -11,5 +9,8 @@
         Number of pending invoices: 
         = client.number_of_pending_invoices
   %h3
-    %strong $467.00
+    %span
+      Amount Due
+      %strong 
+        $467.00
     =# client.total_amount_due

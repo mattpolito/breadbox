@@ -142,19 +142,6 @@ border: none;
   text-shadow:-1px -1px 1px #333;
 }
 
-#content #main_content h2 .toggle_view a {
-  color:#FFF;
-  font-size:75%;
-  float:right;
-  margin:0.2em 0 0 0.5em;
-  text-shadow:none;
-}
-
-#content #main_content h2 .toggle_view a.active {
-  color:#CCC;
-  text-decoration:none;
-}
-
 #content #main_content table {
   width:100%;
 }
@@ -249,11 +236,6 @@ table .striped {
   float:left;
 }
 
-#clients .person label {
-  float:left;
-  margin:2em 0.5em;
-}
-
 #clients .person .avatar {
   float:left;
 }
@@ -270,6 +252,15 @@ table .striped {
 #clients .client h3 {
   float:right;
   margin:2em 0.5em 0;
+}
+
+#clients .client h3 span {
+  background:#993B2E;
+  -moz-border-radius: 12px;
+  -webkit-border-radius: 12px;
+  color:#FFF;
+  font-size:80%;
+  padding:0.2em 0.5em;
 }
 
 #clients .person_info .name {

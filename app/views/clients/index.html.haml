@@ -1,13 +1,5 @@
 #main_content
-  %h2 
-    Listing Clients
-    %span.toggle_view
-      %a{:href => "#"} List View
-      %a.active{:href => "#"} Expanded View
-  %ul.tools
-    %li= link_to 'Delete this person', :confirm => 'Are you sure?', :method => :delete
-    %li or
-    %li= link_to 'Edit this person'
+  %h2 Listing Clients
   #clients
     = render @clients
   
