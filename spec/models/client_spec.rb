@@ -13,11 +13,18 @@ describe Client do
     it "should return total amount due for all open invoices"
   end
   
-  context "validations" do
-    it "should require name" do
-      client = Factory.build(:client, :name => nil)
-      client.should_not be_valid
+  describe "name" do
+    it "should return full name" do
+      client = Factory(:client)
+      client.name.should == "First Last"
     end
+  end
+  
+  context "validations" do
+    # it "should require name" do
+    #   client = Factory.build(:client, :name => nil)
+    #   client.should_not be_valid
+    # end
     
     it "should require an email address" do
       client = Factory.build(:client, :email => nil)

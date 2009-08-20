@@ -7,10 +7,12 @@ namespace :db do
     [Address, Client, Invoice, InvoiceLine].each(&:delete_all)
     
     Client.populate 20 do |client|
-      client.name       = Faker::Name.name
-      client.email      = Faker::Internet.email
-      client.phone      = Faker::PhoneNumber.phone_number
-      client.fax        = Faker::PhoneNumber.phone_number
+      client.first_name   = Faker::Name.first_name
+      client.last_name    = Faker::Name.last_name
+      # client.company_name = Faker::Company.name
+      client.email        = Faker::Internet.email
+      client.phone        = Faker::PhoneNumber.phone_number
+      client.fax          = Faker::PhoneNumber.phone_number
       
       Address.populate 1 do |address|
         address.street1   = Faker::Address.street_address
