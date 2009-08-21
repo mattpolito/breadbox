@@ -41,6 +41,7 @@ border: none;
 
 #wrapper #header {
   background:#004585 url("/images/header_bg.jpg") 0 -400px repeat-x;
+  min-width:96em;
   overflow:hidden;
   padding:0 2.8em;
 }
@@ -123,7 +124,7 @@ border: none;
 
 #content {
   margin:0 1em;
-  min-width:80em;
+  min-width:96em;
   overflow:hidden;
   padding:2em;
 }

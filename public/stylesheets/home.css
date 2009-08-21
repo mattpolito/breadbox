@@ -1,13 +1,15 @@
 @import url("reset.css");
 
 body {
-  background:#EEE;
+  background:#222;
   font:62.5%/1.5 "Helvetica Neue", Arial, Helvetica, sans-serif;
   margin:0;
 }
 
 #logo {
   background:transparent url("/images/logo.png") 0 0 no-repeat;
+  -webkit-box-shadow: 0 0 10px #000;
+  -moz-box-shadow: 0 0 10px #000;
   display:block;
   height:80px;
   margin:10% auto 0;

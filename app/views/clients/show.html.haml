@@ -5,7 +5,7 @@
   %ul
     %li
       %strong Email:
-      %a.email{ :href => "#email", :onclick => "javascript:nospam('user','domain.com')" }=h @client.email 
+      %a.email{ :href => "mailto:#{@client.email}" }=h @client.email 
     %li
       %strong Address:
       %ul
