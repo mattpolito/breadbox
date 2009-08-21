@@ -1,18 +1,20 @@
 = f.error_messages
-.field
-  = f.label :first_name
-  = f.text_field :first_name
-.field
-  = f.label :last_name
-  = f.text_field :last_name
-.field
-  = f.label :email
-  = f.text_field :email
-.field
-  = f.label :password, f.object.new_record? ? nil : "Change password"
-  = f.password_field :password
-.field
-  = f.label :password_confirmation
-  = f.password_field :password_confirmation
-.field
-  = f.submit button_text
+%fieldset.default.last
+  %ul
+    %li
+      = f.label :first_name
+      = f.text_field :first_name, :class => "text"
+    %li
+      = f.label :last_name
+      = f.text_field :last_name, :class => "text"
+    %li
+      = f.label :email
+      = f.text_field :email, :class => "text"
+    %li
+      = f.label :password, f.object.new_record? ? nil : "Change password"
+      = f.password_field :password, :class => "text"
+    %li
+      = f.label :confirm
+      = f.password_field :password_confirmation, :class => "text"
+    %li
+      = f.submit button_text

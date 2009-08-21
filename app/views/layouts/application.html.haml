@@ -22,9 +22,9 @@
         #header
           %a#logo{:href => "/"}
           %ul#user
-            %li.user John Appleseed
-            %li 
-              %a{:href => "#"} My info
+            %li.user=h @current_user.name
+            %li
+              %a= link_to 'My info', current_user
             %li
               %a{:href => "#"} Log-out
             %li

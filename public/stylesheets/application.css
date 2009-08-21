@@ -237,27 +237,24 @@ table .striped {
 
 /* Clients
 ------------------------------------------------*/
-#edit_client fieldset {
+.default {
+  border:none;
+  border-bottom:1px solid #EEE;
   font-size:1.1em;
+  margin:0;
 }
 
-#edit_client label {
+.default label {
   color:#555;
   display:inline-block;
   width:6em;
 }
 
-#edit_client fieldset {
-  border:none;
-  border-bottom:1px solid #EEE;
-  margin:0;
-}
-
-#edit_client fieldset.last {
+.default.last {
   border:none;
 }
 
-#edit_client fieldset input.text {
+.default input.text {
   font-size:1em;
   padding:0.5em;
 }

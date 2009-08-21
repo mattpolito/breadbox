@@ -1,4 +1,7 @@
-%h1 Register
+#main_content
+  %h2 Register new user
+  - form_for @user do |f| 
+    = render :partial => "form", :locals => { :f => f, :button_text => 'Register' }
 
-- form_for @user do |f|
-  = render :partial => "form", :locals => { :f => f, :button_text => 'Register' }
+#sidebar
+  = link_to 'Cancel &amp; Go Back', :back, :class => "button", :id => "cancel"

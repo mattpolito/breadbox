@@ -1,5 +1,5 @@
 = f.error_messages
-%fieldset
+%fieldset.default 
   %ul
     %li
       = f.label :first_name 
@@ -21,7 +21,7 @@
       = f.text_field :fax, :class => "text"
     
 - f.fields_for :address do |address|
-  %fieldset.last
+  %fieldset.default.last
     %ul
       %li
         = address.label :street1, 'Street 1'

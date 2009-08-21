@@ -1,6 +1,7 @@
-%h2= "Edit #{@user.name}"
+#main_content
+  %h2= "Edit #{@user.name}"
+  - form_for @user do |f|
+    = render :partial => "form", :locals => { :f => f, :button_text => 'Update' }
 
-- form_for @user do |f|
-  = render :partial => "form", :locals => { :f => f, :button_text => 'Update' }
-
-%p= link_to "Back to Dashboard", root_url
+#sidebar
+  = link_to "Cancel &amp; Go Back", root_url, :class => "button", :id => "cancel"

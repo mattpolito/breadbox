@@ -1,29 +1,28 @@
-.row
-  %strong Email:
-  =h @user.email
+#main_content
+  %h2=h @user.name
+  %ul
+    %li
+      %label Email:
+      =h @user.email
+    %li
+      %label Login count:
+      =h @user.login_count
+    %li
+      %label Last request at:
+      =h @user.last_request_at
+    %li
+      %label Last login at:
+      =h @user.last_login_at
+    %li
+      %label Current login at:
+      =h @user.current_login_at
+    %li
+      %label Last login ip:
+      =h @user.last_login_ip
+    %li
+      %label Current login ip:
+      =h @user.current_login_ip
 
-.row
-  %strong Login count:
-  =h @user.login_count
-  
-.row
-  %strong Last request at:
-  =h @user.last_request_at
+  / %p= link_to 'Edit', edit_account_path
 
-.row
-  %strong Last login at:
-  =h @user.last_login_at
-
-.row
-  %strong Current login at:
-  =h @user.current_login_at
-
-.row
-  %strong Last login ip:
-  =h @user.last_login_ip
-
-.row
-  %strong Current login ip:
-  =h @user.current_login_ip
-
-%p= link_to 'Edit', edit_account_path
+#sidebar
