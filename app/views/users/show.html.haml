@@ -1,0 +1,29 @@
+.row
+  %strong Email:
+  =h @user.email
+
+.row
+  %strong Login count:
+  =h @user.login_count
+  
+.row
+  %strong Last request at:
+  =h @user.last_request_at
+
+.row
+  %strong Last login at:
+  =h @user.last_login_at
+
+.row
+  %strong Current login at:
+  =h @user.current_login_at
+
+.row
+  %strong Last login ip:
+  =h @user.last_login_ip
+
+.row
+  %strong Current login ip:
+  =h @user.current_login_ip
+
+%p= link_to 'Edit', edit_account_path
