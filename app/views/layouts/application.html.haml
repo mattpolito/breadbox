@@ -27,14 +27,15 @@
                 %span.admin Admin
               =h current_user.name
             %li= link_to 'My info', current_user
-            %li
-              %a{:href => "#"} Log-out
+            %li= link_to 'Logout', logout_path
             %li
               %a{:href => "#"} Help
           %ul#navigation
             %li= link_to "Dashboard", root_path, active_tab(root_path)
             %li= link_to "Invoices", invoices_path, active_tab(invoices_path)
             %li= link_to "Clients", clients_path, active_tab(clients_path)
+            - if current_user.admin?
+              %li= link_to "Users", users_path, active_tab(users_path)
             %li.settings= link_to "Settings"
               
         #content
