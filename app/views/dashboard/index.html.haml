@@ -24,11 +24,11 @@
     = number_to_currency(@estimated_total_for_year)
 #totals
   %h4 
-    New Invoices
-    %span 10
+    New Invoices:
+    %span= @total_newly_created_invoices_count
   %h4 
-    Sent Invoices
-    %span 16
+    Sent Invoices:
+    %span= @total_sent_invoices_count
   %h4 
-    Paid Invoices
-    %span 12
+    Paid Invoices:
+    %span= @total_paid_invoices_count
