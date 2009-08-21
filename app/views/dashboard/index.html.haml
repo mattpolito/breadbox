@@ -7,11 +7,11 @@
     %h3 Newly Created Invoices
     = render :partial => 'invoice', :locals => { :invoices => @new_invoices }
         
-    %h3 Open Invoices
-    = render :partial => 'invoice', :locals => { :invoices => @new_invoices }
+    %h3 Recently Sent Invoices
+    = render :partial => 'invoice', :locals => { :invoices => @sent_invoices }
     
     %h3 Recently Paid Invoices
-    = render :partial => 'invoice', :locals => { :invoices => @new_invoices }
+    = render :partial => 'invoice', :locals => { :invoices => @paid_invoices }
     
 #sidebar
   = link_to 'Add A New Client', new_client_path, :id => 'new', :class => "button"
