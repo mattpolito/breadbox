@@ -1,3 +1,24 @@
+#totals {
+  background:transparent url("/images/sticky.png") 0 0 no-repeat;
+  float:right;
+  height:200px;
+  margin:1em auto;
+  padding:2em;
+  width:19%;
+}
+
+#totals h4 {
+  color:#222;
+  font-family:"JD", sans-serif;
+  font-size:1.6em;
+  font-weight:normal;
+  margin:0 0 1em;
+}
+
+#totals span {
+  font-weight:bold;
+}
+
 #sidebar {
   background:#CCC;
   -moz-border-radius: 5px;
