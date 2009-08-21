@@ -5,6 +5,10 @@ describe ClientsController do
   def mock_client(stubs={})
     @mock_client ||= mock_model(Client, stubs)
   end
+  
+  def mock_address(stubs={})
+    @mock_address ||= mock_model(Address, :client => mock_client)
+  end
 
   describe "GET index" do
     # it "assigns all clients as @clients" do
@@ -33,6 +37,7 @@ describe ClientsController do
   describe "GET edit" do
     it "assigns the requested client as @client" do
       Client.stub!(:find).with("37").and_return(mock_client)
+      Client.stub!(:address).and_return(mock_address)
       get :edit, :id => "37"
       assigns[:client].should equal(mock_client)
     end
