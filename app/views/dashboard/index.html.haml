@@ -3,12 +3,16 @@
   .dashboard
     %h3.overdue Overdue Invoices
     = render :partial => 'invoice', :locals => { :invoices => @overdue_invoices }
-      
-            
+       
     %h3 Newly Created Invoices
     = render :partial => 'invoice', :locals => { :invoices => @new_invoices }
         
-  
+    %h3 Open Invoices
+    = render :partial => 'invoice', :locals => { :invoices => @new_invoices }
+    
+    %h3 Recently Paid Invoices
+    = render :partial => 'invoice', :locals => { :invoices => @new_invoices }
+    
 #sidebar
   = link_to 'Add A New Client', new_client_path, :id => 'new', :class => "button"
   = link_to 'Create A New Invoice', new_invoice_path, :id => 'new', :class => "button"

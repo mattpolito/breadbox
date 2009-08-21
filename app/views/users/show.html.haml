@@ -23,6 +23,5 @@
       %label Current login ip:
       =h @user.current_login_ip
 
-  %p= link_to 'Edit', edit_user_path(@user)
-
 #sidebar
+  = link_to "Edit #{@user.name}'s account", edit_user_path(@user), :class => "button", :id => "edit"
