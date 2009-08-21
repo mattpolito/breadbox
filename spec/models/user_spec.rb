@@ -15,4 +15,27 @@ describe User do
       user.name.should == "First Last"
     end
   end
+  
+  describe "validations" do
+    it "should require first_name" do
+      user1 = Factory(:user)
+      user2 = Factory(:user, :first_name => nil)
+      user1.should be_valid
+      user2.should_not be_valid
+    end
+    
+    it "should require last_name" do
+      user1 = Factory(:user)
+      user2 = Factory(:user, :last_name => nil)
+      user1.should be_valid
+      user2.should_not be_valid
+    end
+    
+    it "should require email" do
+      user1 = Factory(:user)
+      user2 = Factory(:user, :email => nil)
+      user1.should be_valid
+      user2.should_not be_valid
+    end
+  end
 end
