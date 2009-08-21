@@ -27,7 +27,6 @@ class InvoicesController < ApplicationController
   # POST /invoices
   # POST /invoices.xml
   def create
-    raise params.to_yaml
     @invoice = Invoice.new(params[:invoice])
     
     if @invoice.save
