@@ -22,9 +22,11 @@
         #header
           %a#logo{:href => "/"}
           %ul#user
-            %li.user=h @current_user.name
-            %li
-              %a= link_to 'My info', current_user
+            %li.user
+              - if @current_user.admin?
+                %span.admin Admin
+              =h @current_user.name
+            %li= link_to 'My info', current_user
             %li
               %a{:href => "#"} Log-out
             %li
