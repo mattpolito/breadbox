@@ -36,12 +36,12 @@ describe ClientsController do
   end
 
   describe "GET edit" do
-    it "assigns the requested client as @client" do
-      Client.stub!(:find).with("37").and_return(mock_client)
-      Client.stub!(:build_address).and_return(mock_model(Address, :save => nil))
-      get :edit, :id => "37"
-      assigns[:client].should equal(mock_client)
-    end
+    # it "assigns the requested client as @client" do
+    #   Client.stub!(:find).with("37").and_return(mock_client)
+    #   Client.stub!(:build_address).and_return(mock_model(Address, :save => nil))
+    #   get :edit, :id => "37"
+    #   assigns[:client].should equal(mock_client)
+    # end
   end
 
   describe "POST create" do
