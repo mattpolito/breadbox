@@ -457,7 +457,7 @@ table .striped {
   font-size:1.2em;
 }
 
-#all_users .user .admin {
+#all_users .users .admin {
   background:#FCD21F;
   -moz-border-radius: 8px;
   -webkit-border-radius: 8px;
@@ -469,6 +469,14 @@ table .striped {
   padding:0.1em 0.5em;
   text-shadow:1px 1px 0 #999;
   vertical-align:middle;
+}
+#all_users .user {
+  background:#EEE;
+}
+
+#all_users .users .edit {
+  background:transparent url("/images/arrow_down.gif") 50% -10px no-repeat;
+  display:none;
 }
 
 

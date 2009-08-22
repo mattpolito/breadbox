@@ -2,6 +2,14 @@ jQuery.noConflict();
 (function($) { 
   $(function() {
     $(document).ready(function()  {
+      $("#all_users .user").toggle(
+          function () {
+            $(this).next(".edit").show();
+          },
+          function () {
+            $(this).next(".edit").hide();
+          }
+        );
       // Swap Value in input fields
       swapValues = [];
       $(".swap_value").each(function(i){

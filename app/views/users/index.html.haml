@@ -1,17 +1,16 @@
 #main_content
   %h2 All Users
   #all_users
-    %table.user
+    %table.users
       %thead
         %tr
           %th Name
           %th Email
           %th Last Logged In
           %th Last Logged IP
-          %th User Tools
       %tbody
         - for user in @users
-          %tr
+          %tr.user
             %td
               =h user.name
               - if @current_user.admin?
@@ -19,12 +18,14 @@
             %td=h user.email
             %td=h user.last_login_at.to_s(:regular)
             %td=h user.last_login_ip
-            %td
+          %tr.edit
+            %td{:colspan => "4"}
               = link_to 'Show', user
               |
               = link_to 'Edit', edit_user_path(user)
               |
               = link_to 'Destroy', user, :confirm => 'Are you sure?', :method => :delete
+          
 
 #sidebar
   = link_to 'New user', new_user_path, :class => "button", :id => "new"
