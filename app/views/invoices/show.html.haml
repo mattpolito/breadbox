@@ -1,19 +1,16 @@
-#main_content
+#main_content.show_invoice
   %h2
-    Invoice Number
+    Invoice
     =h @invoice.number
-  %p
-    %strong Number:
-    =h @invoice.number
-  %p
-    %strong Payment due date:
-    =h @invoice.payment_due_date
-  %p
+    %span.due
+      Payment Due
+      =h @invoice.payment_due_date
+    %span.sent
+      Sent on
+      =h @invoice.billing_date
+  %p.note
     %strong Note:
     =h @invoice.note
-  %p
-    %strong Billing date:
-    =h @invoice.billing_date
   
 #sidebar
   = link_to 'Go Back', invoices_path, :id => "back", :class => "button"

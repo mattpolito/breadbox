@@ -404,6 +404,27 @@ table .striped {
 /* Invoices
 ------------------------------------------------*/
 
+.show_invoice h2 span {
+  background:#994045;
+  -moz-border-radius: 12px;
+  -webkit-border-radius: 12px;
+  display:inline-block;
+  float:right;
+  font-size:70%;
+  font-weight:bold;
+  margin:0.1em 0 0 1em;
+  padding:0.2em 1em;
+  text-shadow:none;
+}
+
+.show_invoice h2 span.due {
+  background:#994045;
+}
+
+.show_invoice h2 span.sent {
+  background:#F4D561;
+}
+
 /* Buttons */
 #invoice_submit,
 #client_submit {
