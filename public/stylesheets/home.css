@@ -1,7 +1,7 @@
 @import url("reset.css");
 
 body {
-  background:#222;
+  background:#151515;
   font:62.5%/1.5 "Helvetica Neue", Arial, Helvetica, sans-serif;
   margin:0;
 }
@@ -16,27 +16,66 @@ body {
   width:284px;
 }
 
-ul {
-  margin:1em auto;
-  width:200px;
+#login {
+  background:transparent url("/images/login_bg.png") 0 0 no-repeat;
+  margin:0 auto;
+  overflow:hidden;
+  width:600px;
 }
 
-ul li {
-  float:left;
-  margin:0 0.5em;
+#login fieldset {
+  margin:240px auto 0;
+  width:400px;
 }
 
-ul li a {
+#login #user_detials li {
+  margin:0.5em 0;
+}
+
+#login #user_detials label {
+  color:#444;
+  font-size:1.5em;
+  padding:0.5em 0;
+  text-shadow:1px 1px 1px #000;
+}
+
+#login #user_detials .text {
+  background-color: rgba(0,0,0,.4);
+  border:1px solid #333;
+  color:#444;
+  font-size:1.8em;
+  padding:0.4em;
+  text-shadow:1px 1px 1px #000;
+  width:400px;
+}
+
+#login #remember {
+  margin:1em 0;
+}
+
+#login #remember li {
+  margin:0 0 1em;
+}
+
+#login #remember label {
+  color:#555;
+  font-size:1.4em;
+  text-shadow:1px 1px 1px #000;
+}
+
+#login #remember #submit {
+  background:#222;
+  border:1px solid #444;
   -moz-border-radius: 3px;
   -webkit-border-radius: 3px;
-  background:#6E90C0;
+  -webkit-box-shadow: 0 0 5px #000;
+  -moz-box-shadow: 0 0 5px #000;
   color:#FFF;
-  display:inline-block;
-  font-size:1.4em;
-  padding:0.2em 0.5em;
-  text-decoration:none;
+  cursor:pointer;
+  font-size:1.6em;
+  padding:0.2em 1em;
 }
 
-ul li a:hover {
-  background:#4B81D4;
+#login #remember #submit:hover {
+  text-shadow:0 0 10px #FFF;
 }

@@ -1,15 +1,19 @@
-%h1 Login
-
-- form_for @user_session, :url => user_session_path do |f|
-  = f.error_messages
-  .field
-    = f.label :email
-    = f.text_field :email
-  .field
-    = f.label :password
-    = f.password_field :password
-  .field
-    = f.check_box :remember_me
-    = f.label :remember_me
-  .field
-    = f.submit "Login"
+#login
+  - form_for @user_session, :url => user_session_path do |f|
+    %fieldset
+      = f.error_messages
+      %ul#user_detials
+        %li
+          = f.label :email
+        %li
+          = f.text_field :email, :class => "text swap_value", :value => "Email"
+        %li
+          = f.label :password
+        %li
+          = f.password_field :password, :class => "text swap_value", :value => "Password"
+      %ul#remember
+        %li
+          = f.check_box :remember_me
+          = f.label :remember_me
+        %li
+          = f.submit "Login", :id => "submit"
