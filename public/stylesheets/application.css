@@ -160,11 +160,6 @@ border: none;
   text-shadow:-1px -1px 1px #333;
 }
 
-#content #main_content h2 img {
-  float:left;
-  margin:-0.4em 1em 0 -0.4em;
-}
-
 #main_content table {
   width:100%;
 }
@@ -249,6 +244,18 @@ table .striped {
 
 /* Clients
 ------------------------------------------------*/
+/* Show */
+#clients .more_info {
+  clear:both;
+  font-size:1.2em;
+  margin:1em 0.4em;
+}
+
+#clients .address {
+  font-size:1.4em;
+}
+
+/* Eidt */
 .default {
   border:none;
   border-bottom:1px solid #EEE;
