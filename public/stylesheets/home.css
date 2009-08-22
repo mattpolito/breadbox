@@ -24,7 +24,7 @@ body {
 }
 
 #login fieldset {
-  margin:240px auto 0;
+  margin:235px auto 0;
   width:400px;
 }
 
@@ -34,6 +34,7 @@ body {
 
 #login #user_detials label {
   color:#444;
+  display:block;
   font-size:1.5em;
   padding:0.5em 0;
   text-shadow:1px 1px 1px #000;
