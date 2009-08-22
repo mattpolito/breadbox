@@ -16,5 +16,7 @@
     =h @invoice.billing_date
   
 #sidebar
-  = link_to 'Go Back', invoices_path, :id => "back", :class => "button"
   = link_to "Edit Invoice #{@invoice.number}", edit_invoice_path(@invoice), :id => "edit", :class => "button"
+  = link_to 'Enter a Payment', new_invoice_payment_path(@invoice), :id => 'edit', :class => 'button'
+  = link_to 'Go Back', invoices_path, :id => "back", :class => "button"
+

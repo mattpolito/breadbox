@@ -6,9 +6,9 @@ class PaymentsController < ApplicationController
   end
   
   def create
-    @payment = @invoice.payments.new(params[:id])
+    @payment = @invoice.payments.new(params[:payment])
     if @payment.save!
-      add_success "Payment has been added invoice ##{@invoice.number}"
+      add_success "Payment has been made to invoice ##{@invoice.number}"
       redirect_to @invoice
     end
   end
