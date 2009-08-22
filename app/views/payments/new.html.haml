@@ -1,0 +1,10 @@
+- form_for [@invoice, @payment] do |f|
+  = f.error_messages
+  
+  = f.label :amount
+  = f.text_field :amount
+
+  = f.label :source, 'Method'
+  = f.text_field :source
+  
+  = f.submit 'Make Payment'
