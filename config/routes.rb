@@ -1,6 +1,6 @@
 ActionController::Routing::Routes.draw do |map|
   map.resource :user_session
-  map.resources :invoices
+  map.resources :invoices, :has_many => :payments
   map.resources :users
   map.resources :clients
 
