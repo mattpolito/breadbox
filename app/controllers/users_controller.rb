@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  before_filter :require_no_user, :only => [ :new, :create ], :unless => :admin_logged_in?
   before_filter :require_user, :only => [ :show, :edit, :update ]
   before_filter :admin_required, :only => [ :index, :destroy ]
   
@@ -46,6 +47,7 @@ class UsersController < ApplicationController
   end
 
 private
+
   def find_user
     if @current_user.admin? && params[:id]
       @user = User.find(params[:id])
