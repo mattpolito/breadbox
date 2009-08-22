@@ -1,15 +1,30 @@
 #main_content
   %h2 All Users
-  #users
-    - for user in @users
-      .users.section
-      .row=h user.email
-      .row
-        = link_to 'Show', user
-        |
-        = link_to 'Edit', edit_user_path(user)
-        |
-        = link_to 'Destroy', user, :confirm => 'Are you sure?', :method => :delete
+  #all_users
+    %table.user
+      %thead
+        %tr
+          %th Name
+          %th Email
+          %th Last Logged In
+          %th Last Logged IP
+          %th User Tools
+      %tbody
+        - for user in @users
+          %tr
+            %td
+              =h user.name
+              - if @current_user.admin?
+                %span.admin Admin
+            %td=h user.email
+            %td=h user.last_login_at.to_s(:regular)
+            %td=h user.last_login_ip
+            %td
+              = link_to 'Show', user
+              |
+              = link_to 'Edit', edit_user_path(user)
+              |
+              = link_to 'Destroy', user, :confirm => 'Are you sure?', :method => :delete
 
 #sidebar
   = link_to 'New user', new_user_path, :class => "button", :id => "new"
