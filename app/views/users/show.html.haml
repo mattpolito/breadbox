@@ -6,10 +6,10 @@
       =h @user.email
     %li
       %label Last login at:
-      =h @user.last_login_at
+      =h @user.last_login_at.to_s(:regular)
     %li
       %label Current login at:
-      =h @user.current_login_at
+      =h @user.current_login_at.to_s(:regular)
     %li
       %label Last login ip:
       =h @user.last_login_ip
