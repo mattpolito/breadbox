@@ -256,6 +256,10 @@ table .striped {
   margin:1em 0.5em;
 }
 
+#clients h3 {
+  border-bottom:1px solid #EEE;
+}
+
 /* Eidt */
 .default {
   border:none;
