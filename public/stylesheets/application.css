@@ -160,11 +160,6 @@ border: none;
   text-shadow:-1px -1px 1px #333;
 }
 
-#content #main_content h2 img {
-  float:left;
-  margin:-0.4em 1em 0 -0.4em;
-}
-
 #main_content table {
   width:100%;
 }
@@ -249,6 +244,23 @@ table .striped {
 
 /* Clients
 ------------------------------------------------*/
+/* Show */
+#clients .more_info {
+  font-size:1.2em;
+  margin:1em 0.8em;
+}
+
+#clients .address {
+  clear:both;
+  font-size:1.2em;
+  margin:1em 0.5em;
+}
+
+#clients h3 {
+  border-bottom:1px solid #EEE;
+}
+
+/* Eidt */
 .default {
   border:none;
   border-bottom:1px solid #EEE;
@@ -425,6 +437,7 @@ table .striped {
 }
 
 #footer {
+  clear:both;
   padding:0 2.8em 1em;
 }
 

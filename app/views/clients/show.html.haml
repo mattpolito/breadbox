@@ -1,23 +1,35 @@
 #main_content
-  %h2
-    %img{:src => "/images/client.png", :width => "40px", :height => "40px"}
-    =h @client.name
-  %ul
-    %li
-      %strong Email:
-      %a.email{ :href => "mailto:#{@client.email}" }=h @client.email 
-    %li
-      %strong Address:
-      %ul
-        %li= @client.address.address_parts.join("<li>") unless @client.address.blank?
-    %li
-      %strong Phone:
-      =h @client.phone 
-    %li
-      %strong Fax:
-      =h @client.fax 
-
+  %h2=h @client.name
+  #clients
+    .person
+      %a.avatar{:href => "#"}
+        %img{:src => "/images/client.png", :width => "75px", :height => "75px"}
+        %label=h @client.first_name
+    %ul.more_info
+      %li.email
+        %strong Email:
+        %a.email{ :href => "mailto:#{@client.email}" }=h @client.email
+      %li.phone
+        %strong Phone:
+        =h @client.phone 
+      %li.fax
+        %strong Fax:
+        =h @client.fax
+    %ul.address
+      %li
+        %h3 Address
+      %li= @client.address.address_parts.join("<li>") unless @client.address.blank?
 
 #sidebar
   = link_to "Edit #{h(@client.name)}'s record", edit_client_path(@client), :class => "button", :id => "edit"
   = link_to 'Go Back', clients_path, :class => "button", :id => "back"
+  
+#totals
+  %h4 
+    Pending Invoices:
+    %span= @client.number_of_pending_invoices
+  %h4 
+    Amount Due:
+    %span
+      $467.00
+      =# client.total_amount_due
