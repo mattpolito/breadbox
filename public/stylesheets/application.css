@@ -246,13 +246,14 @@ table .striped {
 ------------------------------------------------*/
 /* Show */
 #clients .more_info {
-  clear:both;
   font-size:1.2em;
-  margin:1em 0.4em;
+  margin:1em 0.8em;
 }
 
 #clients .address {
-  font-size:1.4em;
+  clear:both;
+  font-size:1.2em;
+  margin:1em 0.5em;
 }
 
 /* Eidt */
@@ -432,6 +433,7 @@ table .striped {
 }
 
 #footer {
+  clear:both;
   padding:0 2.8em 1em;
 }
 
