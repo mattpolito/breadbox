@@ -11,5 +11,5 @@ Factory.define :admin, :parent => :user do |f|
 end
 
 Factory.sequence :email do |s|
-  "test{s}@example.com"
+  "test#{s}@example.com"
 end
