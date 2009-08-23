@@ -10,6 +10,8 @@ class PaymentsController < ApplicationController
     if @payment.save!
       add_success "Payment has been made to invoice ##{@invoice.number}"
       redirect_to @invoice
+    else
+      render :action => 'new'
     end
   end
   

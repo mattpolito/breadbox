@@ -10,7 +10,16 @@ describe Client do
   end
   
   context "invoices" do
-    it "should return total amount due for all open invoices"
+    it "should return total amount due for all open invoices" do
+      client = Factory(:client)
+      3.times { invoice = Factory(:invoice, :client => client)
+                3.times { Factory(:invoice_line, :invoice => invoice) }
+                3.times { invoice.payments.create! :amount => "100" } }
+      client.amount_due.should == 135000
+      # invoice.total_amount.should == 75000
+      # invoice.amount_due.should == 45000
+      
+    end
   end
   
   describe "name" do

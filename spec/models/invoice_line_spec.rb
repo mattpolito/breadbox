@@ -16,7 +16,7 @@ describe InvoiceLine do
   end
   
   it "should find total price for line" do
-    invoice_line = InvoiceLine.create :quantity => 5, :price => 5000
+    invoice_line = InvoiceLine.create :quantity => 5, :price => 50
     invoice_line.total_amount.should == 25000
   end
   

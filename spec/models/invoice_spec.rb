@@ -94,6 +94,14 @@ describe Invoice do
     invoice.total_amount.should == 75000
   end
   
+  it "should return amount due" do
+    invoice = Factory(:invoice)
+    3.times { Factory(:invoice_line, :invoice => invoice) }
+    3.times { invoice.payments.create! :amount => "100" }
+    invoice.total_amount.should == 75000
+    invoice.amount_due.should == 45000
+  end
+  
   describe "aasm" do
     it "should set status to 'draft' when created" do
       invoice = Factory(:invoice)

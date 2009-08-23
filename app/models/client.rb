@@ -9,6 +9,12 @@ class Client < ActiveRecord::Base
   accepts_nested_attributes_for :address, :reject_if => lambda { |attributes| attributes.values.all?(&:blank?) }, :allow_destroy => true
   
   # Logic
+  def amount_due
+    total = 0
+    invoices.collect(&:amount_due).each { |amount| total += amount }
+    total
+  end
+  
   def name
     "#{first_name} #{last_name}" if first_name.present? && last_name.present?
   end
