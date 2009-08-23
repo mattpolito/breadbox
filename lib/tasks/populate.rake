@@ -32,10 +32,10 @@ namespace :db do
         invoice.status           = ['draft', 'sent', 'paid']
                 
         InvoiceLine.populate 1..4 do |invoice_line|
-          invoice_line.description = Populator.sentences(0..2)
-          invoice_line.quantity    = 1..5
-          invoice_line.price       = [25, 50, 65]
-          invoice_line.invoice_id  = invoice.id
+          invoice_line.description    = Populator.sentences(0..2)
+          invoice_line.quantity       = 1..5
+          invoice_line.price_in_cents = [2500, 5000, 6500]
+          invoice_line.invoice_id     = invoice.id
         end
       end
     end

@@ -39,10 +39,20 @@ class Invoice < ActiveRecord::Base
   validates_presence_of :number
   validates_uniqueness_of :number
   
-  # Logic  
+  # Logic
+  def amount_due
+    total_amount - payments_total
+  end
+  
   def last_used_number
     max = Invoice.maximum('number')
     max.present? ? max : 0
+  end
+  
+  def payments_total
+    total = 0
+    payments.collect(&:amount_in_cents).each { |amount| total += amount }
+    total
   end
   
   def total_amount
