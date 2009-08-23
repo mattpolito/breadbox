@@ -21,7 +21,7 @@
     = current_year 
   %h3.income
     %strong Total
-    = number_to_currency(@estimated_total_for_year)
+    =h cents_to_dollars(@estimated_total_for_year)
 #totals
   %h4 
     New Invoices:

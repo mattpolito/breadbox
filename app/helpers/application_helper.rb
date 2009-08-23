@@ -25,4 +25,8 @@ module ApplicationHelper
   def current_year
     Date.today.strftime("%Y")
   end
+  
+  def cents_to_dollars(value_in_cents)
+    number_to_currency((value_in_cents / 100).to_f)
+  end
 end
