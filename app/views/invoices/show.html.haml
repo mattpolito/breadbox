@@ -1,19 +1,51 @@
 #main_content.show_invoice
-  %h2
-    Invoice
-    =h @invoice.number
-    %span.due
-      Payment Due
-      =h @invoice.payment_due_date
-    %span.sent
-      Sent on
-      =h @invoice.billing_date
-  %p.note
-    %strong Note:
-    =h @invoice.note
+  %h2 Invoice ##{@invoice.number}
+  
+  #invoice_info
+    %fieldset 
+      %legend Client
+      %ul
+        %li
+          Client:
+          = @invoice.client.name
+        %li
+          Number:
+          = @invoice.number
+        %li
+          Payment Due:
+          = @invoice.payment_due_date.to_s(:regular)
+        %li
+          Billing Date:
+          = @invoice.billing_date.to_s(:regular)
+
+    %fieldset
+      %legend Item
+      %table#invoice_lines
+        %thead
+          %tr
+            %th.description Description
+            %th.quantity Quantity
+            %th.unit_price Unit Price
+            %th
+        %tbody
+          - @invoice.invoice_lines.each do |invoice_line|
+            %tr.invoice_line
+              %td.description= invoice_line.description
+              %td.quantity= invoice_line.quantity
+              %td.price
+                %label.currency $
+                = invoice_line.price
+            =# render :partial => 'invoice_line', :locals => { :f => invoice_line_form }
+
+    %fieldset
+      %legend Extra
+      %ul
+        %li
+          Note:
+          = @invoice.note
   
 #sidebar
   = link_to "Edit Invoice #{@invoice.number}", edit_invoice_path(@invoice), :id => "edit", :class => "button"
   = link_to 'Enter a Payment', new_invoice_payment_path(@invoice), :id => 'edit', :class => 'button'
-  = link_to 'Go Back', invoices_path, :id => "back", :class => "button"
+  = link_to 'Go Back', :back, :id => "back", :class => "button"
 
