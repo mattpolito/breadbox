@@ -5,18 +5,14 @@
     %fieldset 
       %legend Client
       %ul
-        %li
-          Client:
-          = @invoice.client.name
-        %li
-          Number:
-          = @invoice.number
-        %li
-          Payment Due:
-          = @invoice.payment_due_date.to_s(:regular)
-        %li
-          Billing Date:
-          = @invoice.billing_date.to_s(:regular)
+        %li Client:
+        %li=h @invoice.client.name
+        %li Number:
+        %li=h @invoice.number
+        %li Payment Due:
+        %li=h @invoice.payment_due_date.to_s(:regular)
+        %li Billing Date:
+        %li=h @invoice.billing_date.to_s(:regular)
 
     %fieldset
       %legend Item
@@ -35,7 +31,6 @@
               %td.price
                 %label.currency $
                 = invoice_line.price
-            =# render :partial => 'invoice_line', :locals => { :f => invoice_line_form }
 
     %fieldset
       %legend Extra

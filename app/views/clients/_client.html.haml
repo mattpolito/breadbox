@@ -1,7 +1,7 @@
 - div_for(client) do
   .person
     %a.avatar{:href => "#"}
-      %img{:src => "/images/client.png", :width => "75px", :height => "75px"}
+      = image_tag('client.png', :size => '75x75')
       %label=h client.first_name if client.first_name.present?
     %ul.person_info
       %li.name= link_to h(client.name), client
