@@ -16,19 +16,17 @@
 #sidebar
   = link_to 'Add A New Client', new_client_path, :id => 'new', :class => "button"
   = link_to 'Create A New Invoice', new_invoice_path, :id => 'new', :class => "button"
-  %h2 
-    Estimated income for
-    = current_year 
+  %h2 Estimated income for #{current_year}
   %h3.income
     %strong Total
     =h cents_to_dollars(@estimated_total_for_year)
 #totals
   %h4 
     New Invoices:
-    %span= @total_newly_created_invoices_count
+    %span=h @total_newly_created_invoices_count
   %h4 
     Sent Invoices:
-    %span= @total_sent_invoices_count
+    %span=h @total_sent_invoices_count
   %h4 
     Paid Invoices:
-    %span= @total_paid_invoices_count
+    %span=h @total_paid_invoices_count
