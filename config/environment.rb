@@ -27,6 +27,7 @@ Rails::Initializer.run do |config|
   config.gem 'binarylogic-settingslogic', :lib => 'settingslogic', :source => 'http://gems.gitub.com'
   config.gem 'haml'
   config.gem 'mislav-will_paginate', :lib => 'will_paginate', :source => 'http:gems.gitub.com'
+  config.gem 'prawn', :lib => false
   config.gem "rubyist-aasm", :lib => "aasm"
 
   # Only load the plugins named here, in the order given (default is alphabetical).
