@@ -1,4 +1,6 @@
 class InvoicesController < ApplicationController
+  prawnto :prawn => { :top_margin => 75 }
+  
   # GET /invoices
   # GET /invoices.xml
   def index
