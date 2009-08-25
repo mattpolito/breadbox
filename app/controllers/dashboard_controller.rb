@@ -1,4 +1,6 @@
 class DashboardController < ApplicationController
+  before_filter :require_user
+  
   def index
     @overdue_invoices = Invoice.overdue
     @new_invoices = Invoice.newly_created(5).order('created_at DESC').limit(10)
