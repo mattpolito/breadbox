@@ -1,10 +1,11 @@
 #main_content
   %h2 Dashboard
   .dashboard
+    
     %h3.overdue Overdue Invoices
     = render :partial => 'invoice', :locals => { :invoices => @overdue_invoices }
        
-    %h3 Newly Created Invoices
+    %h3 Open Invoices
     = render :partial => 'invoice', :locals => { :invoices => @new_invoices }
         
     %h3 Recently Sent Invoices
@@ -22,7 +23,7 @@
     =h cents_to_dollars(@estimated_total_for_year)
 #totals
   %h4 
-    New Invoices:
+    Open Invoices:
     %span=h @total_newly_created_invoices_count
   %h4 
     Sent Invoices:
