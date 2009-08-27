@@ -39,7 +39,7 @@ describe Invoice do
       2.times { Factory(:invoice) }
       2.times { Factory(:invoice, :status => 'sent') }
       2.times { Factory(:invoice, :created_at => Date.today - 7.days) }
-      Invoice.newly_created(5).should have(4).invoices
+      Invoice.newly_created(5).should have(2).invoices
     end
   end
   
