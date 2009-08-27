@@ -1,18 +1,21 @@
 #main_content
   %h2 Dashboard
   .dashboard
-    
-    %h3.overdue Overdue Invoices
-    = render :partial => 'invoice', :locals => { :invoices => @overdue_invoices }
+    - unless @overdue_invoices.blank?
+      %h3.overdue Overdue Invoices
+      = render :partial => 'invoice', :locals => { :invoices => @overdue_invoices }
        
-    %h3 Open Invoices
-    = render :partial => 'invoice', :locals => { :invoices => @new_invoices }
+    - unless @open_invoices.blank?
+      %h3 Open Invoices
+      = render :partial => 'invoice', :locals => { :invoices => @open_invoices }
         
-    %h3 Recently Sent Invoices
-    = render :partial => 'invoice', :locals => { :invoices => @sent_invoices }
-    
-    %h3 Recently Paid Invoices
-    = render :partial => 'invoice', :locals => { :invoices => @paid_invoices }
+    - unless @sent_invoices.blank?
+      %h3 Recently Sent Invoices
+      = render :partial => 'invoice', :locals => { :invoices => @sent_invoices }
+
+    - unless @paid_invoices.blank?
+      %h3 Recently Paid Invoices
+      = render :partial => 'invoice', :locals => { :invoices => @paid_invoices }
     
 #sidebar
   = link_to 'Add A New Client', new_client_path, :id => 'new', :class => "button"
@@ -24,7 +27,7 @@
 #totals
   %h4 
     Open Invoices:
-    %span=h @total_newly_created_invoices_count
+    %span=h @total_open_invoices_count
   %h4 
     Sent Invoices:
     %span=h @total_sent_invoices_count
