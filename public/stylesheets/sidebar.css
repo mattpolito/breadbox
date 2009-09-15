@@ -70,3 +70,5 @@
 #sidebar #back:hover{background-color:#D0DECE;}
 #sidebar #view{background:#FFF url("/images/icons/user.png") 0.4em 50% no-repeat;color:#5EA256;}
 #sidebar #view:hover{background-color:#D0DECE;}
+#sidebar #pdf{background:#FFF url("/images/icons/printer.png") 0.4em 50% no-repeat;color:#5EA256;}
+#sidebar #pdf:hover{background-color:#D0DECE;}

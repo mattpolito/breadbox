@@ -1,7 +1,7 @@
 = f.error_messages
 #invoice_info
+  %h3 Client
   %fieldset 
-    %legend Client
     %ul
       %li
         = f.label :client_id
@@ -16,9 +16,9 @@
       %li
         = f.label :billing_date
         = f.date_select :billing_date
-  
+
+  %h3 Item
   %fieldset
-    %legend Item
     %table#invoice_lines
       %thead
         %tr
@@ -31,12 +31,12 @@
           = render :partial => 'invoice_line', :locals => { :f => invoice_line_form }
 
     = add_child_link "Add New Line", f, :invoice_lines
-    
+  
+  %h3 Notes
   %fieldset
-    %legend Extra
     %ul
       %li
-        = f.label :note
+        =# f.label :note
         = f.text_area :note
 
 %p= f.submit button_text

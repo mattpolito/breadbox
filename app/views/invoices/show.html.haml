@@ -2,20 +2,28 @@
   %h2 Invoice ##{@invoice.number}
   
   #invoice_info
-    %fieldset 
-      %legend Client
-      %ul
-        %li Client:
-        %li=h @invoice.client.name
-        %li Number:
-        %li=h @invoice.number
-        %li Payment Due:
-        %li=h @invoice.payment_due_date.to_s(:regular)
-        %li Billing Date:
-        %li=h @invoice.billing_date.to_s(:regular)
-
+    %h3=h @invoice.client.name
     %fieldset
-      %legend Item
+      %ul
+        %li 
+          %strong
+            Client:
+          =h @invoice.client.name
+        %li 
+          %strong
+            Number:
+          =h @invoice.number
+        %li
+          %strong
+            Payment Due:
+          =h @invoice.payment_due_date.to_s(:regular)
+        %li 
+          %strong
+            Billing Date:
+          =h @invoice.billing_date.to_s(:regular)
+    
+    %h3 Items
+    %fieldset
       %table#invoice_lines
         %thead
           %tr
@@ -31,9 +39,8 @@
               %td.price
                 %label.currency $
                 = invoice_line.price
-
+    %h3 Notes
     %fieldset
-      %legend Extra
       %ul
         %li
           Note:

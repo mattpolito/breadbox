@@ -1,0 +1,69 @@
+/* Invoices
+------------------------------------------------*/
+
+.show_invoice h2 span {
+  background:#994045;
+  -moz-border-radius: 12px;
+  -webkit-border-radius: 12px;
+  display:inline-block;
+  float:right;
+  font-size:70%;
+  font-weight:bold;
+  margin:0.1em 0 0 1em;
+  padding:0.2em 1em;
+  text-shadow:none;
+}
+
+.show_invoice h2 span.due {
+  background:#994045;
+}
+
+.show_invoice h2 span.sent {
+  background:#F4D561;
+}
+
+/* Buttons */
+#invoice_submit,
+#client_submit {
+  background:transparent url("/images/save_button.png") 0 0 no-repeat;
+  border:none;
+  cursor:pointer;
+  height:42px;
+  text-indent:-9999px;
+  width:150px;
+}
+
+#client_submit:hover,
+#invoice_submit:hover { background-position:0 -42px; }
+
+#client_submit:active,
+#invoice_submit:active { background-position:0 -84px; }
+
+#main_content fieldset label.currency {
+  float:left;
+  margin:1.2em 0.4em 0;
+}
+
+#main_content fieldset legend {
+  background:#3E69AB;
+  border:1px solid #215895;
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  -webkit-box-shadow: 0 0 2px #333;
+  -moz-box-shadow: 0 0 2px #333;
+  color:#EED88F;
+  font-size:1.4em;
+  font-weight:bold;
+  padding:0.1em 0.5em;
+}
+
+#main_content fieldset table .description {
+  height:30px
+}
+
+#main_content fieldset table tbody .quantity,
+#main_content fieldset table tbody .price {
+  font-size:1.2em;
+  padding:0.4em;
+  width:50px;
+}
