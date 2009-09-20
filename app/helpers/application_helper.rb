@@ -29,4 +29,8 @@ module ApplicationHelper
   def cents_to_dollars(value_in_cents)
     number_to_currency((value_in_cents / 100).to_f)
   end
+  
+  def copyright_date
+    Time.now.strftime("%Y")
+  end
 end
