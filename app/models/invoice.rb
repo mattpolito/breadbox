@@ -67,4 +67,8 @@ class Invoice < ActiveRecord::Base
     total
   end
   
+  def overdue?
+    payment_due_date < Date.today && sent?
+  end
+  
 end

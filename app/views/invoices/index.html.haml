@@ -11,7 +11,7 @@
         %th.due Due
     %tbody
     - for invoice in @invoices
-      %tr
+      %tr{ :class => overdue?(invoice) }
         %td.status
           %span{ status_class(invoice.status) }=h invoice.status.humanize
         %td=h invoice.billing_date.strftime("%m.%d.%Y")

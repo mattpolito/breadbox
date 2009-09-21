@@ -100,6 +100,12 @@ describe Invoice do
     3.times { invoice.payments.create! :amount => "100" }
     invoice.total_amount.should == 75000
     invoice.amount_due.should == 45000
+  end  
+    
+  it "should return true if overdue" do
+    invoice = Factory(:invoice, :payment_due_date => Date.today - 1.day, :status => 'sent')
+    invoice.should be_sent
+    invoice.should be_overdue
   end
   
   describe "aasm" do
