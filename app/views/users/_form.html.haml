@@ -16,5 +16,9 @@
     %li
       = f.label :confirm
       = f.password_field :password_confirmation, :class => "text"
+    - if current_user.admin?
+      %li
+        = f.label :admin
+        = f.check_box :admin
     %li
       = f.submit button_text
