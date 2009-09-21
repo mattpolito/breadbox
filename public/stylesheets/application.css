@@ -318,6 +318,7 @@ table .striped {
   -moz-box-shadow: 0 0 5px #333;
   color:#333;
   float:left;
+  height:92px;
   margin:0 0.5em;
   position:relative;
   text-decoration:none;
@@ -325,7 +326,7 @@ table .striped {
 
 #clients .person .avatar label {
   background:#FFF;
-  bottom:0;
+  bottom:-2px;
   font-family: "JD", sans-serif;
   height:18px;
   left:0;
