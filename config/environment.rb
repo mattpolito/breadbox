@@ -25,6 +25,7 @@ Rails::Initializer.run do |config|
   # config.gem 'binarylogic-authlogic_openid', :lib => 'authlogic-openid', :source => 'http://gems.github.com'
   config.gem 'binarylogic-searchlogic', :lib => 'searchlogic', :source => 'http://gems.github.com'
   config.gem 'binarylogic-settingslogic', :lib => 'settingslogic', :source => 'http://gems.gitub.com'
+  config.gem 'chrislloyd-gravtastic', :lib => 'gravtastic', :version => '>= 2.1.0'
   config.gem 'haml'
   config.gem 'mislav-will_paginate', :lib => 'will_paginate', :source => 'http:gems.gitub.com'
   config.gem 'prawn', :lib => false
