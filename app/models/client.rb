@@ -1,4 +1,7 @@
 class Client < ActiveRecord::Base
+  # Extensions
+  has_gravatar :size => 75, :default => 'http://breadbox.local/images/gravatar_default.png'
+  
   # Associations
   has_many :invoices
   has_one :address
