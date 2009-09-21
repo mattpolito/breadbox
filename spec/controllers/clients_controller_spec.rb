@@ -9,6 +9,10 @@ describe ClientsController do
   def mock_address(stubs={})
     @mock_address ||= mock_model(Address, :client => mock_client)
   end
+  
+  def mock_invoice(stubs={})
+    @mock_invoice ||= mock_model(Invoice, :client => mock_client)
+  end
 
   describe "GET index" do
     # it "assigns all clients as @clients" do
@@ -20,10 +24,22 @@ describe ClientsController do
 
   describe "GET show" do
     it "assigns the requested client as @client" do
-      Client.stub!(:find).with("37").and_return(mock_client)
+      client = mock_client
+      client.stub!(:invoices).and_return([mock_invoice])
+      Client.stub!(:find).with("37").and_return(client)
       get :show, :id => "37"
       assigns[:client].should equal(mock_client)
     end
+    
+    it "assigns the requested invoices as @invoices" do
+      client = mock_client
+      invoices = [mock_invoice]
+      client.stub!(:invoices).and_return(invoices)
+      Client.stub!(:find).with("37").and_return(client)
+      get :show, :id => "37"
+      assigns[:invoices].should equal(invoices)
+    end
+
   end
 
   describe "GET new" do
