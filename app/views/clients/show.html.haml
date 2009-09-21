@@ -2,9 +2,7 @@
   %h2=h @client.name
   #clients
     .person
-      %a.avatar{:href => "#"}
-        %img{:src => "/images/client.png", :width => "75px", :height => "75px"}
-        %label=h @client.first_name
+      = link_to client_avatar(@client), @client, :class => 'avatar'
     %ul.more_info
       %li.email
         %strong Email:
