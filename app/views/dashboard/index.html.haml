@@ -3,19 +3,19 @@
   .dashboard
     - unless @overdue_invoices.blank?
       %h3.overdue Overdue Invoices
-      = render :partial => 'invoice', :locals => { :invoices => @overdue_invoices }
+      = render :partial => 'invoices/invoices', :locals => { :invoices => @overdue_invoices }
        
     - unless @open_invoices.blank?
       %h3 Open Invoices
-      = render :partial => 'invoice', :locals => { :invoices => @open_invoices }
+      = render :partial => 'invoices/invoices', :locals => { :invoices => @open_invoices }
         
     - unless @sent_invoices.blank?
       %h3 Recently Sent Invoices
-      = render :partial => 'invoice', :locals => { :invoices => @sent_invoices }
+      = render :partial => 'invoices/invoices', :locals => { :invoices => @sent_invoices }
 
     - unless @paid_invoices.blank?
       %h3 Recently Paid Invoices
-      = render :partial => 'invoice', :locals => { :invoices => @paid_invoices }
+      = render :partial => 'invoices/invoices', :locals => { :invoices => @paid_invoices }
     
 #sidebar
   = link_to 'Add A New Client', new_client_path, :id => 'new', :class => "button"
