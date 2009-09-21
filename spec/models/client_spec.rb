@@ -15,10 +15,10 @@ describe Client do
       3.times { invoice = Factory(:invoice, :client => client)
       3.times { Factory(:invoice_line, :invoice => invoice) }
       3.times { invoice.payments.create! :amount => "100" } }
+      3.times { invoice = Factory(:invoice, :client => client, :status => 'paid')
+      3.times { Factory(:invoice_line, :invoice => invoice) }
+      3.times { invoice.payments.create! :amount => "100" } }
       client.amount_due.should == 135000
-      # invoice.total_amount.should == 75000
-      # invoice.amount_due.should == 45000
-      
     end
   end
   

@@ -14,7 +14,7 @@ class Client < ActiveRecord::Base
   # Logic
   def amount_due
     total = 0
-    invoices.collect(&:amount_due).each { |amount| total += amount }
+    invoices.pending.collect(&:amount_due).each { |amount| total += amount }
     total
   end
   

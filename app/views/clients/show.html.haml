@@ -32,5 +32,4 @@
   %h4 
     Amount Due:
     %span
-      $467.00
-      =# client.total_amount_due
+      =h cents_to_dollars(@client.amount_due)
