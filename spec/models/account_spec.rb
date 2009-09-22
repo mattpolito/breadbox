@@ -47,5 +47,12 @@ describe Account do
       account1 = Factory.build(:account)
       account1.should be_valid
     end
+    
+    it "should ensure that reserved words cannot be taken by a subdomain" do
+      %w( support blog www billing help api ).each do |reserved|
+        @account.subdomain = "#{reserved}"
+        @account.should_not be_valid
+      end
+    end
   end
 end
