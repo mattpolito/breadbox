@@ -10,8 +10,7 @@ describe Account do
   
   describe "subdomain" do
     it "should be stored as lowercase" do
-      account = Factory.build(:bad_account)
-      account.save_with_validation(false)
+      account = Factory(:bad_account)
       account.subdomain.should == account.subdomain.downcase
     end
   end
@@ -43,7 +42,7 @@ describe Account do
     
     it "should ensure subdomain is lowercased" do
       account = Factory.build(:bad_account)
-      account.should_not be_valid
+      account.should be_valid
       account1 = Factory.build(:account)
       account1.should be_valid
     end
