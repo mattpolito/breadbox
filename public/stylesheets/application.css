@@ -454,6 +454,59 @@ table .overdue {
   display:none;
 }
 
+#user_info .avatar {
+  border:2px solid #FFF;
+  -webkit-box-shadow: 0 0 5px #333;
+  -moz-box-shadow: 0 0 5px #333;
+  color:#333;
+  float:left;
+  height:92px;
+  margin:0 0.5em;
+  position:relative;
+  text-decoration:none;
+}
+
+#user_info .avatar label {
+  background:#FFF;
+  bottom:-2px;
+  font-family: "JD", sans-serif;
+  height:18px;
+  left:0;
+  overflow:hidden;
+  padding:0.1em 0 0;
+  position:absolute;
+  text-align:center;
+  width:75px;
+}
+
+#user_info .person_info {
+  float:left;
+  margin:0 0.5em;
+}
+
+#user_info .invoice_info {
+  clear:both;
+}
+
+#user_info .person_info .name {
+  font-size:150%;
+}
+
+#user_info .person_info .email,
+#user_info .person_info .phone {
+  color:#999;
+  font-size:90%;
+  padding:0.2em 1.8em;
+}
+
+#user_info .person_info .email {
+  background:transparent url("/images/icons/email.png") 0 50% no-repeat;
+}
+
+#user_info .person_info .phone {
+  background:transparent url("/images/icons/telephone.png") 0 50% no-repeat;
+}
+
 
 /* Footer
 ----------------------------------------*/

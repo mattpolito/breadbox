@@ -2,13 +2,13 @@
   %h2 Invoice ##{@invoice.number}
   
   #invoice_info
-    %h3=h @invoice.client.name
-    %fieldset
-      %ul
-        %li 
-          %strong
-            Client:
-          =h @invoice.client.name
+    %h3 Client Information
+    %fieldset#client_info
+      = link_to client_avatar(@invoice.client), @invoice.client, :class => 'avatar'
+      %ul.person_info
+        %li.name= link_to h(@invoice.client.name), @invoice.client
+        %li.email= mail_to h(@invoice.client.email), @invoice.client.email
+        %li.phone=h @invoice.client.phone
         %li 
           %strong
             Number:

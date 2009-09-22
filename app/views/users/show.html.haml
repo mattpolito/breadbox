@@ -1,22 +1,23 @@
 #main_content
   %h2=h @user.name
-  %span.avatar= client_avatar(@user)
-  %ul
-    %li
-      %label Email:
-      =h @user.email
-    %li
-      %label Last login at:
-      =h @user.last_login_at.to_s
-    %li
-      %label Current login at:
-      =h @user.current_login_at.to_s(:regular)
-    %li
-      %label Last login ip:
-      =h @user.last_login_ip
-    %li
-      %label Current login ip:
-      =h @user.current_login_ip
+  #user_info
+    .avatar= client_avatar(@user)
+    %ul
+      %li
+        %label Email:
+        =h @user.email
+      %li
+        %label Last login at:
+        =h @user.last_login_at.to_s
+      %li
+        %label Current login at:
+        =h @user.current_login_at.to_s(:regular)
+      %li
+        %label Last login ip:
+        =h @user.last_login_ip
+      %li
+        %label Current login ip:
+        =h @user.current_login_ip
 
 #sidebar
   = link_to "Edit #{@user.name}'s account", edit_user_path(@user), :class => "button", :id => "edit"
