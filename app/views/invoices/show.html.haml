@@ -1,9 +1,15 @@
 #main_content.show_invoice
-  %h2
+  %h2{ :class => overdue?(@invoice) }
     Invoice #
     #{@invoice.number}
     %span{ status_class(@invoice.status) }=h @invoice.status.humanize
-  
+  %p.success
+    A payment in the amount of
+    %strong
+      =h cents_to_dollars(@invoice.total_amount)
+    was due on
+    %strong
+      =h @invoice.payment_due_date.to_s(:regular)
   #invoice_info
     %h3 Client Information
     %fieldset#client_info
@@ -12,13 +18,7 @@
         %li.name= link_to h(@invoice.client.name), @invoice.client
         %li.email= mail_to h(@invoice.client.email), @invoice.client.email
         %li.phone=h @invoice.client.phone
-        %li
-          A payment in the amount of
-          %strong
-            =h cents_to_dollars(@invoice.total_amount)
-          is due on
-          %strong
-            =h @invoice.payment_due_date.to_s(:regular)
+
         %li 
           %strong
             Billing Date:

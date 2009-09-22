@@ -160,6 +160,16 @@ border: none;
   text-shadow:-1px -1px 1px #333;
 }
 
+#content #main_content.show_invoice h2.overdue {
+	background:#3E659B url("/images/icons/error.png") 1em 60% no-repeat;
+	color:#FF3949;
+	padding-left:2.2em;
+}
+
+#content #main_content.show_invoice h2.overdue span {
+  color:#FFF;
+}
+
 #content #main_content h2 .admin {
   background:#FCD21F;
   -moz-border-radius: 8px;
@@ -269,12 +279,15 @@ table .overdue {
   -webkit-border-radius:2px;
 }
 
+.show_invoice h2 span.paid,
 #main_content .status .paid {
   background:#7A996B; 
 }
+.show_invoice h2 span.draft,
 #main_content .status .draft {
   background:#F4D561;
 }
+.show_invoice h2 span.sent,
 #main_content .status .sent {
   background:#994045;
 }
