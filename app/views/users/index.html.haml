@@ -16,7 +16,7 @@
               - if @current_user.admin?
                 %span.admin Admin
             %td=h user.email
-            %td=h user.last_login_at.to_s(:regular)
+            %td=h user.last_login_at.to_s
             %td=h user.last_login_ip
           %tr.edit
             %td{:colspan => "4"}

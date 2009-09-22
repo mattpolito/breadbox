@@ -201,6 +201,24 @@ table .overdue {
 	background:transparent url("/images/icons/error.png") 98% 50% no-repeat;
 }
 
+#submit_button {
+	background:#7DAAFF;
+	border:none;
+	-moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  color:#FFF;
+  clear:both;
+	cursor:pointer;
+	font-size:1em;
+  font-weight:bold;
+  margin:1em 0;
+  padding:0.4em 0.6em;
+}
+
+#submit_button:hover {
+	color:#222;
+}
+
 /* Dashboard
 ------------------------------------------------*/
 
