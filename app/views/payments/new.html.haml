@@ -14,7 +14,7 @@
           = f.label :note
           = f.text_area :note, :class => 'text'
         %li
-          = f.submit 'Make Payment'
+          = f.submit 'Make Payment', :id => "submit_button"
           
 #sidebar
   = link_to 'Go Back', :back, :id => "back", :class => "button"

@@ -22,23 +22,6 @@
   background:#F4D561;
 }
 
-/* Buttons */
-#invoice_submit,
-#client_submit {
-  background:transparent url("/images/save_button.png") 0 0 no-repeat;
-  border:none;
-  cursor:pointer;
-  height:42px;
-  text-indent:-9999px;
-  width:150px;
-}
-
-#client_submit:hover,
-#invoice_submit:hover { background-position:0 -42px; }
-
-#client_submit:active,
-#invoice_submit:active { background-position:0 -84px; }
-
 #main_content fieldset label.currency {
   float:left;
   margin:1.2em 0.4em 0;
