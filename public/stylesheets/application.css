@@ -197,6 +197,10 @@ table .striped {
   background:#EEE;
 }
 
+table .overdue {
+	background:transparent url("/images/icons/error.png") 98% 50% no-repeat;
+}
+
 /* Dashboard
 ------------------------------------------------*/
 
@@ -224,8 +228,8 @@ table .striped {
 }
 
 #main_content table tbody tr td {
-  border-bottom:1px solid #EEEEEE;
-  padding:0.4em;
+  border-bottom:1px solid #EEE;
+  padding:0.8em 0.4em;
 }
 
 #main_content table .status,
