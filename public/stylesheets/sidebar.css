@@ -43,32 +43,35 @@
   padding:0.2em 0.4em;
 }
 
+/* Sidebar Buttons
+----------------------------------------------*/
+
 #sidebar .button {
+  background-color:#FFF;
+  background-position:0.6em 50%;
+  background-repeat:no-repeat;
   -moz-border-radius: 3px;
   -webkit-border-radius: 3px;
   border:1px solid #999;
-  color:#333;
+  color:#5EA256;
   display:block;
   font-size:1.4em;
   font-weight:bold;
   margin:0.5em 0;
-  padding:0.5em 2em;
+  padding:0.5em 2.4em;
   text-decoration:none;
 }
 
 #sidebar .button:hover {
   color:#333;
+  background-color:#D0DECE;
 }
 
-#sidebar #new{background:#FFF url("/images/icons/add.png") 0.4em 50% no-repeat;color:#5EA256;}
-#sidebar #new:hover{background-color:#D0DECE;}
 #sidebar #cancel{background:#FFF url("/images/icons/cancel.png") 0.4em 50% no-repeat;color:#9B222A;}
 #sidebar #cancel:hover{background-color:#FFD9D9;}
-#sidebar #edit{background:#FFF url("/images/icons/application_form_edit.png") 0.4em 50% no-repeat;color:#5EA256;}
-#sidebar #edit:hover{background-color:#D0DECE;}
-#sidebar #back{background:#FFF url("/images/icons/arrow_left.png") 0.4em 50% no-repeat;color:#5EA256;}
-#sidebar #back:hover{background-color:#D0DECE;}
-#sidebar #view{background:#FFF url("/images/icons/user.png") 0.4em 50% no-repeat;color:#5EA256;}
-#sidebar #view:hover{background-color:#D0DECE;}
-#sidebar #pdf{background:#FFF url("/images/icons/printer.png") 0.4em 50% no-repeat;color:#5EA256;}
-#sidebar #pdf:hover{background-color:#D0DECE;}
+#sidebar #new{background-image:url("/images/icons/add.png");}
+#sidebar #edit{background-image:url("/images/icons/application_form_edit.png");}
+#sidebar #payment{background-image:url("/images/icons/money_add.png");}
+#sidebar #back{background-image:url("/images/icons/arrow_left.png");}
+#sidebar #view{background-image:url("/images/icons/user.png");}
+#sidebar #pdf{background-image:url("/images/icons/printer.png");}
