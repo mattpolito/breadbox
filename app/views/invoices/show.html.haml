@@ -1,5 +1,8 @@
 #main_content.show_invoice
-  %h2 Invoice ##{@invoice.number}
+  %h2
+    Invoice #
+    #{@invoice.number}
+    %span{ status_class(@invoice.status) }=h @invoice.status.humanize
   
   #invoice_info
     %h3 Client Information
@@ -9,14 +12,13 @@
         %li.name= link_to h(@invoice.client.name), @invoice.client
         %li.email= mail_to h(@invoice.client.email), @invoice.client.email
         %li.phone=h @invoice.client.phone
-        %li 
-          %strong
-            Number:
-          =h @invoice.number
         %li
+          A payment in the amount of
           %strong
-            Payment Due:
-          =h @invoice.payment_due_date.to_s(:regular)
+            =h cents_to_dollars(@invoice.total_amount)
+          is due on
+          %strong
+            =h @invoice.payment_due_date.to_s(:regular)
         %li 
           %strong
             Billing Date:
