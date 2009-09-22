@@ -22,11 +22,6 @@
   background:#F4D561;
 }
 
-#main_content fieldset label.currency {
-  float:left;
-  margin:1.2em 0.4em 0;
-}
-
 #main_content fieldset legend {
   background:#3E69AB;
   border:1px solid #215895;
@@ -48,5 +43,69 @@
 #main_content fieldset table tbody .price {
   font-size:1.2em;
   padding:0.4em;
-  width:50px;
+  width:75px;
+}
+
+.show_invoice fieldset {
+	border:none;
+	padding:0 0 0 1em;
+}
+
+.show_invoice #client_info {
+	font-size:1.2em;
+}
+
+/*invoice show*/
+
+#client_info .avatar {
+  border:2px solid #FFF;
+  -webkit-box-shadow: 0 0 5px #333;
+  -moz-box-shadow: 0 0 5px #333;
+  color:#333;
+  float:left;
+  height:92px;
+  margin:0 0.5em;
+  position:relative;
+  text-decoration:none;
+}
+
+#client_info .avatar label {
+  background:#FFF;
+  bottom:-2px;
+  font-family: "JD", sans-serif;
+  height:18px;
+  left:0;
+  overflow:hidden;
+  padding:0.1em 0 0;
+  position:absolute;
+  text-align:center;
+  width:75px;
+}
+
+#client_info .person_info {
+  float:left;
+  margin:0 0.5em;
+}
+
+#client_info .invoice_info {
+  clear:both;
+}
+
+#client_info .person_info .name {
+  font-size:150%;
+}
+
+#client_info .person_info .email,
+#client_info .person_info .phone {
+  color:#999;
+  font-size:90%;
+  padding:0.2em 1.8em;
+}
+
+#client_info .person_info .email {
+  background:transparent url("/images/icons/email.png") 0 50% no-repeat;
+}
+
+#client_info .person_info .phone {
+  background:transparent url("/images/icons/telephone.png") 0 50% no-repeat;
 }
