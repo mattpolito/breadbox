@@ -2,6 +2,11 @@
 # Likewise, all the methods added will be available for all controllers.
 
 class ApplicationController < ActionController::Base
+  include SubdomainAccounts
+  
+  # Callbacks
+  before_filter :check_account_status
+  
   helper :all # include all helpers, all the time
   helper_method :logged_in?, :admin_logged_in?, :current_user_session, :current_user
   protect_from_forgery # See ActionController::RequestForgeryProtection for details
@@ -25,6 +30,12 @@ class ApplicationController < ActionController::Base
   end
 
   private
+    def check_account_status
+      unless account_subdomain == default_account_subdomain
+        redirect_to default_account_url if current_account.nil?
+      end
+    end
+  
     def current_user_session
       return @current_user_session if defined?(@current_user_session)
       @current_user_session = UserSession.find
