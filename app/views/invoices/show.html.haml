@@ -3,7 +3,7 @@
     Invoice #
     #{@invoice.number}
     %span{ status_class(@invoice.status) }=h @invoice.status.humanize
-  %p.success
+  %p.notice
     A payment in the amount of
     %strong
       =h cents_to_dollars(@invoice.total_amount)
