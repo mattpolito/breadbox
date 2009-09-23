@@ -1,5 +1,5 @@
 module InvoicesHelper
-  def overdue?(invoice)
+  def overdue(invoice)
     invoice.overdue? ? 'overdue' : false
   end
   
