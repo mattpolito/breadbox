@@ -14,7 +14,7 @@ class ApplicationController < ActionController::Base
 
   # Scrub sensitive parameters from your log
   filter_parameter_logging :password, :password_confirmation
-  
+
   def logged_in?
     !current_user_session.nil?
   end
@@ -31,10 +31,22 @@ class ApplicationController < ActionController::Base
   end
 
   private
+    def banner_site?
+      @banner_site ||= account_subdomain == default_account_subdomain
+    end
+  
     def check_account_status
-      unless account_subdomain == default_account_subdomain
-        redirect_to default_account_url if current_account.nil?
+      unless banner_site?
+        redirect_to root_url
       end
+    end
+    
+    def check_if_login_required
+      require_user unless banner_site?
+    end
+    
+    def current_layout_name
+      banner_site? ? 'banner_site' : 'application'
     end
   
     def current_user_session
