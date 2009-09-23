@@ -1,7 +1,9 @@
 #totals
   %h3 Payments
+  %ul
   - for payment in @invoice.payments
-    \- #{h number_to_currency(payment.amount)}
-    %span (#{h payment.created_at.to_s(:regular)})
+    %li
+      \- #{h number_to_currency(payment.amount)}
+      %span (#{h payment.created_at.to_s(:regular)})
     
   #total Total Amount Due: #{h cents_to_dollars(@invoice.amount_due)}
