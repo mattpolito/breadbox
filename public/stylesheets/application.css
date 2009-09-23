@@ -207,7 +207,7 @@ table .striped {
   background:#EEE;
 }
 
-table .overdue {
+table tbody tr.overdue {
 	background:transparent url("/images/icons/error.png") 98% 50% no-repeat;
 }
 

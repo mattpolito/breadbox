@@ -108,6 +108,15 @@ describe Invoice do
     invoice.should be_overdue
   end
   
+  describe "views" do
+    it "should return 'is' or 'was' if payment is in the future or past" do
+      payment_due_in_past = Factory(:invoice, :payment_due_date => Date.today - 1.day, :status => 'sent')
+      payment_due_in_past.is_or_was.should == 'was'
+      payment_due_in_future = Factory(:invoice, :payment_due_date => Date.today + 1.day, :status => 'sent')
+      payment_due_in_future.is_or_was.should == 'is'
+    end
+  end
+  
   describe "aasm" do
     it "should set status to 'draft' when created" do
       invoice = Factory(:invoice)
