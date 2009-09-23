@@ -7,6 +7,11 @@
   width:19%;
 }
 
+#totals.payments ul li,
+#totals.payments #total {
+	font-family:"JD", sans-serif;
+}
+
 #totals h4 {
   color:#222;
   font-family:"JD", sans-serif;

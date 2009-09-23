@@ -49,6 +49,16 @@
 
 /*invoice show*/
 
+.show_invoice {
+	position:relative;
+}
+
+.show_invoice img.overdue_image {
+	position:absolute;
+	right:5em;
+	top:5em;
+}
+
 #client_info .avatar {
   border:2px solid #FFF;
   -webkit-box-shadow: 0 0 5px #333;

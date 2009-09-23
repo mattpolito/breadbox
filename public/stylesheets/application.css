@@ -188,14 +188,9 @@ border: none;
   width:100%;
 }
 
-#main_content table thead tr {
+#main_content table thead tr th {
   background:#CCC;
   color:#222;
-}
-
-#main_content table thead tr {
-  -moz-border-radius: 3px;
-  -webkit-border-radius: 3px;
 }
 
 #main_content table thead tr th {
