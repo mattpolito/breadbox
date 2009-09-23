@@ -1,6 +1,6 @@
 class UserSessionsController < ApplicationController
+  skip_before_filter :check_account_status, :except => [:destroy]
   before_filter :require_no_user, :only => [:new, :create]
-  before_filter :require_user, :only => :destroy
   layout 'home'
   
   def new

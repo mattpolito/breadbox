@@ -5,7 +5,8 @@ class ApplicationController < ActionController::Base
   include SubdomainAccounts
   
   # Callbacks
-  before_filter :check_account_status
+  # before_filter :check_account_status
+  before_filter :check_if_login_required
   
   helper :all # include all helpers, all the time
   helper_method :logged_in?, :admin_logged_in?, :current_user_session, :current_user

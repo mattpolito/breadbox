@@ -1,6 +1,4 @@
 class DashboardController < ApplicationController
-  before_filter :require_user
-  
   def index
     @overdue_invoices = Invoice.overdue
     @open_invoices = Invoice.draft.limit(10)
