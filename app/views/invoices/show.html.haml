@@ -1,6 +1,9 @@
 #main_content.show_invoice
-  %h2 Invoice ##{@invoice.number}
-  
+  %h2{ :class => overdue?(@invoice) }
+    Invoice #
+    #{@invoice.number}
+    %span{ status_class(@invoice.status) }=h @invoice.status.humanize
+  = payment_notice(@invoice) unless @invoice.paid?
   #invoice_info
     %h3 Client Information
     %fieldset#client_info
@@ -9,14 +12,7 @@
         %li.name= link_to h(@invoice.client.name), @invoice.client
         %li.email= mail_to h(@invoice.client.email), @invoice.client.email
         %li.phone=h @invoice.client.phone
-        %li 
-          %strong
-            Number:
-          =h @invoice.number
-        %li
-          %strong
-            Payment Due:
-          =h @invoice.payment_due_date.to_s(:regular)
+
         %li 
           %strong
             Billing Date:
@@ -48,7 +44,7 @@
   
 #sidebar
   = link_to "Edit Invoice #{@invoice.number}", edit_invoice_path(@invoice), :id => "edit", :class => "button"
-  = link_to 'Enter a Payment', new_invoice_payment_path(@invoice), :id => 'edit', :class => 'button'
+  = link_to 'Add A Payment', new_invoice_payment_path(@invoice), :id => 'payment', :class => 'button'
   = link_to 'Printable Invoice (PDF)', invoice_path(@invoice, :format => 'pdf'), :id => 'pdf', :class => 'button'
   = link_to 'Go Back', :back, :id => "back", :class => "button"
   

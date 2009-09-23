@@ -14,14 +14,6 @@
   text-shadow:none;
 }
 
-.show_invoice h2 span.due {
-  background:#994045;
-}
-
-.show_invoice h2 span.sent {
-  background:#F4D561;
-}
-
 #main_content fieldset legend {
   background:#3E69AB;
   border:1px solid #215895;
