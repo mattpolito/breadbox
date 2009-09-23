@@ -53,5 +53,9 @@ Rails::Initializer.run do |config|
 end
 
 ActiveSupport::CoreExtensions::Time::Conversions::DATE_FORMATS.merge!( 
-  :regular => "%B %d, %Y" 
+  :regular => "%B %d, %Y"
+)
+
+ActiveSupport::CoreExtensions::Date::Conversions::DATE_FORMATS.merge!( 
+  :regular => "%B %d, %Y"
 )
