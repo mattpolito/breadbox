@@ -207,8 +207,8 @@ table .striped {
   background:#EEE;
 }
 
-table tbody tr.overdue {
-	background:transparent url("/images/icons/error.png") 98% 50% no-repeat;
+table tbody tr.overdue td.last {
+	background:transparent url("/images/icons/error.png") 90% 50% no-repeat;
 }
 
 #submit_button {
