@@ -33,4 +33,10 @@ module ApplicationHelper
   def copyright_date
     Time.now.strftime("%Y")
   end
+  
+  def title(title)
+    content_for :title do
+      "#{title} - Breadbox"
+    end
+  end
 end

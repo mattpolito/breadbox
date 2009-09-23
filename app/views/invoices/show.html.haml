@@ -1,3 +1,5 @@
+- title "#{@invoice.client.name} - Invoice ##{@invoice.number}"
+
 #main_content.show_invoice
   %h2{ :class => overdue?(@invoice) }
     Invoice #

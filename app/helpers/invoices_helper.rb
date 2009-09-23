@@ -7,9 +7,9 @@ module InvoicesHelper
     content_tag :p, :class => 'notice' do
       string = "A payment in the amount of "
       string += content_tag :strong do
-        h(cents_to_dollars(invoice.total_amount))
+        h(cents_to_dollars(invoice.amount_due))
       end
-      string += " was due on "
+      string += " #{invoice.is_or_was} due on "
       string += content_tag :strong do
         h(invoice.payment_due_date.to_s(:regular))
       end
