@@ -161,8 +161,7 @@ border: none;
 }
 
 #content #main_content.show_invoice h2.overdue {
-	background:#3E659B url("/images/icons/error.png") 1em 60% no-repeat;
-	color:#FF3949;
+	background:#BC4234 url("/images/icons/error.png") 1em 60% no-repeat;
 	padding-left:2.2em;
 }
 
