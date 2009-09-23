@@ -3,13 +3,7 @@
     Invoice #
     #{@invoice.number}
     %span{ status_class(@invoice.status) }=h @invoice.status.humanize
-  %p.notice
-    A payment in the amount of
-    %strong
-      =h cents_to_dollars(@invoice.total_amount)
-    was due on
-    %strong
-      =h @invoice.payment_due_date.to_s(:regular)
+  = payment_notice(@invoice) unless @invoice.paid?
   #invoice_info
     %h3 Client Information
     %fieldset#client_info
