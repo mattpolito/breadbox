@@ -16,4 +16,4 @@
         %td= link_to h(invoice.number), invoice
         %td=h invoice.client.name
         %td=h cents_to_dollars(invoice.total_amount)
-        %td=h cents_to_dollars(invoice.amount_due)
+        %td.last=h cents_to_dollars(invoice.amount_due)

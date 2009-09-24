@@ -1,6 +1,8 @@
 - title "#{@invoice.client.name} - Invoice ##{@invoice.number}"
 
 #main_content.show_invoice
+  - if @invoice.overdue?
+    %img.overdue_image{:src => "/images/overdue.png", :alt => "Overdue"}
   %h2{ :class => overdue(@invoice) }
     Invoice #
     #{@invoice.number}
