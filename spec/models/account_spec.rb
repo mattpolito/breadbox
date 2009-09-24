@@ -3,9 +3,25 @@ require File.expand_path(File.dirname(__FILE__) + '/../spec_helper')
 describe Account do
   before(:each) do
   end
+  
+  it { should have_one(:organization) }
+  it { should have_many(:clients) }
 
   it "should create a new instance given valid attributes" do
     Account.create!(Factory.attributes_for(:account))
+  end
+  
+  describe "instance" do
+    it "should have many invoices" do
+      account = Factory(:account)
+      organization = account.create_organization
+      3.times do
+        client = Factory(:client, :organization => organization)
+        2.times { Factory(:invoice, :client => client) }
+      end
+      account.should have(6).invoices
+      
+    end
   end
   
   describe "subdomain" do
