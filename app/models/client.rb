@@ -5,6 +5,7 @@ class Client < ActiveRecord::Base
   # Associations
   has_many :invoices
   has_one :address
+  belongs_to :organization
   
   # Validations
   validates_presence_of :email
