@@ -9,7 +9,7 @@ class ApplicationController < ActionController::Base
   before_filter :check_if_login_required
   
   helper :all # include all helpers, all the time
-  helper_method :logged_in?, :admin_logged_in?, :current_user_session, :current_user
+  helper_method :logged_in?, :admin_logged_in?, :current_user_session, :current_user, :current_organization
   protect_from_forgery # See ActionController::RequestForgeryProtection for details
 
   # Scrub sensitive parameters from your log
@@ -45,6 +45,10 @@ class ApplicationController < ActionController::Base
       require_user unless banner_site?
     end
     
+    def current_organization
+      @current_organization ||= current_account.organization
+    end
+    
     def current_layout_name
       banner_site? ? 'banner_site' : 'application'
     end
@@ -62,7 +66,6 @@ class ApplicationController < ActionController::Base
     def require_user
       unless current_user
         store_location
-        flash[:notice] = "You must be logged in to access this page"
         redirect_to new_user_session_url
         return false
       end

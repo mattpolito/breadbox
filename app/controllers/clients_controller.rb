@@ -2,7 +2,7 @@ class ClientsController < ApplicationController
   # GET /clients
   # GET /clients.xml
   def index
-    @clients = Client.paginate(:all, :order => 'last_name', :page => params[:page], :per_page => 10)
+    @clients = current_organization.clients.paginate(:all, :order => 'last_name', :page => params[:page], :per_page => 10)
 
     respond_to do |format|
       format.html # index.html.erb
@@ -13,7 +13,7 @@ class ClientsController < ApplicationController
   # GET /clients/1
   # GET /clients/1.xml
   def show
-    @client = Client.find(params[:id])
+    @client = current_organization.clients.find(params[:id])
     @invoices = @client.invoices
 
     respond_to do |format|
@@ -25,7 +25,7 @@ class ClientsController < ApplicationController
   # GET /clients/new
   # GET /clients/new.xml
   def new
-    @client = Client.new
+    @client = current_organization.clients.new
     @client.build_address
 
     respond_to do |format|
@@ -36,14 +36,14 @@ class ClientsController < ApplicationController
 
   # GET /clients/1/edit
   def edit
-    @client = Client.find(params[:id])
+    @client = current_organization.clients.find(params[:id])
     @client.build_address unless @client.address.present?
   end
 
   # POST /clients
   # POST /clients.xml
   def create
-    @client = Client.new(params[:client])
+    @client = current_organization.clients.new(params[:client])
 
     respond_to do |format|
       if @client.save
@@ -60,7 +60,7 @@ class ClientsController < ApplicationController
   # PUT /clients/1
   # PUT /clients/1.xml
   def update
-    @client = Client.find(params[:id])
+    @client = current_organization.clients.find(params[:id])
     
     respond_to do |format|
       if @client.update_attributes(params[:client])
@@ -77,7 +77,7 @@ class ClientsController < ApplicationController
   # DELETE /clients/1
   # DELETE /clients/1.xml
   def destroy
-    @client = Client.find(params[:id])
+    @client = current_organization.clients.find(params[:id])
     @client.destroy
 
     respond_to do |format|
