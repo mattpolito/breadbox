@@ -41,7 +41,7 @@ module SubdomainAccounts
     end      
           
     def current_account
-      Account.find_by_subdomain(account_subdomain)
+      @current_account ||= Account.find_by_subdomain(account_subdomain)
     end
     
     def http_protocol( use_ssl = request.ssl? )
