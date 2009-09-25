@@ -255,12 +255,14 @@ SASS
     rescue Sass::SyntaxError => e
       assert_equal("Illegal property syntax: can't use new syntax when :property_syntax => :old is set.",
                    e.message)
+      assert_equal(2, e.sass_line)
     else
       assert(false, "SyntaxError not raised for :property_syntax => :old")
     end
 
     begin
       render("a\n  :b c", :property_syntax => :new)
+      assert_equal(2, e.sass_line)
     rescue Sass::SyntaxError => e
       assert_equal("Illegal property syntax: can't use old syntax when :property_syntax => :new is set.",
                    e.message)
@@ -706,17 +708,19 @@ SASS
 
   def test_empty_selector_warning
     assert_warning(<<END) {render("foo bar")}
-WARNING:
+WARNING on line 1:
 Selector "foo bar" doesn't have any properties and will not be rendered.
 END
 
     assert_warning(<<END) {render(<<SASS)}
-WARNING:
+WARNING on line 3:
 Selector
   foo, bar, baz,
   bang, bip, bop
 doesn't have any properties and will not be rendered.
 END
+
+
 foo, bar, baz,
 bang, bip, bop
 SASS
