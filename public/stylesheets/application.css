@@ -161,8 +161,7 @@ border: none;
 }
 
 #content #main_content.show_invoice h2.overdue {
-	background:#3E659B url("/images/icons/error.png") 1em 60% no-repeat;
-	color:#FF3949;
+	background:#BC4234 url("/images/icons/error.png") 1em 60% no-repeat;
 	padding-left:2.2em;
 }
 
@@ -188,14 +187,9 @@ border: none;
   width:100%;
 }
 
-#main_content table thead tr {
+#main_content table thead tr th {
   background:#CCC;
   color:#222;
-}
-
-#main_content table thead tr {
-  -moz-border-radius: 3px;
-  -webkit-border-radius: 3px;
 }
 
 #main_content table thead tr th {
@@ -207,8 +201,8 @@ table .striped {
   background:#EEE;
 }
 
-table tbody tr.overdue {
-	background:transparent url("/images/icons/error.png") 98% 50% no-repeat;
+table tbody tr.overdue td.last {
+	background:transparent url("/images/icons/error.png") 90% 50% no-repeat;
 }
 
 #submit_button {
