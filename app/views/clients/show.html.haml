@@ -9,10 +9,10 @@
         %a.email{ :href => "mailto:#{@client.email}" }=h @client.email
       %li.phone
         %strong Phone:
-        =h @client.phone 
+        = displayable_phone_number(@client.phone)
       %li.fax
         %strong Fax:
-        =h @client.fax
+        = displayable_phone_number(@client.fax)
     %ul.address
       %li
         %h3 Address
