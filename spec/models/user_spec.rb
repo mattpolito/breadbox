@@ -5,6 +5,8 @@ describe User do
   before(:each) do
     @valid_attributes = Factory.attributes_for(:user)
   end
+  
+  it { should belong_to(:organization) }
 
   it "should create a new instance given valid attributes" do
     User.create!(@valid_attributes)

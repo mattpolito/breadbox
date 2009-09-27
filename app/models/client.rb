@@ -6,12 +6,13 @@ class Client < ActiveRecord::Base
   
   normalize_attributes :phone, :fax do |number|
     return nil unless number.is_a?(String)
-    number.gsub(/\W/, '').gsub(/^1/, '')
+    number.gsub(/\W/, '').gsub(/^1/, '').gsub('x', '')
   end
   
   # Associations
   has_many :invoices
   has_one :address
+  belongs_to :organization
   
   # Validations
   validates_presence_of :email

@@ -4,6 +4,9 @@ class User < ActiveRecord::Base
   has_gravatar :size => 75
   normalize_attributes :first_name, :last_name, :email, :current_login_ip, :last_login_ip, :current_login_ip
   
+  # Associations
+  belongs_to :organization
+  
   # Validations
   validates_presence_of :first_name
   validates_presence_of :last_name  

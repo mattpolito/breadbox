@@ -2,13 +2,19 @@
 # Likewise, all the methods added will be available for all controllers.
 
 class ApplicationController < ActionController::Base
+  include SubdomainAccounts
+  
+  # Callbacks
+  # before_filter :check_account_status
+  before_filter :check_if_login_required
+  
   helper :all # include all helpers, all the time
-  helper_method :logged_in?, :admin_logged_in?, :current_user_session, :current_user
+  helper_method :logged_in?, :admin_logged_in?, :current_user_session, :current_user, :current_organization
   protect_from_forgery # See ActionController::RequestForgeryProtection for details
 
   # Scrub sensitive parameters from your log
   filter_parameter_logging :password, :password_confirmation
-  
+
   def logged_in?
     !current_user_session.nil?
   end
@@ -25,6 +31,28 @@ class ApplicationController < ActionController::Base
   end
 
   private
+    def banner_site?
+      @banner_site ||= account_subdomain == default_account_subdomain
+    end
+  
+    def check_account_status
+      unless banner_site?
+        redirect_to root_url
+      end
+    end
+    
+    def check_if_login_required
+      require_user unless banner_site?
+    end
+    
+    def current_organization
+      @current_organization ||= current_account.organization
+    end
+    
+    def current_layout_name
+      banner_site? ? 'banner_site' : 'application'
+    end
+  
     def current_user_session
       return @current_user_session if defined?(@current_user_session)
       @current_user_session = UserSession.find
@@ -38,7 +66,6 @@ class ApplicationController < ActionController::Base
     def require_user
       unless current_user
         store_location
-        flash[:notice] = "You must be logged in to access this page"
         redirect_to new_user_session_url
         return false
       end

@@ -1,14 +1,12 @@
 class DashboardController < ApplicationController
-  before_filter :require_user
-  
   def index
-    @overdue_invoices = Invoice.overdue
-    @open_invoices = Invoice.draft.limit(10)
-    @sent_invoices = Invoice.sent.limit(10)
-    @paid_invoices = Invoice.paid.limit(10)
-    @estimated_total_for_year = Invoice.yearly_estimated_income
-    @total_paid_invoices_count = Invoice.paid.size
-    @total_sent_invoices_count = Invoice.sent.size
-    @total_open_invoices_count = Invoice.draft.size
+    @overdue_invoices = current_organization.invoices.overdue
+    @open_invoices = current_organization.invoices.draft.limit(10)
+    @sent_invoices = current_organization.invoices.sent.limit(10)
+    @paid_invoices = current_organization.invoices.paid.limit(10)
+    @estimated_total_for_year = current_organization.invoices.yearly_estimated_income
+    @total_paid_invoices_count = current_organization.invoices.paid.size
+    @total_sent_invoices_count = current_organization.invoices.sent.size
+    @total_open_invoices_count = current_organization.invoices.draft.size
   end
 end

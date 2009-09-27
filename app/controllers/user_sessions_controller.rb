@@ -1,6 +1,6 @@
 class UserSessionsController < ApplicationController
-  before_filter :require_no_user, :only => [:new, :create]
-  before_filter :require_user, :only => :destroy
+  skip_filter :check_if_login_required, :except => :destroy
+  # before_filter :require_no_user, :only => [:new, :create]
   layout 'home'
   
   def new
