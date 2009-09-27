@@ -55,8 +55,8 @@
 
 .show_invoice img.overdue_image {
 	position:absolute;
-	right:1em;
-	top:2em;
+	right:4em;
+	top:5em;
 }
 
 #client_info .avatar {
