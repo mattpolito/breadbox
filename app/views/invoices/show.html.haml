@@ -4,8 +4,7 @@
   - if @invoice.overdue?
     %img.overdue_image{:src => "/images/overdue.png", :alt => "Overdue"}
   %h2{ :class => overdue(@invoice) }
-    Invoice #
-    #{@invoice.number}
+    == Invoice ##{@invoice.number}
     %span{ status_class(@invoice.status) }=h @invoice.status.humanize
   = payment_notice(@invoice) unless @invoice.paid?
   #invoice_info
@@ -15,7 +14,7 @@
       %ul.person_info
         %li.name= link_to h(@invoice.client.name), @invoice.client
         %li.email= mail_to h(@invoice.client.email), @invoice.client.email
-        %li.phone=h @invoice.client.phone
+        %li.phone= displayable_phone_number(@invoice.client.phone)
 
         %li 
           %strong
