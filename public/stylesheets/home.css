@@ -51,15 +51,20 @@ body {
 }
 
 #login #remember {
-  margin:1em 0;
+  margin:2em 0;
 }
 
 #login #remember li {
+	float:left;
   margin:0 0 1em;
 }
 
+#login #remember li.login {
+	float:right;
+}
+
 #login #remember label {
-  color:#555;
+  color:#CCC;
   font-size:1.4em;
   text-shadow:1px 1px 1px #000;
 }
@@ -79,4 +84,40 @@ body {
 
 #login #remember #submit:hover {
   text-shadow:0 0 10px #FFF;
+}
+
+/*errors*/
+
+#errorExplanation {
+	background-color: rgba(255,0,0,.2);
+	border:1px solid #993131;
+	color:#FFF;
+	margin:3em 0 -5em;
+	padding:0.5em 1em;
+}
+
+#errorExplanation h2 {
+	background:transparent url("/images/icons/error.png") 0 50% no-repeat;
+	padding:0 1.6em;
+}
+
+#errorExplanation p {
+	color:#999;
+	font-size:1.2em;
+	padding:0 2em;
+}
+
+#errorExplanation ul {
+	font-size:1.2em;
+	padding:0 2em;
+}
+
+#errorExplanation ul li {
+	background:transparent url("/images/icons/bullet_error.png") 0 50% no-repeat;
+	padding:0 1.5em;
+}
+
+#login #user_detials .fieldWithErrors .text {
+	background-color: rgba(255,0,0,.2);
+	border:1px solid #993131;
 }
