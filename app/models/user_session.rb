@@ -1,4 +1,5 @@
 class UserSession < Authlogic::Session::Base
+  
   def welcome_message
     case
     when user.login_count > 1

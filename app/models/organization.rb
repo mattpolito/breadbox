@@ -1,4 +1,7 @@
 class Organization < ActiveRecord::Base
+  # Extensions
+  authenticates_many :user_sessions
+  
   # Associations
   has_many :users
   has_many :clients

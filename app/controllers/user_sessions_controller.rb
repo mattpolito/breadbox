@@ -4,11 +4,11 @@ class UserSessionsController < ApplicationController
   layout 'home'
   
   def new
-    @user_session = UserSession.new
+    @user_session = current_organization.user_sessions.new
   end
   
   def create
-    @user_session = UserSession.new(params[:user_session])
+    @user_session = current_organization.user_sessions.new(params[:user_session])
     if @user_session.save
       flash[:notice] = @user_session.welcome_message
       redirect_back_or_default root_url

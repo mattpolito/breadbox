@@ -7,11 +7,9 @@ describe UserSession do
   end
   
   describe "welcome message" do
-    it "should welcome new user" do
+    xit "should welcome new user" do
       user = Factory(:user)
       user_session = UserSession.new(:email => user.email, :password => user.password)
-      p user_session
-      
     end
   end
 end
