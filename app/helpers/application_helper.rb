@@ -39,4 +39,16 @@ module ApplicationHelper
       "#{title} - Breadbox"
     end
   end
+  
+  def displayable_phone_number(phone_number)
+    number_to_phone(phone_number(phone_number), :delimiter => '.', :extension => phone_extension(phone_number))
+  end
+  
+  def phone_extension(phone_number)
+    phone_number.slice(10...phone_number.size)
+  end
+  
+  def phone_number(phone_number)
+    phone_number.slice(0...10)
+  end
 end
