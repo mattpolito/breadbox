@@ -4,7 +4,7 @@
   - form_for @user_session, :url => user_session_path do |f|
     = f.error_messages
     %fieldset
-      %ul#user_detials
+      %ul#user_details
         %li
           = f.label :email
           = f.text_field :email, :class => "text", :id => "email"

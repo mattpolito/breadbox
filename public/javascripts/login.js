@@ -1,14 +1,13 @@
 $(document).ready(function()  {
-  
-  if ($("#email").attr("value") == "")
-    {
-      $("#email").addClass("swap_value").attr("value","Email");
+
+  // User Login value set
+  $("#user_details input").each(function(){
+    if($(this).attr("value") == ""){
+      $(this).attr("value", $(this).siblings("label").text());
+      $(this).addClass("swap_value");
     }
-  if ($("#password").attr("value") == "")
-    {
-      $("#password").addClass("swap_value").attr("value","Password");
-    }
-    
+  });
+
   // Swap Value
   swapValues = [];
   $(".swap_value").each(function(i){

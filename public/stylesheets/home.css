@@ -28,11 +28,11 @@ body {
   width:400px;
 }
 
-#login #user_detials li {
+#login #user_details li {
   margin:0.5em 0;
 }
 
-#login #user_detials label {
+#login #user_details label {
   color:#444;
   display:block;
   font-size:1.5em;
@@ -40,7 +40,7 @@ body {
   text-shadow:1px 1px 1px #000;
 }
 
-#login #user_detials .text {
+#login #user_details .text {
   background-color: rgba(0,0,0,.4);
   border:1px solid #333;
   color:#444;
@@ -117,7 +117,7 @@ body {
 	padding:0 1.5em;
 }
 
-#login #user_detials .fieldWithErrors .text {
+#login #user_details .fieldWithErrors .text {
 	background-color: rgba(255,0,0,.2);
 	border:1px solid #993131;
 }
