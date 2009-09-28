@@ -11,7 +11,7 @@ module InvoicesHelper
       end
       string += " #{invoice.is_or_was} due on "
       string += content_tag :strong do
-        h(invoice.payment_due_date.to_s(:regular))
+        h(long_date(invoice.payment_due_date))
       end
       string
     end
