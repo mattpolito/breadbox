@@ -9,7 +9,7 @@
       %li
         = f.label :number
         = f.text_field :number
-        %em (Last used: #{h(@invoice.last_used_number)})
+        %em== (Last used: #{h(@invoice.last_used_number)})
       %li
         = f.label :payment_due_date
         = f.date_select :payment_due_date
