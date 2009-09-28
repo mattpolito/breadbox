@@ -4,5 +4,5 @@
     - for payment in @invoice.payments
       %li
         =h number_to_currency(payment.amount)
-        %span== (#{h payment.created_at.to_s(:regular)})
+        %span== (#{short_date(payment.created_at)})
   #total== Total Amount Due: #{h cents_to_dollars(@invoice.amount_due)}
