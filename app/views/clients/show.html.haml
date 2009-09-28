@@ -6,7 +6,7 @@
     %ul.more_info
       %li.email
         %strong Email:
-        %a.email{ :href => "mailto:#{@client.email}" }=h @client.email
+        %a{ :href => "mailto:#{@client.email}" }=h @client.email
       %li.phone
         %strong Phone:
         = displayable_phone_number(@client.phone)
@@ -14,9 +14,7 @@
         %strong Fax:
         = displayable_phone_number(@client.fax)
     %ul.address
-      %li
-        %h3 Address
-      %li= @client.address.address_parts.join("<li>") unless @client.address.blank?
+      %li.first= @client.address.address_parts.join("<li>") unless @client.address.blank?
       
   #invoices
     = render :partial => 'invoices/invoices'
