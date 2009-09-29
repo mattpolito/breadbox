@@ -5,6 +5,7 @@ describe Organization do
   it { should have_many(:clients) }
   it { should have_many(:invoices) }
   it { should have_many(:users) }
+  it { should have_one(:address) }
 
   it "should create a new instance given valid attributes" do
     Organization.create!(Factory.attributes_for(:organization))

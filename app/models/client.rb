@@ -11,7 +11,7 @@ class Client < ActiveRecord::Base
   
   # Associations
   has_many :invoices
-  has_one :address
+  has_one :address, :as => :addressable
   belongs_to :organization
   
   # Validations
