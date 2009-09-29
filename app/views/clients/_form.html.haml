@@ -21,24 +21,5 @@
       = f.text_field :fax, :class => "text"
     
 - f.fields_for :address do |address|
-  %fieldset.default.last
-    %ul
-      %li
-        = address.label :street1, 'Street 1'
-        = address.text_field :street1, :class => 'text'
-      %li
-        = address.label :street2, 'Street 2'
-        = address.text_field :street2, :class => 'text'
-      %li
-        = address.label :city
-        = address.text_field :city, :class => 'text'
-      %li
-        = address.label :state
-        = address.text_field :state, :class => 'text'
-      %li
-        = address.label :zipcode
-        = address.text_field :zipcode, :class => 'text'
-      %li
-        = address.label :country
-        = address.text_field :country, :class => 'text'
+  = render :partial => 'shared/address', :locals => { :address => address }
 %p= f.submit button_text, :id => "submit_button"

@@ -1,0 +1,17 @@
+#main_content
+  %h2 Organization Profile
+
+  - form_for current_organization do |f|
+    = f.error_messages
+    %fieldset.default
+      %ul
+        %li
+          = f.label :name
+          = f.text_field :name, :class => 'text'
+        %li
+    - f.fields_for :address do |address|
+      = render :partial => 'shared/address', :locals => { :address => address }
+    = f.submit
+  
+#sidebar
+  = link_to 'Organization Profile', settings_path, :class => 'button'
