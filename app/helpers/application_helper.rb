@@ -28,6 +28,7 @@ module ApplicationHelper
   
   def format_address(address_parts)
     html = ""
+    address_parts[-1].gsub!(' ', ', ')
     address_parts.each do |part|
       html += content_tag :li, part 
     end
