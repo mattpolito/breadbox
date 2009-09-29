@@ -1,5 +1,11 @@
 /* Invoices
 ------------------------------------------------*/
+#invoice_lines thead .unit_price,
+#invoice_lines thead .quantity,
+#invoice_lines .invoice_line .quantity,
+#invoice_line .invoice_line .price {
+	text-align:center;
+}
 
 .show_invoice h2 span {
   background:#994045;
@@ -34,7 +40,7 @@
 #main_content fieldset table tbody .quantity,
 #main_content fieldset table tbody .price {
   font-size:1.2em;
-  padding:0.4em;
+	text-align:center;
   width:75px;
 }
 
@@ -96,21 +102,16 @@
   clear:both;
 }
 
-#client_info .person_info .name {
-  font-size:150%;
-}
-
-#client_info .person_info .email,
-#client_info .person_info .phone {
+#client_info .name,
+#client_info .email,
+#client_info .phone,
+#client_info .billing_date {
   color:#999;
   font-size:90%;
   padding:0.2em 1.8em;
 }
 
-#client_info .person_info .email {
-  background:transparent url("/images/icons/email.png") 0 50% no-repeat;
-}
-
-#client_info .person_info .phone {
-  background:transparent url("/images/icons/telephone.png") 0 50% no-repeat;
-}
+#client_info .name{background:transparent url("/images/icons/user.png") 0 50% no-repeat;}
+#client_info .email{background:transparent url("/images/icons/email.png") 0 50% no-repeat;}
+#client_info .phone{background:transparent url("/images/icons/telephone.png") 0 50% no-repeat;}
+#client_info .billing_date{background:transparent url("/images/icons/date.png") 0 50% no-repeat;}

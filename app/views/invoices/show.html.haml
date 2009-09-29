@@ -15,10 +15,8 @@
         %li.name= link_to h(@invoice.client.name), @invoice.client
         %li.email= mail_to h(@invoice.client.email), @invoice.client.email
         %li.phone= displayable_phone_number(@invoice.client.phone)
-
-        %li 
-          %strong
-            Billing Date:
+        %li.billing_date
+          Billing Date:
           =h @invoice.billing_date.to_s(:regular)
     
     %h3 Items
