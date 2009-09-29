@@ -121,3 +121,7 @@ body {
 	background-color: rgba(255,0,0,.2);
 	border:1px solid #993131;
 }
+
+#login #user_details .fieldWithErrors label {
+	color:#C32D38;
+}
