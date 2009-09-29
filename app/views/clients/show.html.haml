@@ -16,7 +16,7 @@
         %strong Fax:
         = displayable_phone_number(@client.fax)
     %ul.address
-      %li.first= @client.address.address_parts.join("<li>") unless @client.address.blank?
+      = format_address(@client.address.address_parts) unless @client.address.blank?
       
   #invoices
     = render :partial => 'invoices/invoices'

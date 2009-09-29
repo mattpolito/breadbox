@@ -25,6 +25,14 @@ module ApplicationHelper
   def displayable_phone_number(phone_number)
     number_to_phone(phone_number(phone_number), :delimiter => '.', :extension => phone_extension(phone_number))
   end
+  
+  def format_address(address_parts)
+    html = ""
+    address_parts.each do |part|
+      html += content_tag :li, part 
+    end
+    html
+  end
 
   def long_date(date)
     h(date.strftime("%B %d, %Y"))
