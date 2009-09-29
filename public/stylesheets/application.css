@@ -289,19 +289,39 @@ table tbody tr.overdue td.last {
 /* Clients
 ------------------------------------------------*/
 /* Show */
+
 #clients .more_info {
+	float:left;
   font-size:1.2em;
-  margin:1em 0.8em;
+  margin:0 0.8em;
 }
 
 #clients .address {
-  clear:both;
+  float:left;
   font-size:1.2em;
-  margin:1em 0.5em;
+  margin:0 0.5em;
+}
+
+#clients .address li {
+	color:#999;
+	font-size:90%;
+	padding:0 1.8em;
+}
+
+#clients .address li.first {
+	background:transparent url("/images/icons/book_addresses.png") 0 50% no-repeat;
 }
 
 #clients h3 {
   border-bottom:1px solid #EEE;
+}
+
+#invoices {
+	clear:both;
+}
+
+#invoices table {
+	margin:2em 0;
 }
 
 /* Eidt */
@@ -401,20 +421,17 @@ table tbody tr.overdue td.last {
   font-size:150%;
 }
 
-#clients .person_info .email,
-#clients .person_info .phone {
+#clients .email,
+#clients .phone,
+#clients .fax {
   color:#999;
   font-size:90%;
   padding:0.2em 1.8em;
 }
 
-#clients .person_info .email {
-  background:transparent url("/images/icons/email.png") 0 50% no-repeat;
-}
-
-#clients .person_info .phone {
-  background:transparent url("/images/icons/telephone.png") 0 50% no-repeat;
-}
+#clients .email{background:transparent url("/images/icons/email.png") 0 50% no-repeat;}
+#clients .phone{background:transparent url("/images/icons/telephone.png") 0 50% no-repeat;}
+#clients .fax{background:transparent url("/images/icons/page_white_go.png") 0 50% no-repeat;}
 
 .tools {
   background:#FFF3C0;
