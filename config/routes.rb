@@ -43,7 +43,7 @@ ActionController::Routing::Routes.draw do |map|
   map.home '/home', :controller => "pages", :action => "home"
   map.login '/login', :controller => 'user_sessions', :action => 'new'
   map.logout '/logout', :controller => 'user_sessions', :action => 'destroy'
-  map.settings '/settings', :controller => 'settings', :action => 'index'
+  map.settings '/settings', :controller => 'organizations', :action => 'edit', :id => :current_organization
 
   # See how all your routes lay out with "rake routes"
 
