@@ -1,1 +1,9 @@
+binarylogic-addresslogic -s http://gems.github.com
+binarylogic-authlogic -s http://gems.github.com
+binarylogic-searchlogic -s http://gems.github.com
+binarylogic-settingslogic -s http://gems.github.com
+chrislloyd-gravtastic -s http://gems.github.com
+haml
+mislav-will_paginate -s http://gems.github.com
 prawn
+rubyist-aasm -s http://gems.github.com
