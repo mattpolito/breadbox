@@ -5,7 +5,7 @@ class ApplicationController < ActionController::Base
   include SubdomainAccounts
   
   # Callbacks
-  # before_filter :check_account_status
+  before_filter :check_account_status
   before_filter :check_if_login_required
   
   helper :all # include all helpers, all the time
@@ -32,11 +32,13 @@ class ApplicationController < ActionController::Base
 
   private
     def banner_site?
-      @banner_site ||= account_subdomain == default_account_subdomain
+      @banner_site ||= (account_subdomain == default_account_subdomain)
     end
   
     def check_account_status
       unless banner_site?
+        redirect_to dashboard_url
+      else
         redirect_to root_url
       end
     end
