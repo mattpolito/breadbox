@@ -5,7 +5,7 @@ class ApplicationController < ActionController::Base
   include SubdomainAccounts
   
   # Callbacks
-  before_filter :check_account_status
+  # before_filter :check_account_status
   before_filter :check_if_login_required
   
   helper :all # include all helpers, all the time
@@ -39,7 +39,7 @@ class ApplicationController < ActionController::Base
       unless banner_site?
         redirect_to dashboard_url
       else
-        redirect_to root_url
+        redirect_to root_url if current_account.nil?
       end
     end
     
