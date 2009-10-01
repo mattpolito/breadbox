@@ -14,7 +14,7 @@ namespace :db do
         organization.name       = 'reactionCONTROL'
         organization.account_id = account.id
         
-        Client.populate 10 do |client|
+        Client.populate 2..7 do |client|
           client.first_name      = Faker::Name.first_name
           client.last_name       = Faker::Name.last_name
           client.company_name    = [Faker::Company.name, nil]
@@ -59,7 +59,7 @@ namespace :db do
         organization.name       = 'Fuel Collective'
         organization.account_id = account.id
         
-        Client.populate 10 do |client|
+        Client.populate 2..7 do |client|
           client.first_name      = Faker::Name.first_name
           client.last_name       = Faker::Name.last_name
           client.company_name    = [Faker::Company.name, nil]
