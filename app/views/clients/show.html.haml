@@ -16,6 +16,9 @@
         %strong Fax:
         = displayable_phone_number(@client.fax)
     %ul.address
+      %li.first 
+        %strong
+          Address
       = format_address(@client.address.address_parts) unless @client.address.blank?
       
   #invoices
