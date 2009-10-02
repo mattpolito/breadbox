@@ -2,7 +2,7 @@ require File.expand_path(File.dirname(__FILE__) + '/../spec_helper')
 
 describe Address do
 
-  it { should belong_to :client }
+  it { should belong_to :addressable }
 
   it "should create a new instance given valid attributes" do
     Address.create!(Factory.attributes_for(:address))

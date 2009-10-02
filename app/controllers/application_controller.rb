@@ -32,12 +32,14 @@ class ApplicationController < ActionController::Base
 
   private
     def banner_site?
-      @banner_site ||= account_subdomain == default_account_subdomain
+      @banner_site ||= (account_subdomain == default_account_subdomain)
     end
   
     def check_account_status
       unless banner_site?
-        redirect_to root_url
+        redirect_to dashboard_url
+      else
+        redirect_to root_url if current_account.nil?
       end
     end
     

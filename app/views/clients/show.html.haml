@@ -9,17 +9,17 @@
       %li.email
         %strong Email:
         %a{ :href => "mailto:#{@client.email}" }=h @client.email
-      %li.phone
-        %strong Phone:
-        = displayable_phone_number(@client.phone)
-      %li.fax
-        %strong Fax:
-        = displayable_phone_number(@client.fax)
-    %ul.address
-      %li.first 
-        %strong
-          Address
-      = format_address(@client.address.address_parts) unless @client.address.blank?
+      - unless @client.phone.blank?
+        %li.phone
+          %strong Phone:
+          = displayable_phone_number(@client.phone)
+      - unless @client.fax.blank?
+        %li.fax
+          %strong Fax:
+          = displayable_phone_number(@client.fax)
+    - unless @client.address.blank?
+      %ul.address
+        = format_address(@client.address.address_parts) unless @client.address.blank?
       
   #invoices
     = render :partial => 'invoices/invoices'

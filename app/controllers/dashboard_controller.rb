@@ -1,4 +1,5 @@
 class DashboardController < ApplicationController
+  
   def index
     @overdue_invoices = current_organization.invoices.overdue
     @open_invoices = current_organization.invoices.draft.limit(10)
