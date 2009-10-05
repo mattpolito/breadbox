@@ -7,10 +7,10 @@
       %ul#user_details
         %li
           = f.label :email
-          = f.text_field :email, :class => "text", :id => "email"
+          = f.text_field :email, :class => "text", :id => "email", :tabindex => "1"
         %li
           = f.label :password
-          = f.password_field :password, :class => "text", :id => "password"
+          = f.password_field :password, :class => "text", :id => "password", :tabindex => "2"
       %ul#remember
         %li
           = f.check_box :remember_me, :checked => "checked"
