@@ -2,10 +2,11 @@
 # Likewise, all the methods added will be available for all controllers.
 
 class ApplicationController < ActionController::Base
+  # Extensions
   include SubdomainAccounts
   
   # Callbacks
-  # before_filter :check_account_status
+  before_filter :check_for_valid_account
   before_filter :check_if_login_required
   
   helper :all # include all helpers, all the time
@@ -14,9 +15,11 @@ class ApplicationController < ActionController::Base
 
   # Scrub sensitive parameters from your log
   filter_parameter_logging :password, :password_confirmation
+  
+  layout :current_layout_name
 
   def logged_in?
-    !current_user_session.nil?
+    current_user_session.present?
   end
   
   def admin_required
@@ -31,20 +34,19 @@ class ApplicationController < ActionController::Base
   end
 
   private
-    def banner_site?
-      @banner_site ||= (account_subdomain == default_account_subdomain)
+    def marketing_site?
+      @marketing_site ||= (account_subdomain == default_account_subdomain)
     end
   
-    def check_account_status
-      unless banner_site?
-        redirect_to dashboard_url
-      else
-        redirect_to root_url if current_account.nil?
+    def check_for_valid_account
+      if marketing_site? && current_account.blank?
+        redirect_to root_url
       end
+      true
     end
     
     def check_if_login_required
-      require_user unless banner_site?
+      require_user unless marketing_site?
     end
     
     def current_organization
@@ -52,7 +54,7 @@ class ApplicationController < ActionController::Base
     end
     
     def current_layout_name
-      banner_site? ? 'banner_site' : 'application'
+      marketing_site? ? 'marketing' : 'application'
     end
   
     def current_user_session

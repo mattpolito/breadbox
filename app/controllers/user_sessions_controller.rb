@@ -10,7 +10,7 @@ class UserSessionsController < ApplicationController
     @user_session = current_organization.user_sessions.new(params[:user_session])
     if @user_session.save
       flash[:notice] = @user_session.welcome_message
-      redirect_back_or_default root_url
+      redirect_back_or_default dashboard_path
     else
       render :action => :new
     end

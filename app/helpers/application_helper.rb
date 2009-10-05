@@ -2,7 +2,7 @@
 module ApplicationHelper
   
   def active_tab(path)
-    current_page?(path) ? { :class => 'active' } : {}
+    request.path.match(/^#{path}/) ? { :class => 'active' } : {}
   end
   
   def add_child_link(name, f, method)
