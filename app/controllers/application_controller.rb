@@ -39,10 +39,10 @@ class ApplicationController < ActionController::Base
     end
   
     def check_for_valid_account
-      if marketing_site? && current_account.blank?
-        redirect_to root_url
+      unless current_account
+        add_notice "Could not find the account '#{current_account}'"
+        redirect_to marketing_path(:subdomain => false)
       end
-      true
     end
     
     def check_if_login_required

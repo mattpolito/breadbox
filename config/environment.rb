@@ -53,9 +53,6 @@ Rails::Initializer.run do |config|
   # config.i18n.default_locale = :de
 end
 
-# SubdomainFu config
-SubdomainFu.preferred_mirror = 'www'
-
 ActiveSupport::CoreExtensions::Time::Conversions::DATE_FORMATS.merge!( 
   :regular => "%B %d, %Y"
 )

@@ -11,10 +11,9 @@ module SubdomainAccounts
     
     # TODO: need to handle www as well
     def default_account_subdomain
-      ''
-      # if ["www", ""].include?(account_subdomain)
-      #   account_subdomain
-      # end
+      if ["www", ""].include?(account_subdomain)
+        account_subdomain
+      end
     end
     
     def account_url( account_subdomain = default_account_subdomain, use_ssl = request.ssl? )
