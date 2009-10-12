@@ -27,6 +27,7 @@ Rails::Initializer.run do |config|
   config.gem 'binarylogic-settingslogic', :lib => 'settingslogic', :source => 'http://gems.gitub.com'
   config.gem 'chrislloyd-gravtastic', :lib => 'gravtastic', :version => '>= 2.1.0'
   config.gem 'haml'
+  config.gem 'mbleigh-subdomain-fu', :lib => 'subdomain-fu', :source => 'http://gems.github.com'
   config.gem 'mislav-will_paginate', :lib => 'will_paginate', :source => 'http:gems.gitub.com'
   config.gem 'prawn', :lib => false
   config.gem "rubyist-aasm", :lib => "aasm"
@@ -51,6 +52,9 @@ Rails::Initializer.run do |config|
   # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}')]
   # config.i18n.default_locale = :de
 end
+
+# SubdomainFu config
+SubdomainFu.preferred_mirror = 'www'
 
 ActiveSupport::CoreExtensions::Time::Conversions::DATE_FORMATS.merge!( 
   :regular => "%B %d, %Y"
