@@ -5,7 +5,7 @@ class NotificationsController < ApplicationController
   # /deliver/reminder/1
   def deliver
     Notification.deliver_message(:type => params[:type], :id => params[:id])
-    add_notice "#{params[:type].humanize} has been sent!"
+    add_success "#{params[:type].humanize} has been sent!"
     redirect_to :back
   end
   
