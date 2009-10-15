@@ -40,7 +40,7 @@ border: none;
 }
 
 #wrapper #header {
-  background:#004585 url("/images/header_bg.jpg") 0 -400px repeat-x;
+  background:#004585 url("/images/header_bg.png") 0 -400px repeat-x;
   min-width:96em;
   overflow:hidden;
   padding:0 2.8em;
