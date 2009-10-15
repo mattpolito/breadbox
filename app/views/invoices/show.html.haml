@@ -32,8 +32,7 @@
               %td.description= invoice_line.description
               %td.quantity= invoice_line.quantity
               %td.price
-                %label.currency $
-                = invoice_line.price
+                = number_to_currency(invoice_line.price)
     %h3 Notes
     %fieldset
       %ul
