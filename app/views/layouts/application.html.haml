@@ -19,7 +19,7 @@
   %body
     #wrapper
       #header
-        %a#logo{:href => "/"}
+        = link_to nil, dashboard_path, :id => 'logo'
         %ul#user
           %li.user
             - if current_user.admin?
@@ -30,7 +30,7 @@
           %li
             %a{:href => "#"} Help
         %ul#navigation
-          %li= link_to "Dashboard", dashboard_path, active_tab(dashboard_path)
+          %li= link_to "Dashboard", dashboard_path, active_tab("#{dashboard_path}$")
           %li= link_to "Invoices", invoices_path, active_tab(invoices_path)
           %li= link_to "Clients", clients_path, active_tab(clients_path)
           - if current_user.admin?
