@@ -41,7 +41,8 @@
           = @invoice.note
   
 #sidebar
-  = link_to "Edit Invoice #{@invoice.number}", edit_invoice_path(@invoice), :id => "edit", :class => "button"
+  = link_to "Edit Invoice #{@invoice.number}", edit_invoice_path(@invoice), :id => 'edit', :class => 'button'
+  = send_notification_link(@invoice)
   = link_to 'Add A Payment', new_invoice_payment_path(@invoice), :id => 'payment', :class => 'button'
   = link_to 'Printable Invoice (PDF)', invoice_path(@invoice, :format => 'pdf'), :id => 'pdf', :class => 'button'
   = link_to 'Go Back', :back, :id => "back", :class => "button"

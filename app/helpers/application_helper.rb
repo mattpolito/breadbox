@@ -69,4 +69,12 @@ module ApplicationHelper
       "#{title} - Breadbox"
     end
   end
+  
+  def send_notification_link(invoice)
+    if invoice.sent?
+      link_to 'Send Reminder', deliver_path(:type => 'reminder', :id => invoice), :id => 'deliver', :class => 'button'      
+    else
+      link_to 'Send Invoice', deliver_path(:type => 'invoice', :id => invoice), :id => 'deliver', :class => 'button'
+    end
+  end
 end
