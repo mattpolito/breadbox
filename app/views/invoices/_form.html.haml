@@ -30,7 +30,8 @@
         - f.fields_for :invoice_lines do |invoice_line_form|
           = render :partial => 'invoice_line', :locals => { :f => invoice_line_form }
 
-    = add_child_link "Add New Line", f, :invoice_lines
+    = add_child_link "Add New Line", :invoice_lines
+    = new_child_fields_template(f, :invoice_lines)
   
   %h3 Notes
   %fieldset

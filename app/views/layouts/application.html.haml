@@ -12,9 +12,8 @@
     %link{ :href => "images/favicon.ico", :rel => "shortcut icon" }
     = stylesheet_link_tag 'screen'
     = yield(:stylesheets)
-    = javascript_include_tag :defaults
-    = javascript_include_tag 'jquery'
-    = javascript_include_tag 'temp'
+    = javascript_include_tag 'jquery-1.3.2.min'
+    = javascript_include_tag 'application'
     = yield(:javascript)
   %body
     #wrapper
