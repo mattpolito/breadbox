@@ -17,6 +17,7 @@ class InvoicesController < ApplicationController
   # GET /invoices/new.xml
   def new
     @invoice = Invoice.new
+    @invoice.invoice_lines.build
     @clients = Client.all
   end
 
