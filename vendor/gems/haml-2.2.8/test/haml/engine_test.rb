@@ -54,6 +54,12 @@ class EngineTest < Test::Unit::TestCase
     "%p(foo 'bar')" => "Invalid attribute list: \"(foo 'bar')\".",
     "%p(foo 'bar'\nbaz='bang')" => ["Invalid attribute list: \"(foo 'bar'\".", 1],
     "%p(foo='bar'\nbaz 'bang'\nbip='bop')" => ["Invalid attribute list: \"(foo='bar' baz 'bang'\".", 2],
+    "%p{:foo => 'bar' :bar => 'baz'}" => :compile,
+    "%p{:foo => }" => :compile,
+    "%p{=> 'bar'}" => :compile,
+    "%p{:foo => 'bar}" => :compile,
+    "%p{'foo => 'bar'}" => :compile,
+    "%p{:foo => 'bar\"}" => :compile,
 
     # Regression tests
     "- raise 'foo'\n\n\n\nbar" => ["foo", 1],
@@ -221,6 +227,19 @@ HAML
 SOURCE
   end
 
+  def test_pre_code
+    assert_equal(<<HTML, render(<<HAML))
+<pre><code>Foo&#x000A;  bar&#x000A;    baz</code></pre>
+HTML
+%pre
+  %code
+    :preserve
+      Foo
+        bar
+          baz
+HAML
+  end
+
   def test_boolean_attributes
     assert_equal("<p bar baz='true' foo='bar'></p>\n",
                  render("%p{:foo => 'bar', :bar => true, :baz => 'true'}", :format => :html4))
@@ -254,6 +273,36 @@ SOURCE
 HTML
 %p
   %p<= "\\nfoo\\n"
+HAML
+  end
+
+  def test_whitespace_nuke_with_tags_and_else
+    assert_equal(<<HTML, render(<<HAML))
+<a>
+  <b>foo</b>
+</a>
+HTML
+%a
+  %b<
+    - if false
+      = "foo"
+    - else
+      foo
+HAML
+
+    assert_equal(<<HTML, render(<<HAML))
+<a>
+  <b>
+    foo
+  </b>
+</a>
+HTML
+%a
+  %b
+    - if false
+      = "foo"
+    - else
+      foo
 HAML
   end
 
@@ -320,6 +369,24 @@ HTML
   - s + "-"
 - end.gsub(/-$/) do |s|
   - ''
+HAML
+  end
+
+  def test_nested_end_with_method_call
+    assert_equal(<<HTML, render(<<HAML))
+<p>
+  2|3|4
+  b-a-r
+</p>
+HTML
+%p
+  = [1, 2, 3].map do |i|
+    - i + 1
+  - end.join("|")
+  = "bar".gsub(/./) do |s|
+    - s + "-"
+  - end.gsub(/-$/) do |s|
+    - ''
 HAML
   end
 
@@ -727,18 +794,22 @@ HAML
     assert_equal("<a b='2' />\nc\n", render("%a{'b' => 1 + 1}/\n= 'c'\n"))
   end
 
-  def test_exceptions
-    EXCEPTION_MAP.each do |key, value|
+  EXCEPTION_MAP.each do |key, value|
+    define_method("test_exception (#{key.inspect})") do
       begin
-        render(key, :filename => "(exception test for #{key.inspect})")
+        render(key, :filename => __FILE__)
       rescue Exception => err
         value = [value] unless value.is_a?(Array)
         expected_message, line_no = value
         line_no ||= key.split("\n").length
-        line_reported = err.backtrace[0].gsub(/\(.+\):/, '').to_i
 
-        assert_equal(expected_message, err.message, "Line: #{key}")
-        assert_equal(line_no, line_reported, "Line: #{key}")
+        if expected_message == :compile
+          assert_match(/^compile error\n/, err.message, "Line: #{key}")
+        else
+          assert_equal(expected_message, err.message, "Line: #{key}")
+        end
+
+        assert_match(/^#{Regexp.escape(__FILE__)}:#{line_no}/, err.backtrace[0], "Line: #{key}")
       else
         assert(false, "Exception not raised for\n#{key}")
       end
