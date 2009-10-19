@@ -40,5 +40,4 @@
         = f.text_area :note
 
 %p= f.submit button_text, :id => "submit_button"
-%table#invoice_lines_fields_template{ :style => 'display: none;' }
-  = new_child_fields_template(f, :invoice_lines)
+= new_child_fields_template(f, :invoice_lines)
