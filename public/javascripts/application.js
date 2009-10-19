@@ -5,22 +5,44 @@ function nospam(user,domain) {
 	window.location = locationstring;
 }
 
-function insert_fields(link, method, content) {
-  var new_id = new Date().getTime();
-  var regexp = new RegExp("new_" + method, "g")
-  $$('table#invoice_lines tbody').last().insert({
-    bottom : replace_id_of_new_line(link, regexp, new_id, content)
-  })
-}
+$(function() {
+  // Invoice form
+  $('form[id*=invoice] a.add_child').live('click', function() {
+    var assoc   = $(this).attr('data-association');
+    var content = $('table#' + assoc + '_fields_template tbody').html();
+    var regexp  = new RegExp('new_' + assoc, 'g');
+    var new_id  = new Date().getTime();
 
-function remove_fields(link) {
-  var hidden_field = $(link).previous("input[type=hidden]");
-  if (hidden_field) {
-    hidden_field.value = '1';
-  }
-  $(link).up(".invoice_line").hide();
-}
-
-function replace_id_of_new_line(link, regexp, new_id, content) {
-  return content.replace(regexp, new_id)
-}
+    $('form[id*=invoice] table#invoice_lines tbody tr:last').after(content.replace(regexp, new_id));
+    return false;
+  });
+  
+  // Invoice form
+  $('form[id*=invoice] a.remove_child').live('click', function() {
+	  var hidden_field = $(this).prev('input[type=hidden]')[0];
+	  if(hidden_field) {
+	    hidden_field.value = '1';
+	  }
+	  $(this).parent().parent().hide();
+	  return false;
+	});
+  
+	$('form a.add_child').live('click', function() {
+		var assoc = $(this).attr('data-association');
+		var content = $('#' + assoc + '_fields_template').html();
+		var regexp = new RegExp('new_' + assoc, 'g');
+		var new_id = new Date().getTime();
+		
+		$(this).parent().before(content.replace(regexp, new_id));
+		return false;
+	});
+	
+	$('form a.remove_child').live('click', function() {
+	  var hidden_field = $(this).prev('input[type=hidden]')[0];
+	  if(hidden_field) {
+	    hidden_field.value = '1';
+	  }
+	  $(this).parent('.fields').hide();
+	  return false;
+	});
+});
