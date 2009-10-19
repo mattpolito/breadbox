@@ -5,4 +5,5 @@
       = render :partial => 'form', :locals => { :f => f, :button_text => 'Create' }
 
 #sidebar
-  = link_to 'Cancel &amp; Go Back', :back, :id => "cancel", :class => "button"
+  %ul#actions
+    %li= link_to 'Cancel &amp; Go Back', :back, :id => "cancel", :class => "button"

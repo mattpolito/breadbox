@@ -18,19 +18,22 @@
       = render :partial => 'invoices/invoices', :locals => { :invoices => @paid_invoices }
     
 #sidebar
-  = link_to 'Add A New Client', new_client_path, :id => 'new', :class => "button"
-  = link_to 'Create A New Invoice', new_invoice_path, :id => 'new', :class => "button"
-  %h2== Estimated income for #{current_year}
-  %h3.income
-    %strong Total
-    =h cents_to_dollars(@estimated_total_for_year)
-#totals
-  %h4 
-    Open Invoices:
-    %span=h @total_open_invoices_count
-  %h4 
-    Sent Invoices:
-    %span=h @total_sent_invoices_count
-  %h4 
-    Paid Invoices:
-    %span=h @total_paid_invoices_count
+  %ul#actions
+    %li= link_to 'Add A New Client', new_client_path, :id => 'new', :class => "button"
+    %li= link_to 'Create A New Invoice', new_invoice_path, :id => 'new', :class => "button"
+    %li
+      %h2== Estimated income for #{current_year}
+    %li
+      %h3.income
+        %strong Total
+        =h cents_to_dollars(@estimated_total_for_year)
+  #totals
+    %h4 
+      Open Invoices:
+      %span=h @total_open_invoices_count
+    %h4 
+      Sent Invoices:
+      %span=h @total_sent_invoices_count
+    %h4 
+      Paid Invoices:
+      %span=h @total_paid_invoices_count

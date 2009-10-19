@@ -17,4 +17,5 @@
           = f.submit 'Make Payment', :id => "submit_button"
           
 #sidebar
-  = link_to 'Go Back', :back, :id => "back", :class => "button"
+  %ul#actions
+    %li= link_to 'Go Back', :back, :id => "back", :class => "button"

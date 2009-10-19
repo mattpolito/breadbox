@@ -25,14 +25,15 @@
     = render :partial => 'invoices/invoices'
 
 #sidebar
-  = link_to "Edit #{h(@client.name)}'s record", edit_client_path(@client), :class => "button", :id => "edit"
-  = link_to 'Go Back', clients_path, :class => "button", :id => "back"
+  %ul#actions
+    %li= link_to "Edit #{h(@client.name)}'s record", edit_client_path(@client), :class => "button", :id => "edit"
+    %li= link_to 'Go Back', clients_path, :class => "button", :id => "back"
   
-#totals
-  %h4 
-    Pending Invoices:
-    %span= @client.number_of_pending_invoices
-  %h4 
-    Amount Due:
-    %span
-      =h cents_to_dollars(@client.amount_due)
+  #totals
+    %h4 
+      Pending Invoices:
+      %span= @client.number_of_pending_invoices
+    %h4 
+      Amount Due:
+      %span
+        =h cents_to_dollars(@client.amount_due)

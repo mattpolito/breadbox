@@ -7,5 +7,6 @@
       = render :partial => 'form', :locals => { :f => f, :button_text => 'Update' }
 
 #sidebar
-  = link_to 'Cancel &amp; Go Back', :back, :class => "button", :id => "cancel"
-  = link_to "View #{h(@client.name)}'s Record", @client, :class => "button", :id => "view"
+  %ul#actions
+    %li= link_to 'Cancel &amp; Go Back', :back, :class => "button", :id => "cancel"
+    %li= link_to "View #{h(@client.name)}'s Record", @client, :class => "button", :id => "view"

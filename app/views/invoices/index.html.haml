@@ -5,4 +5,5 @@
   = will_paginate
   
 #sidebar
-  = link_to 'Create A New Invoice', new_invoice_path, :id => 'new', :class => "button"
+  %ul#actions
+    %li= link_to 'Create A New Invoice', new_invoice_path, :id => 'new', :class => "button"

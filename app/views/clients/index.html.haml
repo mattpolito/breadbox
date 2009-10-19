@@ -6,4 +6,5 @@
   = will_paginate
   
 #sidebar
-  = link_to 'Add A New Client', new_client_path, :id => 'new', :class => "button"
+  %ul#actions
+    %li= link_to 'Add A New Client', new_client_path, :id => 'new', :class => "button"

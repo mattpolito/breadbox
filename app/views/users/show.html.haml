@@ -20,4 +20,5 @@
         =h @user.current_login_ip
 
 #sidebar
-  = link_to "Edit #{@user.name}'s account", edit_user_path(@user), :class => "button", :id => "edit"
+  %ul#actions
+    %li= link_to "Edit #{@user.name}'s account", edit_user_path(@user), :class => "button", :id => "edit"
