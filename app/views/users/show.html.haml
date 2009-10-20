@@ -8,10 +8,10 @@
         =h @user.email
       %li
         %label Last login at:
-        =h @user.last_login_at.to_s
+        =h @user.last_login_at.to_s(:regular) unless @user.last_login_at.blank?
       %li
         %label Current login at:
-        =h @user.current_login_at.to_s(:regular)
+        =h @user.current_login_at.to_s(:regular) unless @user.current_login_at.blank?
       %li
         %label Last login ip:
         =h @user.last_login_ip
