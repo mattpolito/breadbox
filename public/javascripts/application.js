@@ -23,8 +23,8 @@ $(function() {
 	  if(hidden_field) {
 	    hidden_field.value = '1';
 	  }
-	  $(this).parent().parent().effect("highlight", {}, 500, function(){
-	    $(this).fadeOut(300);
+	  $(this).parent().parent().effect('highlight', {}, 'normal', function(){
+	    $(this).hide();
 	  });
 	  return false;
 	});
