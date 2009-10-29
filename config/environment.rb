@@ -29,6 +29,7 @@ Rails::Initializer.run do |config|
   config.gem 'haml'
   config.gem 'mbleigh-subdomain-fu', :lib => 'subdomain-fu', :source => 'http://gems.github.com'
   config.gem 'mislav-will_paginate', :lib => 'will_paginate', :source => 'http:gems.gitub.com'
+  config.gem 'newrelic_rpm'
   config.gem 'prawn', :lib => false
   config.gem "rubyist-aasm", :lib => "aasm"
 
