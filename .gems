@@ -1,9 +1,11 @@
-binarylogic-addresslogic -s http://gems.github.com
-binarylogic-authlogic -s http://gems.github.com
-binarylogic-searchlogic -s http://gems.github.com
-binarylogic-settingslogic -s http://gems.github.com
-chrislloyd-gravtastic -s http://gems.github.com
-haml
-mislav-will_paginate -s http://gems.github.com
-prawn
-rubyist-aasm -s http://gems.github.com
+addresslogic -s 'http://gemcutter.org'
+authlogic -s 'http://gemcutter.org'
+searchlogic -s 'http://gemcutter.org'
+settingslogic -s 'http://gemcutter.org'
+gravtastic -s 'http://gemcutter.org'
+haml -s 'http://gemcutter.org'
+subdomain-fu -s 'http://gemcutter.org'
+will_paginate -s 'http://gemcutter.org'
+newrelic_rpm -s 'http://gemcutter.org'
+prawn -s 'http://gemcutter.org'
+aasm -s 'http://gemcutter.org'
