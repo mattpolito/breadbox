@@ -67,6 +67,26 @@
 	font-size:1.2em;
 }
 
+#invoice_info ul li {
+	padding:0.2em 0;
+}
+
+#invoice_info ul li label {
+	color:#333;
+	display:inline-block;
+	font-size:1.2em;
+	width:80px;
+}
+
+#invoice_info ul li input {
+	font-size:1.2em;
+	padding:0.2em;
+}
+
+#invoice_info ul li select {
+	font-size:1.4em;
+}
+
 /*invoice show*/
 
 .show_invoice {
