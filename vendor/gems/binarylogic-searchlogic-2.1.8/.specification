@@ -63,7 +63,6 @@ files:
 - spec/spec_helper.rb
 has_rdoc: false
 homepage: http://github.com/binarylogic/searchlogic
-licenses: 
 post_install_message: 
 rdoc_options: 
 - --charset=UTF-8
@@ -84,7 +83,7 @@ required_rubygems_version: !ruby/object:Gem::Requirement
 requirements: []
 
 rubyforge_project: searchlogic
-rubygems_version: 1.3.5
+rubygems_version: 1.3.1
 signing_key: 
 specification_version: 3
 summary: Searchlogic provides common named scopes and object based searching for ActiveRecord.

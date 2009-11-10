@@ -1,20 +1,20 @@
 --- !ruby/object:Gem::Specification 
-name: chrislloyd-gravtastic
+name: haml
 version: !ruby/object:Gem::Version 
-  version: 2.1.3
+  version: 2.2.8
 platform: ruby
-authors: 
-- Chris Lloyd
+authors: []
+
 autorequire: 
 bindir: bin
 cert_chain: []
 
-date: 2008-09-15 00:00:00 -05:00
+date: 2009-10-22 00:00:00 -05:00
 default_executable: 
 dependencies: []
 
-description: Easily add Gravatars to your Ruby objects.
-email: christopher.lloyd@gmail.com
+description: 
+email: 
 executables: []
 
 extensions: []
@@ -22,16 +22,13 @@ extensions: []
 extra_rdoc_files: []
 
 files: 
-- LICENSE
-- README.md
-- Rakefile
-- lib/gravtastic.rb
-- spec/gravtastic_integration_spec.rb
-- spec/gravtastic_spec.rb
-- spec/spec.opts
-- spec/spec_helper.rb
-has_rdoc: true
-homepage: http://github.com/chrislloyd/gravtastic
+- lib
+- lib/haml
+- lib/haml.rb
+- lib/sass
+- lib/sass.rb
+has_rdoc: false
+homepage: 
 post_install_message: 
 rdoc_options: []
 
@@ -51,10 +48,10 @@ required_rubygems_version: !ruby/object:Gem::Requirement
   version: 
 requirements: []
 
-rubyforge_project: gravtastic
+rubyforge_project: 
 rubygems_version: 1.3.1
 signing_key: 
 specification_version: 2
-summary: Easily add Gravatars to your Ruby objects.
+summary: 
 test_files: []
 

@@ -7,6 +7,13 @@
 	text-align:center;
 }
 
+.new #invoice_lines thead .unit_price,
+.new #invoice_lines thead .quantity,
+.new #invoice_lines .invoice_line .quantity,
+.new #invoice_line .invoice_line .price {
+	text-align:left;
+}
+
 .show_invoice h2 span {
   background:#994045;
   -moz-border-radius: 12px;
@@ -40,8 +47,15 @@
 #main_content fieldset table tbody .quantity,
 #main_content fieldset table tbody .price {
   font-size:1.2em;
-	text-align:center;
+	padding:0.2em;
+	text-align:left;
   width:75px;
+}
+
+#main_content fieldset table tbody .quantity:focus,
+#main_content fieldset table tbody .price:focus {
+  background:#FFF3C0;
+  border:1px solid #FFDB81;
 }
 
 .show_invoice fieldset {
