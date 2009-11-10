@@ -20,17 +20,17 @@ Rails::Initializer.run do |config|
   # config.gem "hpricot", :version => '0.6', :source => "http://code.whytheluckystiff.net"
   # config.gem "sqlite3-ruby", :lib => "sqlite3"
   # config.gem "aws-s3", :lib => "aws/s3"
-  config.gem 'binarylogic-addresslogic', :lib => 'addresslogic', :source => 'http://gems.gitub.com'
-  config.gem 'binarylogic-authlogic', :lib => 'authlogic', :source => 'http://gems.gitub.com'
-  # config.gem 'binarylogic-authlogic_openid', :lib => 'authlogic-openid', :source => 'http://gems.github.com'
-  config.gem 'binarylogic-searchlogic', :lib => 'searchlogic', :source => 'http://gems.github.com'
-  config.gem 'binarylogic-settingslogic', :lib => 'settingslogic', :source => 'http://gems.gitub.com'
-  config.gem 'chrislloyd-gravtastic', :lib => 'gravtastic', :version => '>= 2.1.0'
+  config.gem 'addresslogic', :source => 'http://gemcutter.org'
+  config.gem 'authlogic', :source => 'http://gemcutter.org'
+  config.gem 'searchlogic', :source => 'http://gemcutter.org'
+  config.gem 'settingslogic', :source => 'http://gemcutter.org'
+  config.gem 'gravtastic', :version => '>= 2.1.0'
   config.gem 'haml'
-  config.gem 'mbleigh-subdomain-fu', :lib => 'subdomain-fu', :source => 'http://gems.github.com'
-  config.gem 'mislav-will_paginate', :lib => 'will_paginate', :source => 'http:gems.gitub.com'
-  config.gem 'prawn', :lib => false
-  config.gem "rubyist-aasm", :lib => "aasm"
+  config.gem 'subdomain-fu', :source => 'http://gemcutter.org'
+  config.gem 'will_paginate', :source => 'http://gemcutter.org'
+  config.gem 'newrelic_rpm'
+  config.gem 'prawn', :lib => false 
+  config.gem "aasm"
 
   # Only load the plugins named here, in the order given (default is alphabetical).
   # :all can be used as a placeholder for all plugins not explicitly named

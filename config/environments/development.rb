@@ -19,5 +19,4 @@ config.action_mailer.raise_delivery_errors = false
 # Development only gems
 config.gem 'faker'
 config.gem 'populator'
-config.gem 'cwninja-inaction_mailer', :lib => 'inaction_mailer/force_load', :source => 'http://gems.gitub.com'
-config.gem 'jscruggs-metric_fu', :lib => 'metric_fu', :source => 'http://gems.github.com'
+config.gem 'inaction_mailer', :lib => 'inaction_mailer/force_load', :source => 'http://gemcutter.org'
