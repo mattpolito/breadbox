@@ -1,0 +1,69 @@
+--- !ruby/object:Gem::Specification 
+name: subdomain-fu
+version: !ruby/object:Gem::Version 
+  version: 0.5.3
+platform: ruby
+authors: 
+- Michael Bleigh
+autorequire: 
+bindir: bin
+cert_chain: []
+
+date: 2009-09-12 00:00:00 -05:00
+default_executable: 
+dependencies: []
+
+description: SubdomainFu is a Rails plugin to provide all of the basic functionality necessary to handle multiple subdomain applications (such as Basecamp-esque subdomain accounts and more).
+email: michael@intridea.com
+executables: []
+
+extensions: []
+
+extra_rdoc_files: 
+- README.rdoc
+files: 
+- CHANGELOG
+- MIT-LICENSE
+- README.rdoc
+- Rakefile
+- VERSION.yml
+- lib/subdomain-fu.rb
+- lib/subdomain_fu/routing_extensions.rb
+- lib/subdomain_fu/url_rewriter.rb
+- rails/init.rb
+- spec/spec.opts
+- spec/spec_helper.rb
+- spec/subdomain_fu_spec.rb
+- spec/url_rewriter_spec.rb
+has_rdoc: true
+homepage: http://github.com/mbleigh/subdomain-fu
+licenses: []
+
+post_install_message: 
+rdoc_options: 
+- --charset=UTF-8
+require_paths: 
+- lib
+required_ruby_version: !ruby/object:Gem::Requirement 
+  requirements: 
+  - - ">="
+    - !ruby/object:Gem::Version 
+      version: "0"
+  version: 
+required_rubygems_version: !ruby/object:Gem::Requirement 
+  requirements: 
+  - - ">="
+    - !ruby/object:Gem::Version 
+      version: "0"
+  version: 
+requirements: []
+
+rubyforge_project: subdomain-fu
+rubygems_version: 1.3.5
+signing_key: 
+specification_version: 3
+summary: SubdomainFu is a Rails plugin that provides subdomain routing and URL writing helpers.
+test_files: 
+- spec/spec_helper.rb
+- spec/subdomain_fu_spec.rb
+- spec/url_rewriter_spec.rb
