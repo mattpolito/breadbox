@@ -11,20 +11,29 @@ body {
   width:800px;
 }
 
+#content #signup {
+  margin:28em 0 0;
+}
+
 #content p {
-	color:#FFF;
-	font-size:1.8em;
+	color:#CCC;
+	font-size:1.5em;
 	font-weight:100;
 	letter-spacing:1px;
-	margin:14em 0 0;
+	margin:1em 0 0;
 	text-align:center;
 	text-shadow:0 1px 5px #000;
 	text-transform:uppercase;
 }
 
+#content p strong {
+  color:#FFF;
+}
+
 #content ul {
 	list-style:none;
-	margin:2em auto;
+	margin:1em auto 0;
+	overflow:hidden;
 	padding:0;
 	width:522px;
 }
