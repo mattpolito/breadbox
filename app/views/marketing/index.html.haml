@@ -1,7 +1,8 @@
 %p Launching December 2009
 
 %form{ :action => 'http://madmimi.com/signups/subscribe/4246', :method => 'post' }
-  %div
-    %label{ :for => 'signup_email' } Email
-    %label{ :id => 'signup_email', :name => 'signup[email]', :type => 'text' }
-    %input{ :name => 'commit', :type => 'submit', :value => 'Sign Up' }
+  %ul
+    %li
+      %input{ :id => 'signup_email', :name => 'signup[email]', :type => 'text', :class => "text swap_value", :value => "Your Email Address" }
+    %li
+      %input{ :name => 'commit', :type => 'submit', :value => 'Sign Up', :id => "submit" }

@@ -4,11 +4,11 @@ body {
 }
 
 #content {
-  background:#111 url("/images/login_bg.png") 0 0 no-repeat;
+  background:#111 url("/images/login_bg.png") center 0 no-repeat;
 	height:600px;
   margin:2em auto;
   overflow:hidden;
-  width:600px;
+  width:800px;
 }
 
 #content p {
@@ -21,3 +21,43 @@ body {
 	text-shadow:0 1px 5px #000;
 	text-transform:uppercase;
 }
+
+#content ul {
+	list-style:none;
+	margin:2em auto;
+	padding:0;
+	width:522px;
+}
+
+#content ul li {
+	float:left;
+}
+
+#content ul .text {
+	background-color: rgba(0,0,0,.3);
+	border:1px solid #333;
+	color:#444;
+	font-family:"Helvetica Neue";
+	font-size:2em;
+	font-weight:100;
+	letter-spacing:1px;
+	padding:0.5em;
+	text-shadow:1px 1px 1px #000;
+	width:300px;
+}
+
+#content ul #submit {
+	background:transparent url("/images/signup_button.png") 0 0 no-repeat;
+	border:none;
+	display:block;
+	height:48px;
+	margin:0 0 0 0.5em;
+	text-indent:-9999px;
+	width:194px;
+}
+
+#content ul #submit:active {
+	background-position:0 -48px;
+}
+
+input::-moz-focus-inner { border: 0; }
