@@ -37,6 +37,7 @@ ActionController::Routing::Routes.draw do |map|
   #   end
 
   # You can have the root of your site routed with map.root -- just remember to delete public/index.html.
+  map.marketing_thank_you '/thank_you', :controller => 'marketing', :action => 'thank_you', :conditions => { :subdomain => /www/ }
   map.marketing '', :controller => 'marketing', :action => 'index', :conditions => { :subdomain => /www/ }
   map.dashboard '', :controller => 'dashboard', :action => 'index', :conditions => { :subdomain => /.+/ }
   map.deliver '/deliver/:type/:id', :controller => 'notifications', :action => 'deliver'
