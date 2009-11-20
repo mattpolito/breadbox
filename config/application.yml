@@ -1,0 +1,21 @@
+defaults: &defaults
+  google_analytics_id: UA-51098-13
+
+development:
+  <<: *defaults
+  send_messages_to: mpolito@reactioncontrol.com
+  mail_smtp_address: smtp.gmail.com
+  mail_domain: reactioncontrol.com
+  mail_user_name: testing@reactioncontrol.com
+  mail_password: 9648B6
+
+test:
+  <<: *defaults
+
+production:
+  <<: *defaults
+  send_messages_to: 
+  mail_smtp_address: 
+  mail_domain: 
+  mail_user_name: 
+  mail_password: 
