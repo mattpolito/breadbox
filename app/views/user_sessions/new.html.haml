@@ -1,4 +1,4 @@
-- title "Welcome to Bread Box. Please Login."
+- title "Welcome to Bread Box - Please Log in"
 
 #login
   - form_for @user_session, :url => user_session_path do |f|
@@ -12,8 +12,6 @@
           = f.label :password
           = f.password_field :password, :class => "text", :id => "password", :tabindex => "2"
       %ul#remember
-        %li
-          = f.check_box :remember_me, :checked => "checked"
-          = f.label :remember_me
         %li.login
+          = f.hidden_field :remember_me, :checked => true
           = f.submit "Login", :id => "submit"
