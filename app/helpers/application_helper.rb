@@ -26,12 +26,11 @@ module ApplicationHelper
   end
   
   def format_address(address_parts)
-    html = ""
-    address_parts[-1].gsub!(' ', ', ')
+    list_items = ""
     address_parts.each do |part|
-      html += content_tag :li, part 
+      list_items += content_tag :li, part 
     end
-    html
+    list_items
   end
 
   def long_date(date)
