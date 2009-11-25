@@ -53,6 +53,10 @@ class Invoice < ActiveRecord::Base
     max.present? ? max : 0
   end
   
+  def organization
+    client.organization
+  end
+  
   def payments_total
     total = 0
     payments.collect(&:amount_in_cents).each { |amount| total += amount }
