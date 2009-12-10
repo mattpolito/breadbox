@@ -11,6 +11,7 @@ require 'authlogic/test_case'
 Dir["#{File.dirname(__FILE__)}/support/**/*.rb"].each {|f| require f}
 
 Spec::Runner.configure do |config|
+  include Authlogic::TestCase
   # If you're not using ActiveRecord you should remove these
   # lines, delete config/database.yml and disable :active_record
   # in your config/boot.rb

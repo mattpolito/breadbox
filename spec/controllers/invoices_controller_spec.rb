@@ -9,13 +9,23 @@ describe InvoicesController do
   def mock_clients(stubs={})
     @mock_client ||= 3.times { mock_model(Client, stubs) }
   end
+  
+  before(:each) do
+    activate_authlogic
+    @request.host = "reactioncontrol.test.host"
+    @account = Factory(:account, :subdomain => 'reactioncontrol')
+    @organization = Factory(:organization, :account => @account)
+    @client = Factory(:client, :organization => @organization)
+    @invoice = Factory(:invoice, :client => @client)
+    @user = Factory(:user, :organization => @organization)
+    UserSession.create(@user)
+  end
 
   describe "GET index" do
-    # it "assigns all invoices as @invoices" do
-    #   Invoice.stub!(:find).with(:all, :order => 'billing_date').and_return([mock_invoice])
-    #   get :index
-    #   assigns[:invoices].should == [mock_invoice]
-    # end
+    it "assigns all invoices as @invoices" do
+      get :index
+      assigns[:invoices].should == [@invoice]
+    end
   end
 
   describe "GET show" do
@@ -28,9 +38,10 @@ describe InvoicesController do
 
   describe "GET new" do
     it "assigns a new invoice as @invoice" do
-      Invoice.stub!(:new).and_return(mock_invoice)
+      invoice = Factory(:invoice)
+      Invoice.stub!(:new).and_return(invoice)
       get :new
-      assigns[:invoice].should equal(mock_invoice)
+      assigns[:invoice].should equal(invoice)
     end
     
     it "assigns a collection of clients to @clients" do
