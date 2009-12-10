@@ -25,13 +25,12 @@ Rails::Initializer.run do |config|
   config.gem 'searchlogic', :source => 'http://gemcutter.org'
   config.gem 'settingslogic', :source => 'http://gemcutter.org'
   config.gem 'gravtastic', :version => '>= 2.1.0'
-  config.gem 'haml'
+  config.gem 'haml', :source => 'http://gemcutter.org'
   config.gem 'subdomain-fu', :source => 'http://gemcutter.org'
   config.gem 'will_paginate', :source => 'http://gemcutter.org'
   config.gem 'newrelic_rpm'
   config.gem 'prawn', :lib => false 
   config.gem "aasm"
-  config.gem 'settingslogic'
 
   # Only load the plugins named here, in the order given (default is alphabetical).
   # :all can be used as a placeholder for all plugins not explicitly named
@@ -65,12 +64,12 @@ ActiveSupport::CoreExtensions::Date::Conversions::DATE_FORMATS.merge!(
 # Mailer settings
 ActionMailer::Base.delivery_method = :smtp
 ActionMailer::Base.smtp_settings = {
-  :address              => Settings.mail_smtp_address,
-  :port                 => Settings.mail_smtp_port,
-  :domain               => Settings.mail_domain,
-  :user_name            => Settings.mail_user_name,
-  :password             => Settings.mail_password, 
-  :authentication       => Settings.mail_authentication_type
+  # :address              => Settings.mail_smtp_address,
+  # :port                 => Settings.mail_smtp_port,
+  # :domain               => Settings.mail_domain,
+  # :user_name            => Settings.mail_user_name,
+  # :password             => Settings.mail_password, 
+  # :authentication       => Settings.mail_authentication_type
 }
 
 # Google Analytics gem settings
