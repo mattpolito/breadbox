@@ -10,11 +10,18 @@ describe Invoice do
     }
   end
   
+  it { should have_db_column(:number).of_type(:integer) }
+  it { should have_db_column(:payment_due_date).of_type(:date) }
+  it { should have_db_column(:note).of_type(:text) }
+  it { should have_db_column(:billing_date).of_type(:date) }
+  it { should have_db_column(:client_id).of_type(:integer) }
+  it { should have_db_column(:status).of_type(:string).with_options(:default => 'draft') }
+  
   it { should belong_to(:client) }
   it { should have_many(:invoice_lines) }
   it { should have_many(:payments) }
   
-  context ".yearly_estimated_income" do
+  describe ".yearly_estimated_income" do
     it "should return total amount invoiced for current year" do
       invoice = Factory(:invoice)
       3.times { Factory(:invoice_line, :invoice => invoice) }
@@ -26,7 +33,7 @@ describe Invoice do
     end
   end
   
-  context "overdue named_scope" do
+  describe "overdue named_scope" do
     it "should return all overdue invoices that have been 'sent'" do
       2.times { Factory(:invoice, :status => 'sent', :payment_due_date => Date.today - 5.days )}
       Factory(:invoice)
@@ -34,7 +41,7 @@ describe Invoice do
     end
   end
   
-  context "newly_created named_scope" do
+  describe "newly_created named_scope" do
     it "should return all invoices that have been created within the last week" do
       2.times { Factory(:invoice) }
       2.times { Factory(:invoice, :status => 'sent') }
@@ -43,7 +50,7 @@ describe Invoice do
     end
   end
   
-  context "order named_scope" do
+  describe "order named_scope" do
     it "should add order to the find query" do
       invoice_1 = Factory(:invoice, :number => 10)
       invoice_2 = Factory(:invoice, :number => 5)
@@ -54,7 +61,7 @@ describe Invoice do
     end
   end
   
-  context "pending named_scope" do
+  describe "pending named_scope" do
     it "should return all that have a status of 'draft' or 'sent'" do
       2.times { Factory(:invoice, :status => 'paid') }
       3.times { Factory(:invoice, :status => 'draft') }
@@ -63,7 +70,7 @@ describe Invoice do
     end
   end
   
-  context "limit named_scope" do
+  describe "limit named_scope" do
     it "should add limit to the find query" do
       4.times { Factory(:invoice)}
       Invoice.all.should have(4).invoices
@@ -75,7 +82,7 @@ describe Invoice do
     Invoice.create!(@valid_attributes)
   end
   
-  context "instance" do
+  describe "instance" do
     describe "last used number" do
       it "should be returned" do
         2.times { Factory(:invoice) }
