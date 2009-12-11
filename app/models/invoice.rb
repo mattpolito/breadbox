@@ -20,6 +20,12 @@ class Invoice < ActiveRecord::Base
     transitions :to => :closed, :from => [:draft, :sent, :paid]
   end
   
+  # Accessor
+  attr_accessor :due_date
+  
+  # Callbacks
+  before_validation :set_payment_due_date, :if => :due_date
+  
   # Associations
   belongs_to :client
   has_many :invoice_lines, :dependent => :destroy
@@ -78,5 +84,10 @@ class Invoice < ActiveRecord::Base
   def overdue?
     payment_due_date < Date.today && sent?
   end
+  
+  private
+    def set_payment_due_date
+      self.payment_due_date = Date.today + due_date.days
+    end
   
 end

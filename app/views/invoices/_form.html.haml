@@ -11,11 +11,11 @@
         = f.text_field :number
         %em== (Last used: #{h(@invoice.last_used_number)})
       %li
-        = f.label :due_date
-        = f.date_select :payment_due_date
-      %li
         = f.label :billing_date
         = f.date_select :billing_date
+      %li
+        = f.label :due_date, 'Due'
+        = f.select :due_date, [['on receipt', 0], ['in 15 days', 15], ['in 30 days', 30], ['in 45 days', 45]]
 
   %h3 Item
   %fieldset
