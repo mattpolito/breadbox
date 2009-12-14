@@ -109,13 +109,13 @@ describe InvoicesController do
 
       it "assigns the requested invoice as @invoice" do
         Invoice.stub!(:find).and_return(mock_invoice(:update_attributes => true))
-        put :update, :id => "1"
+        put :update, :id => "37"
         assigns[:invoice].should equal(mock_invoice)
       end
 
       it "redirects to the invoice" do
         Invoice.stub!(:find).and_return(mock_invoice(:update_attributes => true))
-        put :update, :id => "1"
+        put :update, :id => "37"
         response.should redirect_to(invoice_url(mock_invoice))
       end
     end
@@ -129,13 +129,13 @@ describe InvoicesController do
 
       it "assigns the invoice as @invoice" do
         Invoice.stub!(:find).and_return(mock_invoice(:update_attributes => false))
-        put :update, :id => "1"
+        put :update, :id => "37"
         assigns[:invoice].should equal(mock_invoice)
       end
 
       it "re-renders the 'edit' template" do
         Invoice.stub!(:find).and_return(mock_invoice(:update_attributes => false))
-        put :update, :id => "1"
+        put :update, :id => "37"
         response.should render_template('edit')
       end
     end
@@ -151,7 +151,7 @@ describe InvoicesController do
 
     it "redirects to the invoices list" do
       Invoice.stub!(:find).and_return(mock_invoice(:destroy => true))
-      delete :destroy, :id => "1"
+      delete :destroy, :id => "37"
       response.should redirect_to(invoices_url)
     end
   end
