@@ -12,7 +12,6 @@ body {
 input:focus,
 input:active,
 a:focus {
-/*  border:none;*/
   outline:none;
 }
 
