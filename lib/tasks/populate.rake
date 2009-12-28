@@ -24,12 +24,13 @@ namespace :db do
           client.organization_id = organization.id
 
           Address.populate 1 do |address|
-            address.street1   = Faker::Address.street_address
-            address.street2   = [Faker::Address.secondary_address, nil]
-            address.city      = Faker::Address.city
-            address.state     = Faker::Address.us_state_abbr
-            address.zipcode   = Faker::Address.zip_code
-            address.client_id = client.id
+            address.street1          = Faker::Address.street_address
+            address.street2          = [Faker::Address.secondary_address, nil]
+            address.city             = Faker::Address.city
+            address.state            = Faker::Address.us_state_abbr
+            address.zipcode          = Faker::Address.zip_code
+            address.addressable_id   = client.id
+            address.addressable_type = 'Client'
           end
       
           Invoice.populate 1..5 do |invoice|
@@ -69,12 +70,13 @@ namespace :db do
           client.organization_id = organization.id
 
           Address.populate 1 do |address|
-            address.street1   = Faker::Address.street_address
-            address.street2   = [Faker::Address.secondary_address, nil]
-            address.city      = Faker::Address.city
-            address.state     = Faker::Address.us_state_abbr
-            address.zipcode   = Faker::Address.zip_code
-            address.client_id = client.id
+            address.street1          = Faker::Address.street_address
+            address.street2          = [Faker::Address.secondary_address, nil]
+            address.city             = Faker::Address.city
+            address.state            = Faker::Address.us_state_abbr
+            address.zipcode          = Faker::Address.zip_code
+            address.addressable_id   = client.id
+            address.addressable_type = 'Client'
           end
       
           Invoice.populate 1..5 do |invoice|
