@@ -11,7 +11,7 @@ class Notification < ActionMailer::Base
   
   def self.send_reminder(options)
     invoice = Invoice.find(options[:id])
-    send("deliver_#{options[:type]}_reminder", invoice)
+    deliver_reminder(invoice)
   end
   
   def invoice(invoice)
@@ -22,7 +22,7 @@ class Notification < ActionMailer::Base
     body        :invoice => invoice
   end
   
-  def invoice_reminder(invoice)
+  def reminder(invoice)
     recipients  invoice.client.email
     from        Settings.noreply_address
     subject     "[#{invoice.organization.name}] Invoice ##{invoice.number} payment reminder"
