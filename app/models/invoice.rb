@@ -87,7 +87,7 @@ class Invoice < ActiveRecord::Base
   
   private
     def set_payment_due_date
-      self.payment_due_date = Date.today + due_date.days
+      self.payment_due_date = Date.today + due_date.to_i.days
     end
   
 end

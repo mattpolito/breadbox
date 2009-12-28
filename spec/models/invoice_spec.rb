@@ -97,7 +97,7 @@ describe Invoice do
     end
     
     it "should return organization that owns client's invoice" do
-      organization = Factory(:organization)
+      organization = Factory(:organization, :account_id => 1)
       client = Factory(:client, :organization => organization)
       invoice = Factory(:invoice, :client => client)
       invoice.organization.should == organization
@@ -157,7 +157,7 @@ describe Invoice do
     
     describe "#payment_due_date" do
       it "should be set with a date via the due_date attribute" do
-        invoice = Factory(:invoice, :payment_due_date => nil, :due_date => 15)
+        invoice = Factory(:invoice, :payment_due_date => nil, :due_date => '15')
         invoice.payment_due_date.should == Date.today + 15.days
       end
     end
