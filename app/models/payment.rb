@@ -9,11 +9,11 @@ class Payment < ActiveRecord::Base
   
   # Logic
   def amount
-    (amount_in_cents / 100).to_f unless amount_in_cents.blank?
+    (amount_in_cents.to_f / 100) unless amount_in_cents.blank?
   end
   
   def amount=(amount)
-    self.amount_in_cents = amount.to_i * 100 unless amount.blank?
+    self.amount_in_cents = (amount.to_f * 100) unless amount.blank?
   end
   
   def mark_invoice_as_paid
