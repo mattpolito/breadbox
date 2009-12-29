@@ -368,8 +368,10 @@ table tbody tr.overdue td.last {
   float:left;
   height:92px;
   margin:0 0.5em;
+  overflow:hidden;
   position:relative;
   text-decoration:none;
+  width:75px;
 }
 
 #clients .person .avatar label {
