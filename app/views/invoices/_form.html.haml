@@ -8,8 +8,7 @@
         = f.collection_select :client_id, @clients, :id, :name, :prompt => true
       %li
         = f.label :number
-        = f.text_field :number
-        %em== (Last used: #{h(@invoice.last_used_number)})
+        = f.text_field :number, :value => @next_invoice_number
       %li
         = f.label :billing_date
         = f.date_select :billing_date
