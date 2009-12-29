@@ -7,11 +7,11 @@ class InvoiceLine < ActiveRecord::Base
   
   # Logic
   def price
-    (price_in_cents / 100).to_f unless price_in_cents.blank?
+    (price_in_cents.to_f / 100) unless price_in_cents.blank?
   end
   
   def price=(price)
-    self.price_in_cents = price.to_i * 100 unless price.blank?
+    self.price_in_cents = (price.to_f * 100).to_i unless price.blank?
   end
   
   def total_amount

@@ -15,9 +15,23 @@ describe InvoiceLine do
     InvoiceLine.create!(@valid_attributes)
   end
   
+  describe "#price" do
+    before(:each) do
+      @invoice_line = Factory(:invoice_line, :quantity => '5', :price => '50.50')
+    end
+    
+    it "should save #price as price_in_cents" do
+      @invoice_line.price_in_cents.should == 5050
+    end
+
+    it "should return dollars when #price is called" do
+      @invoice_line.price.should == 50.5
+    end
+  end
+  
   it "should find total price for line" do
-    invoice_line = InvoiceLine.create :quantity => 5, :price => 50
-    invoice_line.total_amount.should == 25000
+    invoice_line = Factory(:invoice_line, :quantity => '5', :price => '50.50')
+    invoice_line.total_amount.should == 25250
   end
   
   describe "validations" do
