@@ -1,4 +1,7 @@
 class InvoiceLine < ActiveRecord::Base
+  # Callbacks
+  before_save :calculate_total_amount
+  
   # Associations
   belongs_to :invoice
   
@@ -14,7 +17,8 @@ class InvoiceLine < ActiveRecord::Base
     self.price_in_cents = (price.to_f * 100).to_i unless price.blank?
   end
   
-  def total_amount
-    quantity * price_in_cents
-  end
+  private
+    def calculate_total_amount
+      self.total_amount = quantity * price_in_cents
+    end
 end
