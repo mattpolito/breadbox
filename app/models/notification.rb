@@ -19,7 +19,7 @@ class Notification < ActionMailer::Base
     from        Settings.noreply_address
     subject     "[#{invoice.organization.name}] Invoice for requested work"
     sent_on     Time.now
-    body        :invoice => invoice
+    body        :invoice => invoice, :organization => invoice.organization, :client => invoice.client
   end
   
   def reminder(invoice)
@@ -27,7 +27,7 @@ class Notification < ActionMailer::Base
     from        Settings.noreply_address
     subject     "[#{invoice.organization.name}] Invoice ##{invoice.number} payment reminder"
     sent_on     Time.now
-    body        :invoice => invoice
+    body        :invoice => invoice, :organization => invoice.organization, :client => invoice.client
   end
   
 end
