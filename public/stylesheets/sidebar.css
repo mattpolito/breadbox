@@ -24,14 +24,17 @@
   font-weight:bold;
 }
 
+#sidebar {
+  float:right;
+  width:20%;
+}
+
 #actions {
   background:#CCC;
   -moz-border-radius: 5px;
   -webkit-border-radius: 5px;
-  float:right;
   margin:0 0 0 0.5em;
   padding:0.5em 1em;
-  width:20%;
 }
 
 #actions h2 {
