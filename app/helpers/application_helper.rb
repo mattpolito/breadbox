@@ -50,11 +50,11 @@ module ApplicationHelper
   end
 
   def phone_extension(phone_number)
-    phone_number.slice(10...phone_number.size)
+    phone_number.slice(10...phone_number.size) unless phone_number.blank?
   end
 
   def phone_number(phone_number)
-    phone_number.slice(0...10)
+    phone_number.slice(0...10) unless phone_number.blank?
   end
   
   def remove_child_link(name, f)
