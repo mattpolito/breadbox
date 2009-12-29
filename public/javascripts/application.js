@@ -1,5 +1,35 @@
 // Place your application-specific JavaScript functions and classes here
 // This file is automatically included by javascript_include_tag :defaults
+$(document).ready(function()  {
+  // Toggles editing tools for user in all users list
+  $("#all_users .user").toggle(
+    function () {
+      $(this).next(".edit").show(); // selectes the edit row directly under the user row
+    },
+    function () {
+      $(this).next(".edit").hide();
+    }
+  );
+  
+  // Swap Value in input fields
+  swapValues = [];
+  $(".swap_value").each(function(i){
+    swapValues[i] = $(this).val();
+    $(this).focus(function(){
+      if ($(this).val() == swapValues[i]) {
+        $(this).val("").css({ color: "#FFF"});
+        $(this).siblings("label").css({ color: "#FFF"});
+      }
+    }).blur(function(){
+      if ($.trim($(this).val()) == "") {
+        $(this).val(swapValues[i]).css({ color: "#444"});
+        $(this).siblings("label").css({ color: "#444"});
+      }
+    });
+  });
+});
+
+
 function nospam(user,domain) {
 	locationstring = "mailto:" + user + "@" + domain;
 	window.location = locationstring;
