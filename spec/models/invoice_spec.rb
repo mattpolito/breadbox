@@ -83,19 +83,6 @@ describe Invoice do
   end
   
   describe "instance" do
-    describe "last used number" do
-      it "should be returned" do
-        2.times { Factory(:invoice) }
-        invoice = Invoice.new(Factory.attributes_for(:invoice))
-        invoice.last_used_number.should == Invoice.last.number
-      end
-
-      it "should return _0_ if none have been created yet" do
-        invoice = Factory.build(:invoice, :number => nil)
-        invoice.last_used_number.should == 0
-      end
-    end
-    
     it "should return organization that owns client's invoice" do
       organization = Factory(:organization, :account_id => 1)
       client = Factory(:client, :organization => organization)

@@ -54,11 +54,6 @@ class Invoice < ActiveRecord::Base
     payment_due_date > Date.today ? 'is' : 'was'
   end
   
-  def last_used_number
-    max = Invoice.maximum('number')
-    max.present? ? max : 0
-  end
-  
   def organization
     client.organization
   end
