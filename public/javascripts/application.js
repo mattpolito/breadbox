@@ -17,13 +17,13 @@ $(document).ready(function()  {
     swapValues[i] = $(this).val();
     $(this).focus(function(){
       if ($(this).val() == swapValues[i]) {
-        $(this).val("").css({ color: "#FFF"});
-        $(this).siblings("label").css({ color: "#FFF"});
+        $(this).val("").css({ color: "#000"});
+        $(this).siblings("label").css({ color: "#000"});
       }
     }).blur(function(){
       if ($.trim($(this).val()) == "") {
-        $(this).val(swapValues[i]).css({ color: "#444"});
-        $(this).siblings("label").css({ color: "#444"});
+        $(this).val(swapValues[i]).css({ color: "#CCC"});
+        $(this).siblings("label").css({ color: "#CCC"});
       }
     });
   });

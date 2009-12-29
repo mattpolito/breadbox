@@ -87,6 +87,16 @@
 	font-size:1.4em;
 }
 
+#invoice_info ul li input.swap_value,
+#invoice_info ul li label[for="invoice_number"] {
+  color:#CCC;
+}
+
+#invoice_info ul li p.note {
+  color:#666;
+  margin:0 0 0 7em;
+}
+
 /*invoice show*/
 
 .show_invoice {

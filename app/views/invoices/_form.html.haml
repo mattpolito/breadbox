@@ -8,7 +8,10 @@
         = f.collection_select :client_id, @clients, :id, :name, :prompt => true
       %li
         = f.label :number
-        = f.text_field :number, :value => @next_invoice_number
+        = f.text_field :number, :value => @next_invoice_number, :class => "swap_value"
+        %p.note
+          Last invoice number used was
+          = @next_invoice_number-1
       %li
         = f.label :billing_date
         = f.date_select :billing_date
