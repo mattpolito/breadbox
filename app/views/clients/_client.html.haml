@@ -4,7 +4,8 @@
     %ul.person_info
       %li.name= link_to h(client.name), client
       %li.email= mail_to h(client.email), client.email
-      %li.phone= displayable_phone_number(client.phone)
+      - unless client.phone.blank?
+        %li.phone= displayable_phone_number(client.phone)
   %h3
     %span.pending
       Pending Invoices
