@@ -16,21 +16,22 @@ class InvoicesController < ApplicationController
   # GET /invoices/new
   # GET /invoices/new.xml
   def new
-    @invoice = Invoice.new
+    @invoice = current_organization.invoices.new
     @invoice.invoice_lines.build
-    @clients = Client.all
+    @clients = current_organization.clients
+    @next_invoice_number = current_organization.next_invoice_number
   end
 
   # GET /invoices/1/edit
   def edit
-    @invoice = Invoice.find(params[:id])
-    @clients = Client.all
+    @invoice = current_organization.invoices.find(params[:id])
+    @clients = current_organization.clients
   end
 
   # POST /invoices
   # POST /invoices.xml
   def create
-    @invoice = Invoice.new(params[:invoice])
+    @invoice = current_organization.invoices.new(params[:invoice])
     
     if @invoice.save
       add_success 'Invoice was successfully created.'
@@ -43,7 +44,7 @@ class InvoicesController < ApplicationController
   # PUT /invoices/1
   # PUT /invoices/1.xml
   def update
-    @invoice = Invoice.find(params[:id])
+    @invoice = current_organization.invoices.find(params[:id])
     
     if @invoice.update_attributes(params[:invoice])
       add_success 'Invoice was successfully updated.'
@@ -56,7 +57,7 @@ class InvoicesController < ApplicationController
   # DELETE /invoices/1
   # DELETE /invoices/1.xml
   def destroy
-    @invoice = Invoice.find(params[:id])
+    @invoice = current_organization.invoices.find(params[:id])
     @invoice.destroy
     
     redirect_to(invoices_url)
