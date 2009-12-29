@@ -1,4 +1,8 @@
 class Payment < ActiveRecord::Base
+  # Extensions
+  include Cleansing
+  
+  # Callbacks
   after_save :mark_invoice_as_paid, :if => :fulfills_amount_due?
   
   # Associations
@@ -13,15 +17,17 @@ class Payment < ActiveRecord::Base
   end
   
   def amount=(amount)
-    self.amount_in_cents = (amount.to_f * 100) unless amount.blank?
-  end
-  
-  def mark_invoice_as_paid
-    invoice.paid! unless invoice.paid?
+    clean_amount = strip_non_numeric(amount)
+    self.amount_in_cents = (clean_amount.to_f * 100) unless amount.blank?
   end
   
   def fulfills_amount_due?
     (invoice.amount_due <= 0) unless invoice.blank?
   end
+  
+  private
+    def mark_invoice_as_paid
+      invoice.paid! unless invoice.paid?
+    end
   
 end
