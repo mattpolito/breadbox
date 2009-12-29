@@ -21,18 +21,6 @@ describe Invoice do
   it { should have_many(:invoice_lines) }
   it { should have_many(:payments) }
   
-  describe ".yearly_estimated_income" do
-    it "should return total amount invoiced for current year" do
-      invoice = Factory(:invoice)
-      3.times { Factory(:invoice_line, :invoice => invoice) }
-      invoice2 = Factory(:invoice)
-      3.times { Factory(:invoice_line, :invoice => invoice2) }
-      invoice3 = Factory(:invoice, :billing_date => Date.today - 400.days)
-      3.times { Factory(:invoice_line, :invoice => invoice3) }
-      Invoice.yearly_estimated_income.should == 150000      
-    end
-  end
-  
   describe "overdue named_scope" do
     it "should return all overdue invoices that have been 'sent'" do
       2.times { Factory(:invoice, :status => 'sent', :payment_due_date => Date.today - 5.days )}

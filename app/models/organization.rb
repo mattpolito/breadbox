@@ -1,4 +1,6 @@
 class Organization < ActiveRecord::Base
+  include Calculation
+  
   # Extensions
   authenticates_many :user_sessions
   
@@ -20,5 +22,9 @@ class Organization < ActiveRecord::Base
   
   def next_invoice_number
     @next_invoice_number || calculate_next_invoice_number
+  end
+
+  def yearly_estimated_income
+    collection_total(invoices.for_this_year, :total_amount)
   end
 end

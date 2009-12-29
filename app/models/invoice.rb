@@ -1,5 +1,7 @@
 class Invoice < ActiveRecord::Base
   # Extensions
+  include Calculation
+  
   include AASM
   aasm_column :status
   aasm_initial_state :draft
@@ -59,21 +61,11 @@ class Invoice < ActiveRecord::Base
   end
   
   def payments_total
-    total = 0
-    payments.collect(&:amount_in_cents).each { |amount| total += amount }
-    total
+    collection_total(payments, :amount_in_cents)
   end
   
   def total_amount
-    total = 0
-    invoice_lines.collect(&:total_amount).each { |amount| total += amount }
-    total
-  end
-  
-  def self.yearly_estimated_income
-    total = 0
-    for_this_year.collect(&:total_amount).each { |amount| total += amount }
-    total
+    collection_total(invoice_lines, :total_amount)
   end
   
   def overdue?
