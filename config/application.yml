@@ -1,6 +1,7 @@
 defaults: &defaults
   google_analytics_id: UA-51098-13
   mail_authentication_type: :plain
+  noreply_address: noreply@example.com
 
 development:
   <<: *defaults
@@ -22,3 +23,4 @@ production:
   mail_domain: 
   mail_user_name: 
   mail_password: 
+  noreply_address: noreply@breadboxapp.com
