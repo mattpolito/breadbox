@@ -87,8 +87,7 @@
 	font-size:1.4em;
 }
 
-#invoice_info ul li input.swap_value,
-#invoice_info ul li label[for="invoice_number"] {
+#invoice_info ul li input.swap_value {
   color:#CCC;
 }
 

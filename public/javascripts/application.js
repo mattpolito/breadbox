@@ -18,12 +18,10 @@ $(document).ready(function()  {
     $(this).focus(function(){
       if ($(this).val() == swapValues[i]) {
         $(this).val("").css({ color: "#000"});
-        $(this).siblings("label").css({ color: "#000"});
       }
     }).blur(function(){
       if ($.trim($(this).val()) == "") {
         $(this).val(swapValues[i]).css({ color: "#CCC"});
-        $(this).siblings("label").css({ color: "#CCC"});
       }
     });
   });
