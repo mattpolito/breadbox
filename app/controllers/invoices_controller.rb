@@ -20,6 +20,7 @@ class InvoicesController < ApplicationController
     @invoice.invoice_lines.build
     @clients = current_organization.clients
     @next_invoice_number = current_organization.next_invoice_number
+    @previous_invoice_number = current_organization.previous_invoice_number
   end
 
   # GET /invoices/1/edit

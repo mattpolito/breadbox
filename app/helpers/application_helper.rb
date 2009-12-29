@@ -25,6 +25,10 @@ module ApplicationHelper
     number_to_phone(phone_number(phone_number), :delimiter => '.', :extension => phone_extension(phone_number))
   end
   
+  def edit_action
+    controller.action_name == 'edit'
+  end
+  
   def format_address(address_parts)
     list_items = ""
     address_parts.each do |part|

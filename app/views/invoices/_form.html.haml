@@ -9,9 +9,10 @@
       %li
         = f.label :number
         = f.text_field :number, :value => @next_invoice_number, :class => "swap_value"
-        %p.note
-          Last invoice number used was
-          = @next_invoice_number-1
+        - unless edit_action
+          %p.note
+            Last invoice number used was
+            = @previous_invoice_number
       %li
         = f.label :billing_date
         = f.date_select :billing_date

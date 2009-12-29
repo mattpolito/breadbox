@@ -13,18 +13,22 @@ class Organization < ActiveRecord::Base
   
   accepts_nested_attributes_for :address, :reject_if => lambda { |attributes| attributes.values.all?(&:blank?) }, :allow_destroy => true
   
-  # Logic
-  
-  def calculate_next_invoice_number
-    last_used = invoices.map(&:number).compact.sort.last unless invoices.blank?
-    last_used.present? ? last_used + 1 : 1
-  end
-  
+  # Logic  
   def next_invoice_number
     @next_invoice_number || calculate_next_invoice_number
+  end
+  
+  def previous_invoice_number
+    @previous_invoice_number || calculate_next_invoice_number - 1
   end
 
   def yearly_estimated_income
     collection_total(invoices.for_this_year, :total_amount)
   end
+  
+  private  
+    def calculate_next_invoice_number
+      last_used = invoices.map(&:number).compact.sort.last unless invoices.blank?
+      last_used.present? ? last_used + 1 : 1
+    end
 end
