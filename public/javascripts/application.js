@@ -2,6 +2,7 @@
 // This file is automatically included by javascript_include_tag :defaults
 $(document).ready(function()  {
   
+  // Fade out messages after 5 seconds
   setTimeout("$('.success').hide('fast')",5000)
   
   // Toggles editing tools for user in all users list
