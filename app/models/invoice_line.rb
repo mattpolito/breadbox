@@ -1,4 +1,7 @@
 class InvoiceLine < ActiveRecord::Base
+  # Extensions
+  include Cleansing
+  
   # Callbacks
   before_save :calculate_total_amount
   
@@ -14,7 +17,7 @@ class InvoiceLine < ActiveRecord::Base
   end
   
   def price=(price)
-    self.price_in_cents = (price.to_f * 100).to_i unless price.blank?
+    self.price_in_cents = (strip_non_numeric(price).to_f * 100).to_i unless price.blank?
   end
   
   private
