@@ -18,7 +18,7 @@
         = f.date_select :billing_date
       %li
         = f.label :due_date, 'Due'
-        = f.select :due_date, [['on receipt', 0], ['in 15 days', 15], ['in 30 days', 30], ['in 45 days', 45]]
+        = f.select :due_date, due_date_options
 
   %h3 Item
   %fieldset

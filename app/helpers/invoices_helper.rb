@@ -1,4 +1,8 @@
 module InvoicesHelper
+  def due_date_options
+    [['on receipt', 0], ['in 7 days', 7], ['in 15 days', 15], ['in 30 days', 30], ['in 45 days', 45]]
+  end
+  
   def overdue(invoice)
     invoice.overdue? ? 'overdue' : false
   end
