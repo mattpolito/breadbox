@@ -2,7 +2,7 @@ ActionController::Routing::Routes.draw do |map|
   map.resource :user_session
   map.resources :invoices, :has_many => :payments
   map.resources :users
-  map.resources :clients
+  map.resources :clients, :has_many => :invoices
   map.resources :organizations
 
   # The priority is based upon order of creation: first created -> highest priority.

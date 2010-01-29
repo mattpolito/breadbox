@@ -1,4 +1,5 @@
 class InvoicesController < ApplicationController
+  before_filter :find_client, :only => :new
   prawnto :prawn => { :top_margin => 75 }
   
   # GET /invoices
@@ -16,7 +17,7 @@ class InvoicesController < ApplicationController
   # GET /invoices/new
   # GET /invoices/new.xml
   def new
-    @invoice = current_organization.invoices.new
+    @invoice = current_organization.invoices.new(:client => @client)
     @invoice.invoice_lines.build
     @clients = current_organization.clients
     @next_invoice_number = current_organization.next_invoice_number
@@ -63,4 +64,9 @@ class InvoicesController < ApplicationController
     
     redirect_to(invoices_url)
   end
+  
+  private
+    def find_client
+      @client = Client.find(params[:client_id]) if params[:client_id].present?
+    end
 end
