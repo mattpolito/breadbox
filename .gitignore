@@ -13,3 +13,4 @@ tmp/metric_fu/*
 tmp/sent_mails/*
 tmp/restart.txt
 config/database.yml
+*.swp
