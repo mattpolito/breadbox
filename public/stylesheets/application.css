@@ -15,6 +15,16 @@ a:focus {
   outline:none;
 }
 
+.fieldWithErrors label {
+	color:#992730;
+}
+
+.fieldWithErrors {
+	background:#FFD3E2;
+	border:1px solid #993238;
+	color:#992730;
+}
+
 /* Removes Outline From Input Buttons*/
 button::-moz-focus-inner,
 input[type="reset"]::-moz-focus-inner,

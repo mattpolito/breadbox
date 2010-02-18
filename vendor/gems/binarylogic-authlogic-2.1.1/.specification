@@ -1,5 +1,5 @@
 --- !ruby/object:Gem::Specification 
-name: rubyist-aasm
+name: binarylogic-authlogic
 version: !ruby/object:Gem::Version 
   version: 2.1.1
 platform: ruby
@@ -9,7 +9,7 @@ autorequire:
 bindir: bin
 cert_chain: []
 
-date: 2009-11-09 00:00:00 -06:00
+date: 2009-12-31 00:00:00 -06:00
 default_executable: 
 dependencies: []
 
@@ -23,9 +23,11 @@ extra_rdoc_files: []
 
 files: 
 - lib
-has_rdoc: false
+- lib/authlogic
+has_rdoc: true
 homepage: 
-licenses: 
+licenses: []
+
 post_install_message: 
 rdoc_options: []
 
@@ -48,7 +50,7 @@ requirements: []
 rubyforge_project: 
 rubygems_version: 1.3.5
 signing_key: 
-specification_version: 2
+specification_version: 3
 summary: 
 test_files: []
 

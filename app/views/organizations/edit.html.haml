@@ -12,6 +12,3 @@
     - f.fields_for :address do |address|
       = render :partial => 'shared/address', :locals => { :address => address }
     = f.submit
-  
-#sidebar
-  = link_to 'Organization Profile', settings_path, :class => 'button'
