@@ -4,7 +4,7 @@ namespace :db do
     # require 'populator'
     # require 'faker'
     
-    [Account, Address, Client, Invoice, InvoiceLine, Organization].each(&:delete_all)
+    [Account, Address, Client, Invoice, InvoiceLine, Organization, Payment].each(&:delete_all)
     
     # reactionCONTROL Data
     Account.populate 1 do |account|
@@ -46,6 +46,7 @@ namespace :db do
               invoice_line.quantity       = 1..5
               invoice_line.price_in_cents = [2500, 5000, 6500]
               invoice_line.invoice_id     = invoice.id
+              invoice_line.total_amount   = invoice_line.quantity * invoice_line.price_in_cents
             end
           end
         end
