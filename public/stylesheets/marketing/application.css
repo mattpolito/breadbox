@@ -53,8 +53,8 @@ body {
 
 #pricing ul li {
 	background:transparent url("/images/marketing/check.png") 10px 50% no-repeat;
-	border-bottom:1px solid rgba(0,0,0,.3);
-	border-top:1px solid rgba(255,255,255,.2);
+	border-bottom:1px solid rgba(0,0,0,.25);
+	border-top:1px solid rgba(255,255,255,.15);
 	color:#FFF;
 	font-size:2.4em;
 	font-weight:100;
