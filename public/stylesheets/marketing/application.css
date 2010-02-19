@@ -1,7 +1,7 @@
 @import url("/stylesheets/reset.css");
 
 body {
-	background:#174773 url("/images/marketing/background.jpg") 0 0 repeat-x;
+	background:#174773 url("/images/marketing/background2.jpg") 0 0 repeat-x;
 	font:62.5%/1.5 "Helvetica Neue", Arial, sans-serif;
 }
 
@@ -53,12 +53,13 @@ body {
 
 #pricing ul li {
 	background:transparent url("/images/marketing/check.png") 10px 50% no-repeat;
-	border-bottom:1px solid rgba(0,0,0,.2);
-	border-top:1px solid rgba(255,255,255,.1);
+	border-bottom:1px solid rgba(0,0,0,.3);
+	border-top:1px solid rgba(255,255,255,.2);
 	color:#FFF;
 	font-size:2.4em;
 	font-weight:100;
 	padding:0.2em 2.4em;
+	text-shadow:1px 1px 0 rgba(0,0,0,.9);
 }
 
 #pricing ul li:first-child {
