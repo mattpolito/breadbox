@@ -10,12 +10,17 @@
     %meta{ :name => "copyright", :content => "copyright (c) 2009 reactionCONTROL" }
     %meta{ :name => "revisit-after", :content => "3 days" }
     %link{ :href => "images/favicon.ico", :rel => "shortcut icon" }
-    = stylesheet_link_tag "marketing"
+    = stylesheet_link_tag "marketing/application"
     = javascript_include_tag "jquery"
-    = javascript_include_tag "login"
+    = javascript_include_tag "marketing/application"
   %body
     #wrapper
       #header
+        %h1 <strong>Bread</strong>Box
       #content
         = yield
       #footer
+        %p
+          Copyright &copy;
+          = Time.now.strftime("%Y")
+          All Rights Reserved.

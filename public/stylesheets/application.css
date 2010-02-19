@@ -61,6 +61,7 @@ border: none;
   float:left;
   height:80px;
   margin:1em 0;
+	text-indent:-9999px;
   width:284px;
 }
 
