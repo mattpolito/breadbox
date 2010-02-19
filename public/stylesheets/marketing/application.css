@@ -22,10 +22,12 @@ body {
 	border:4px solid rgba(255,255,255,.2);
 	-moz-border-radius: 10px;
 	-webkit-border-radius: 1px;
+	overflow:hidden;
+	padding:1em;
 }
 
 #pricing {
-	padding:1em;
+	float:left;
 	width:350px;
 }
 
@@ -79,6 +81,13 @@ body {
 #pricing ul li a:active {
 	background-position:0 -68px;
 	outline:none;
+}
+
+#screenshot {
+	-webkit-box-shadow: 0 0 5px rgba(0,0,0,.5);
+	-moz-box-shadow: 0 0 5px rgba(0,0,0,.5);
+	float:right;
+	margin:2em;
 }
 
 #footer {
