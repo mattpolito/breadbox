@@ -12,11 +12,6 @@
     %link{ :href => "images/favicon.ico", :rel => "shortcut icon" }
     = stylesheet_link_tag 'screen'
     = yield(:stylesheets)
-    = javascript_include_tag 'jquery'
-    = javascript_include_tag 'jquery-ui'
-    = javascript_include_tag 'application'
-    = javascript_include_tag 'temp'
-    = yield(:javascript)
   %body
     #wrapper
       #header
@@ -42,3 +37,9 @@
         = yield
       #footer
         %p== Copyright #{ copyright_date } #{ link_to 'reactionCONTROL', 'http://www.reactioncontrol.com' }, All Rights Reserved.
+
+    = javascript_include_tag 'jquery'
+    = javascript_include_tag 'jquery-ui'
+    = javascript_include_tag 'application'
+    = javascript_include_tag 'temp'
+    = yield(:javascript)
