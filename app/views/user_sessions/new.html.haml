@@ -7,10 +7,10 @@
       %ul#user_details
         %li
           = f.label :email
-          = f.text_field :email, :class => "text", :id => "email", :tabindex => "1"
+          = f.text_field :email, :class => "text swap_value", :id => "email", :tabindex => "1"
         %li
           = f.label :password
-          = f.password_field :password, :class => "text", :id => "password", :tabindex => "2"
+          = f.password_field :password, :class => "text swap_value", :id => "password", :tabindex => "2"
       %ul#remember
         %li.login
           = f.hidden_field :remember_me, :checked => true
