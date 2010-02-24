@@ -6,6 +6,8 @@
       %li
         = f.label :client_id
         = f.collection_select :client_id, @clients, :id, :name, :prompt => true
+        
+        #new_client_form{ :style => 'display:none;' }
       %li
         = f.label :number
         = f.text_field :number, :value => @next_invoice_number, :class => "swap_value"
@@ -46,5 +48,4 @@
 = new_child_fields_template(f, :invoice_lines)
 
 - content_for :javascript do
-  = javascript_include_tag 'invoice_form'
-end
+  = javascript_include_tag 'invoices/new'

@@ -3,6 +3,10 @@ class PaymentsController < ApplicationController
   
   def new
     @payment = @invoice.payments.new
+    respond_to do |format|
+      format.html
+      format.js { render :partial => 'payments/form' }
+    end
   end
   
   def create

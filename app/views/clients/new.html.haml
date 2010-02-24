@@ -1,8 +1,7 @@
 #main_content
   %h2 New client
-  #edit_client
-    - form_for(@client) do |f| 
-      = render :partial => 'form', :locals => { :f => f, :button_text => 'Create' }
+  #new_client 
+    = render :partial => 'new_form'
 
 #sidebar
   %ul#actions
