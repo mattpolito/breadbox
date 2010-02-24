@@ -6,16 +6,21 @@ $(document).ready(function() {
       cache: false,
       dataType: 'html',
       success: function(html) {
-       $('#payment_form').append(html).show()
+        $('#payment_form').append(html).show()
+        ajaxFormBinding();
       }
     });
   });
   
-  var $payment_form = $('#payment_form form');
-  $payment_form.submit(function(event) {
-    event.preventDefault();
-    $.post($payment_form.attr('action') + '.js', $payment_form.serialize(), function() {
-      $payment_form.hide();
+  function ajaxFormBinding() {
+    var $payment_form = $('#payment_form form');
+    $payment_form.submit(function(event) {
+      event.preventDefault();
+      $.post($payment_form.attr('action') + '.js', $payment_form.serialize(), function() {
+        $payment_form.hide();
+      });
     });
-  });
+  }
+  
+  
 });

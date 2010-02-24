@@ -12,16 +12,23 @@ $(document).ready(function() {
           dataType: 'html',
           success: function(html) {
            $('#new_client_form').append(html).show();
+           ajaxFormBinding();
           }
         });
       }
     });
   });
   
-  var $client_form = $('#new_client_form form');
-  $client_form.live('submit', function(event) {
-    alert('SUBMITTING FORM');
-  });
+  function ajaxFormBinding() {
+    var $client_form = $('#new_client_form form');
+    $client_form.submit(function(event) {
+      event.preventDefault();
+      $.post($client_form.attr('action') + '.js', $client_form.serialize(), function() {
+        $client_form.hide();
+      });
+    }); 
+  }
+
   
   // var $payment_form = $('#payment_form form');
   // $payment_form.submit(function(event) {
