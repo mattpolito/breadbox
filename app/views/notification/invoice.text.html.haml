@@ -1,38 +1,38 @@
 !!!
 %html
+  %head
   %body
-    #main_content.show_invoice
-      %h2 Invoice ##{@invoice.number}
-      #invoice_info
-        %h3 Client Information
-        %fieldset#client_info
-          =# client_avatar(@client)
-          %ul.person_info
-            %li.name=h @client.name
-            %li.email=h @client.email
-            %li.phone= @client.phone
-            %li.billing_date=h @invoice.billing_date.to_s(:regular)
+    %h1 Invoice ##{h @invoice.number}
+    %span.date=h @invoice.billing_date.strftime("%m.%d.%Y")
+    %ul.company
+      %li.name=h @organization.name
+      %li.address=h @organization.address
+      %li.phone=h @organization.phone
+    %ul.client
+      %li.name=h @client.name
+      %li.address=h @client.address
+      %li.phone=h @client.phone
+
+    %table#invoice_lines
+      %thead
+        %tr
+          %th.description Description
+          %th.quantity Quantity
+          %th.unit_price Unit Price
+          %th
+      %tbody
+        - @invoice.invoice_lines.each do |invoice_line|
+          %tr.invoice_line
+            %td.description= invoice_line.description
+            %td.quantity= invoice_line.quantity
+            %td.unit_price= number_to_currency(invoice_line.price)
+            %td.total_price
+    %span.amount_due=h @invoice.amount_due
+    %span.due_date=h @invoice.due_date
+    %h3 Notes
+      %ul
+        %li
+          Note:
+          = @invoice.note
     
-        %h3 Items
-        %fieldset
-          %table#invoice_lines
-            %thead
-              %tr
-                %th.description Description
-                %th.quantity Quantity
-                %th.unit_price Unit Price
-                %th
-            %tbody
-              - @invoice.invoice_lines.each do |invoice_line|
-                %tr.invoice_line
-                  %td.description= invoice_line.description
-                  %td.quantity= invoice_line.quantity
-                  %td.price
-                    = number_to_currency(invoice_line.price)
-        - unless @invoice.note.blank?                    
-          %h3 Notes
-          %fieldset
-            %ul
-              %li
-                Note:
-                = @invoice.note
+        
