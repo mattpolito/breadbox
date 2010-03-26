@@ -15,6 +15,7 @@ class Notification < ActionMailer::Base
   end
   
   def invoice(invoice)
+    css         :'emails/invoice'
     recipients  invoice.client.email
     from        Settings.noreply_address
     subject     "[#{invoice.organization.name}] Invoice for requested work"
@@ -24,6 +25,7 @@ class Notification < ActionMailer::Base
   end
   
   def reminder(invoice)
+    css         :'emails/reminder'
     recipients  invoice.client.email
     from        Settings.noreply_address
     subject     "[#{invoice.organization.name}] Invoice ##{invoice.number} payment reminder"
