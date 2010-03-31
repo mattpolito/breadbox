@@ -26,8 +26,8 @@
 
 #sidebar
   %ul#actions
-    %li= link_to "Edit #{h(@client.name)}'s Record", edit_client_path(@client), :class => "button", :id => "edit"
-    %li= link_to 'Create New Invoice', new_client_invoice_path(@client), :class => 'button', :id => 'new_invoice'
+    %li= link_to "Edit Record", edit_client_path(@client), :class => "button", :id => "edit"
+    %li= link_to 'New Invoice', new_client_invoice_path(@client), :class => 'button', :id => 'new_invoice'
     %li= link_to 'Go Back', clients_path, :class => "button", :id => "back"
   
   #totals
