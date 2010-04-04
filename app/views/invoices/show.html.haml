@@ -46,11 +46,16 @@
     %li= link_to "Edit Invoice #{@invoice.number}", edit_invoice_path(@invoice), :id => 'edit', :class => 'button'
     %li= send_notification_link(@invoice) # :id => "send"
     %li= link_to 'Add A Payment', new_invoice_payment_path(@invoice), :id => 'payment', :class => 'button'
-    %li= link_to 'Printable Invoice (PDF)', invoice_path(@invoice, :format => 'pdf'), :id => 'pdf', :class => 'button'
+    %li=# link_to 'Printable Invoice (PDF)', invoice_path(@invoice, :format => 'pdf'), :id => 'pdf', :class => 'button'
     %li= link_to 'Go Back', :back, :id => "back", :class => "button"
     - if current_user.admin?
       %li= link_to 'Delete', @invoice, :class => 'button', :id => "delete", :method => :delete, :confirm => 'Are you sure?'
   
   = render :partial => 'payments' unless @invoice.payments.blank?
+  
+#payment_form{ :style => 'display:none;' }
+
+-# content_for :javascript do
+  =# javascript_include_tag 'invoices/show'
     
 

@@ -1,0 +1,15 @@
+- form_for [@invoice, @payment] do |f|
+  = f.error_messages
+  %fieldset.default
+    %ul
+      %li
+        = f.label :amount
+        = f.text_field :amount, :class => 'text'
+      %li
+        = f.label :source, 'Method'
+        = f.text_field :source, :class => 'text'
+      %li
+        = f.label :note
+        = f.text_area :note, :class => 'text'
+      %li
+        = f.submit 'Make Payment', :id => "submit_button"

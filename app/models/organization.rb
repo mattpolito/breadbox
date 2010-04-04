@@ -4,6 +4,12 @@ class Organization < ActiveRecord::Base
   # Extensions
   authenticates_many :user_sessions
   
+  normalize_attributes :email, :name
+  normalize_attributes :phone, :fax do |number|
+    return nil unless number.is_a?(String)
+    number.gsub(/\W/, '').gsub(/^1/, '').gsub('x', '')
+  end
+  
   # Associations
   has_many :users
   has_many :clients

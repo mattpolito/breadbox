@@ -1,6 +1,11 @@
 require File.expand_path(File.dirname(__FILE__) + '/../spec_helper')
 
-describe Organization do 
+describe Organization do
+  it { should have_db_column(:name).of_type(:string) }
+  it { should have_db_column(:phone).of_type(:string) }
+  it { should have_db_column(:fax).of_type(:string) }
+  it { should have_db_column(:email).of_type(:string) }
+  
   it { should belong_to(:account) }
   it { should have_many(:clients) }
   it { should have_many(:invoices) }
@@ -15,6 +20,28 @@ describe Organization do
     before(:each) do
       @organization = Factory(:organization)
       @client = Factory(:client, :organization => @organization)
+    end
+    
+    describe "normalized attributes" do
+      it "should strip phone number of uneccesary characters" do
+        organization = Factory(:organization, :phone => '(900) 868-1029')
+        organization.phone.should == '9008681029'
+      end
+      
+      it "should normalize phone number with country code and extension" do
+        organization = Factory(:organization, :phone => '1-900-868-1029 x549')
+        organization.phone.should == '9008681029549'
+      end
+      
+      it "should strip email of extra whitespace" do
+        organization = Factory(:organization, :email => ' something@somewhere.com ')
+        organization.email.should == 'something@somewhere.com'
+      end
+      
+      it "should strip name of extra whitespace" do
+        organization = Factory(:organization, :name => ' My Name   ')
+        organization.name.should == 'My Name'
+      end
     end
     
     describe ".next_invoice_number" do      

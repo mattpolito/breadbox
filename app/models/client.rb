@@ -3,7 +3,6 @@ class Client < ActiveRecord::Base
   has_gravatar :size => 75, :default => 'http://breadbox.local/images/gravatar_default.png'
   
   normalize_attributes :email, :first_name, :last_name, :company_name
-  
   normalize_attributes :phone, :fax do |number|
     return nil unless number.is_a?(String)
     number.gsub(/\W/, '').gsub(/^1/, '').gsub('x', '')

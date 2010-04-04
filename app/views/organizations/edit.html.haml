@@ -9,6 +9,15 @@
           = f.label :name
           = f.text_field :name, :class => 'text'
         %li
+          = f.label :phone
+          = f.text_field :phone, :class => 'text'
+        %li
+          = f.label :fax
+          = f.text_field :fax, :class => 'text'
+        %li
+          = f.label :email
+          = f.text_field :email, :class => 'text'
+        %li
     - f.fields_for :address do |address|
       = render :partial => 'shared/address', :locals => { :address => address }
     = f.submit

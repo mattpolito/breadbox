@@ -4,7 +4,7 @@
     =h @client.name
   #edit_client
     - form_for(@client) do |f| 
-      = render :partial => 'form', :locals => { :f => f, :button_text => 'Update' }
+      = render :partial => 'edit_form', :locals => { :f => f, :button_text => 'Update' }
 
 #sidebar
   %ul#actions

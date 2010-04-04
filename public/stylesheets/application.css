@@ -264,6 +264,14 @@ table tbody tr.overdue td.last {
   padding:0.8em 0.4em;
 }
 
+#main_content table tbody tr td.first {
+  border-left:1px solid #EEE;
+}
+
+#main_content table tbody tr td.last {
+  border-right:1px solid #EEE;
+}
+
 #main_content table .status,
 #main_content table .invoice_number,
 #main_content table .total {

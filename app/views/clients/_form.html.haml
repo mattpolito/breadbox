@@ -19,7 +19,7 @@
     %li
       = f.label :fax 
       = f.text_field :fax, :class => "text"
-    
+  
 - f.fields_for :address do |address|
   = render :partial => 'shared/address', :locals => { :address => address }
 %p= f.submit button_text, :id => "submit_button"

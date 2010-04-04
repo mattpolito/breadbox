@@ -30,6 +30,7 @@ class ClientsController < ApplicationController
 
     respond_to do |format|
       format.html # new.html.erb
+      format.js { render :partial => 'clients/new_form' }
       format.xml  { render :xml => @client }
     end
   end
