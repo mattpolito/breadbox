@@ -76,7 +76,8 @@
 }
 
 #actions #cancel{background:#FFF url("/images/icons/cancel.png") 0.4em 50% no-repeat;color:#9B222A;}
-#actions #cancel:hover{background-color:#FFD9D9;}
+#actions #cancel:hover,
+#actions #delete:hover{background-color:#FFD9D9;}
 #actions #new,
 #actions #new_invoice{background-image:url("/images/icons/add.png");}
 #actions #edit{background-image:url("/images/icons/application_form_edit.png");}
@@ -84,4 +85,5 @@
 #actions #back{background-image:url("/images/icons/arrow_left.png");}
 #actions #view{background-image:url("/images/icons/user.png");}
 #actions #pdf{background-image:url("/images/icons/printer.png");}
-#actions #send{background-image:url("/images/icons/printer.png");}
+#actions #deliver{background-image:url("/images/icons/page_go.png");}
+#actions #delete{background-image:url("/images/icons/delete.png");}
