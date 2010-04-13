@@ -1,19 +1,80 @@
 !!!
 %html
   %head
+    <style>
+    body {
+    background:#EEE;
+    font:62.5%/1.5 "Helvetica Neue", Arial, Helvetica, sans-serif;
+    margin:10px;
+    padding:10px;
+    }
+    h1 {
+    border-bottom:1px dashed #AAA;
+    margin:0;
+    padding:0 0 5px;
+    }
+    h1 span.date {
+    color:#555;
+    float:right;
+    font-size:70%;
+    margin-top:5px;
+    }
+    ul {
+    font-size:12px;
+    list-style:none;
+    margin:0 0 10px;
+    padding:0;
+    }
+    table {
+    font-size:12px;
+    text-align:left;
+    }
+    table thead tr th {
+    padding:2px 5px;
+    }
+    table tbody tr td {
+    border-spacing: 0;
+    padding:2px 5px;
+    width:70%;
+    }
+    table tbody tr:nth-child(odd) {
+    background:#CCC;
+    }
+    table tr .quantity,
+    table tr .unit_price {
+    text-align:center;
+    width:15%;
+    }
+    h3 {
+    font-size:12px;
+    }
+    \#totals {
+    border-top:1px dashed #AAA;
+    color:#333;
+    padding:4px 0;
+    }
+    \#totals h4.amount_due {
+    font-size:18px;
+    font-weight:normal;
+    margin:0;
+    }
+    </style>
   %body
-    %h1 Invoice ##{h @invoice.number}
-    %span.date=h @invoice.billing_date.strftime("%m.%d.%Y")
+    %h1 
+      Invoice ##{h @invoice.number}
+      %span.date=h @invoice.billing_date.strftime("%B %d, %Y")
     %ul.company
-      %li.name=h @organization.name
+      %li.name
+        %strong=h @organization.name
       %li.address=h @organization.address
       %li.phone=h @organization.phone
     %ul.client
-      %li.name=h @client.name
+      %li.name
+        %strong=h @client.name
       %li.address=h @client.address
       %li.phone=h @client.phone
 
-    %table#invoice_lines
+    %table#invoice_lines{:cellspacing => "0"}
       %thead
         %tr
           %th.description Description
@@ -27,12 +88,13 @@
             %td.quantity= invoice_line.quantity
             %td.unit_price= number_to_currency(invoice_line.price)
             %td.total_price
-    %span.amount_due=h @invoice.amount_due
-    %span.due_date=h @invoice.due_date
     %h3 Notes
-    %ul
-      %li
-        Note:
-        = @invoice.note
+    %p= @invoice.note
+    #totals
+      %h4.amount_due
+        %strong 
+          Total
+        =h @invoice.amount_due 
+      %h4.due_date=h @invoice.due_date
     
         
