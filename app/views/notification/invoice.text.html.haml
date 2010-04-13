@@ -1,64 +1,6 @@
 !!!
 %html
   %head
-    <style>
-    body {
-    background:#EEE;
-    font:62.5%/1.5 "Helvetica Neue", Arial, Helvetica, sans-serif;
-    margin:10px;
-    padding:10px;
-    }
-    h1 {
-    border-bottom:1px dashed #AAA;
-    margin:0;
-    padding:0 0 5px;
-    }
-    h1 span.date {
-    color:#555;
-    float:right;
-    font-size:70%;
-    margin-top:5px;
-    }
-    ul {
-    font-size:12px;
-    list-style:none;
-    margin:0 0 10px;
-    padding:0;
-    }
-    table {
-    font-size:12px;
-    text-align:left;
-    }
-    table thead tr th {
-    padding:2px 5px;
-    }
-    table tbody tr td {
-    border-spacing: 0;
-    padding:2px 5px;
-    width:70%;
-    }
-    table tbody tr:nth-child(odd) {
-    background:#CCC;
-    }
-    table tr .quantity,
-    table tr .unit_price {
-    text-align:center;
-    width:15%;
-    }
-    h3 {
-    font-size:12px;
-    }
-    \#totals {
-    border-top:1px dashed #AAA;
-    color:#333;
-    padding:4px 0;
-    }
-    \#totals h4.amount_due {
-    font-size:18px;
-    font-weight:normal;
-    margin:0;
-    }
-    </style>
   %body
     %h1 
       Invoice ##{h @invoice.number}
@@ -66,13 +8,13 @@
     %ul.company
       %li.name
         %strong=h @organization.name
-      %li.address=h @organization.address
-      %li.phone=h @organization.phone
+      %li.address= format_address h(@organization.address.address_parts) unless @organization.address.blank?
+      %li.phone= displayable_phone_number h(@organization.phone)
     %ul.client
       %li.name
         %strong=h @client.name
-      %li.address=h @client.address
-      %li.phone=h @client.phone
+      %li.address= format_address h(@client.address.address_parts) unless @client.address.blank?
+      %li.phone= displayable_phone_number h(@client.phone)
 
     %table#invoice_lines{:cellspacing => "0"}
       %thead
@@ -94,7 +36,7 @@
       %h4.amount_due
         %strong 
           Total
-        =h @invoice.amount_due 
+        = cents_to_dollars h(@invoice.amount_due)
       %h4.due_date=h @invoice.due_date
     
         

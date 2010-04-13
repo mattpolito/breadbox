@@ -1,4 +1,6 @@
 class Notification < ActionMailer::Base
+  helper :application
+  
   def self.deliver_message(options)
     send("send_#{options[:type]}", options)
   end
