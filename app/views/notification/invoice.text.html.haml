@@ -8,12 +8,16 @@
     %ul.company
       %li.name
         %strong=h @organization.name
-      %li.address= format_address h(@organization.address.address_parts) unless @organization.address.blank?
+      %li.address
+        %ul
+          = format_address h(@organization.address.address_parts) unless @organization.address.blank?
       %li.phone= displayable_phone_number h(@organization.phone)
     %ul.client
       %li.name
         %strong=h @client.name
-      %li.address= format_address h(@client.address.address_parts) unless @client.address.blank?
+      %li.address
+        %ul
+          = format_address h(@client.address.address_parts) unless @client.address.blank?
       %li.phone= displayable_phone_number h(@client.phone)
 
     %table#invoice_lines{:cellspacing => "0"}
