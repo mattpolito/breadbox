@@ -1,4 +1,6 @@
 class Notification < ActionMailer::Base
+  helper :application
+  
   def self.deliver_message(options)
     send("send_#{options[:type]}", options)
   end
@@ -15,19 +17,23 @@ class Notification < ActionMailer::Base
   end
   
   def invoice(invoice)
+    css         :'emails/invoice'
     recipients  invoice.client.email
     from        Settings.noreply_address
     subject     "[#{invoice.organization.name}] Invoice for requested work"
     sent_on     Time.now
-    body        :invoice => invoice, :organization => invoice.organization, :client => invoice.client
+    body        :invoice => invoice, :organization => invoice.organization, 
+                :client => invoice.client
   end
   
   def reminder(invoice)
+    css         :'emails/reminder'
     recipients  invoice.client.email
     from        Settings.noreply_address
     subject     "[#{invoice.organization.name}] Invoice ##{invoice.number} payment reminder"
     sent_on     Time.now
-    body        :invoice => invoice, :organization => invoice.organization, :client => invoice.client
+    body        :invoice => invoice, :organization => invoice.organization, 
+                :client => invoice.client
   end
   
 end

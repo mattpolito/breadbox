@@ -16,7 +16,15 @@ config.action_controller.perform_caching             = false
 # Don't care if the mailer can't send
 config.action_mailer.raise_delivery_errors = false
 
+# MockSMTP
+config.action_mailer.delivery_method = :smtp
+ActionMailer::Base.smtp_settings = {
+ :address => "localhost",
+ :port => 1025,
+ :domain => "www.yourdomain.com"
+ }
+
 # Development only gems
 config.gem 'faker'
 config.gem 'populator'
-config.gem 'inaction_mailer', :lib => 'inaction_mailer/force_load', :source => 'http://gemcutter.org'
+#config.gem 'inaction_mailer', :lib => 'inaction_mailer/force_load', :source => 'http://gemcutter.org'
