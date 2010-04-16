@@ -10,3 +10,4 @@ newrelic_rpm -s 'http://gemcutter.org'
 prawn -s 'http://gemcutter.org'
 aasm -s 'http://gemcutter.org'
 rails -s 'http://gemcutter.org'
+mail_style
