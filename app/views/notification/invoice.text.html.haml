@@ -41,6 +41,7 @@
         %strong 
           Total
         = cents_to_dollars h(@invoice.amount_due)
-      %h4.due_date=h @invoice.due_date
+      %h4.due_date
+        Due on: #{h(long_date(@invoice.payment_due_date))}
     
         
